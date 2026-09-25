@@ -222,13 +222,35 @@
     <div class="abs center legal" id="s10legal" style="top:950px">內容由 AI 生成 · 提供性格與關係洞察，僅供自我探索與文化參考 · 18+</div>
   </div>
 
+  <!-- 封面（第 0 帧即完整可见，作为播放器预览图 / 平台封面） -->
+  <div class="layer" id="cover" style="opacity:1">
+    <div class="abs" id="cvText" style="left:150px;top:150px;width:900px">
+      <img src="../stitch/img/logo-mark.png" style="width:150px;height:150px;margin-left:-14px">
+      <div class="kicker" style="margin-top:18px">Mobile Web 首發 · Now Live</div>
+      <div style="margin-top:30px;font:900 150px/1 var(--serif);letter-spacing:.1em"><span class="gold">覓搭</span> <span style="font:600 104px/1 var(--serif);color:#e5c07b;letter-spacing:.04em">MiDa</span></div>
+      <div class="h2" style="margin-top:38px;font-size:60px;letter-spacing:.28em">有理由的連接</div>
+      <div class="body" style="margin-top:18px;font-size:30px">以命理為內核，開啟有理由的遇見</div>
+      <div style="margin-top:44px;display:flex;gap:18px">
+        <span class="chip" style="font-size:26px;padding:16px 24px"><b>✦</b>AI 八字命書</span>
+        <span class="chip" style="font-size:26px;padding:16px 24px"><b>◎</b>每日五維</span>
+        <span class="chip" style="font-size:26px;padding:16px 24px"><b>∞</b>雙人合盤</span>
+      </div>
+      <div style="margin-top:44px"><span class="cta" style="font-size:30px;padding:20px 40px">手機瀏覽器打開 <span style="font-family:var(--sans);letter-spacing:.02em">mida.gonewx.com</span></span></div>
+    </div>
+    <div class="phone" id="cp1" style="left:1080px;top:150px;transform:scale(.8) rotate(-9deg)"><div class="screen"><div class="statusbar"></div><img class="page" style="top:-10px" data-screen="26af4e3c6ed44d40b52c617d8b63d569"><img class="nav" data-nav="26af4e3c6ed44d40b52c617d8b63d569"></div><div class="island"></div></div>
+    <div class="phone" id="cp3" style="left:1470px;top:150px;transform:scale(.8) rotate(9deg)"><div class="screen"><div class="statusbar"></div><img class="page" data-screen="8d94a90561a34b29936582fb7654d45b"><img class="nav" data-nav="8d94a90561a34b29936582fb7654d45b"></div><div class="island"></div></div>
+    <div class="phone" id="cp2" style="left:1270px;top:108px"><div class="screen"><div class="statusbar"></div><img class="page" style="top:-150px" data-screen="abe3b348218847048089aa8e74ce96e8"><img class="nav" data-nav="abe3b348218847048089aa8e74ce96e8"></div><div class="island"></div></div>
+  </div>
+
   <div id="vignette"></div>
   <div id="fade"></div>
 </div>
 
 <script>
 // ——— 时间轴引擎：window.seek(t) 纯函数式地把画面设置到第 t 秒，保证逐帧渲染可复现 ———
-const DURATION = 63;
+// 片头 COVER 秒为封面镜头；下方所有场景关键帧使用「正片时间」= 视频时间 - COVER（封面自身用负时间）
+const COVER = 2;
+const DURATION = 63 + COVER;
 const $ = (s) => document.getElementById(s);
 const ease = {
   io: (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
@@ -273,12 +295,14 @@ function rise(id, t, d = .9, dy = 40, extra = {}) {
 function phoneAt(id, x, y, s = 1) { const el = $(id); el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.transformOrigin = 'center center'; }
 
 // 全局淡入淡出
-A('fade', [[0, { o: 1 }], [1.2, { o: 0 }], [62.2, { o: 0 }], [63, { o: 1 }]]);
-A('orbitG', [[0, { o: .0 }], [2, { o: 1 }], [9.5, { o: .6 }], [11, { o: 1 }], [15, { o: 1 }], [16, { o: .35 }], [55.5, { o: .35 }], [57, { o: 1 }]]);
+A('fade', [[-COVER, { o: 0 }], [62.2, { o: 0 }], [63, { o: 1 }]]);
+// 封面：静止展示后淡出，过渡到开场
+A('cover', [[-COVER, { o: 1 }], [-0.5, { o: 1, s: 1 }], [0.4, { o: 0, s: 1.04 }]]);
+A('orbitG', [[-COVER, { o: .5 }], [0, { o: .3 }], [2, { o: 1 }], [9.5, { o: .6 }], [11, { o: 1 }], [15, { o: 1 }], [16, { o: .35 }], [55.5, { o: .35 }], [57, { o: 1 }]]);
 
 // S1 0–5
 scene('s1', 0, 5, .01, .6);
-rise('s1a', .8, 1.2); rise('s1b', 2.1, 1.3);
+rise('s1a', .5, 1.2); rise('s1b', 2.1, 1.3);
 
 // S2 5–10
 scene('s2', 5, 10);
@@ -366,8 +390,9 @@ function drawStars(t) {
   }
 }
 
-window.seek = (t) => {
-  drawStars(t);
+window.seek = (videoT) => {
+  const t = videoT - COVER;
+  drawStars(videoT);
   // 轨道缓慢旋转
   const og = $('orbitG');
   og.setAttribute('transform', `translate(960 540) rotate(${t * 4})`);

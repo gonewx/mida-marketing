@@ -1,6 +1,6 @@
 // 逐帧渲染 composition/index.html → H.264 MP4（1920×1080 / 30fps），并混入 build/music.wav
 // 用法：
-//   node scripts/render-video.mjs                  渲染整片到 out/MiDa-launch-film.mp4
+//   node scripts/render-video.mjs                  渲染整片到 out/MiDa-launch-film.mp4，封面图到 out/cover.jpg
 //   node scripts/render-video.mjs --stills 3,12.5  只导出这些秒数的静帧到 build/stills/
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -33,7 +33,12 @@ if (stillsArg) {
   console.log('stills written to', dir);
 } else {
   const out = path.join(root, 'out/MiDa-launch-film.mp4');
+  const raw = path.join(root, 'build/film-raw.mp4');
+  const cover = path.join(root, 'out/cover.jpg');
   await fs.mkdir(path.dirname(out), { recursive: true });
+  // 封面图：第 0 秒即封面镜头，另存为 JPG 供平台上传，并内嵌进 MP4
+  await page.evaluate(() => window.seek(0));
+  await page.screenshot({ path: cover, type: 'jpeg', quality: 92 });
   const music = path.join(root, 'build/music.wav');
   const hasMusic = await fs.access(music).then(() => true, () => false);
   const ff = spawn(ffmpeg, [
@@ -42,7 +47,7 @@ if (stillsArg) {
     ...(hasMusic ? ['-i', music] : []),
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
     ...(hasMusic ? ['-c:a', 'aac', '-b:a', '192k', '-shortest'] : []),
-    out,
+    raw,
   ], { stdio: ['pipe', 'inherit', 'inherit'] });
   const total = Math.round(duration * FPS);
   for (let i = 0; i < total; i++) {
@@ -53,6 +58,11 @@ if (stillsArg) {
   }
   ff.stdin.end();
   await new Promise((r, j) => ff.on('close', (c) => (c === 0 ? r() : j(new Error('ffmpeg exit ' + c)))));
-  console.log('video written to', out);
+  // 内嵌封面（attached_pic），文件管理器 / 部分播放器用它做缩略图
+  execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', raw, '-i', cover,
+    '-map', '0', '-map', '1', '-c', 'copy', '-c:v:1', 'mjpeg', '-disposition:v:1', 'attached_pic',
+    '-movflags', '+faststart', out]);
+  await fs.rm(raw);
+  console.log('video written to', out, '\ncover written to', cover);
 }
 await browser.close();

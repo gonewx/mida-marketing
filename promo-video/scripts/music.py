@@ -1,12 +1,14 @@
 """为宣传片合成原创配乐（无版权依赖）：D 宫五声音阶氛围铺底 + 拨弦琶音 + 心跳式低频脉冲 + 转场闪光。
-输出 build/music.wav（44.1kHz 立体声，63 秒，时间点与 composition/index.html 的场景对齐）。
+输出 build/music.wav（44.1kHz 立体声，65 秒）。下文时间点均为「正片时间」，与 composition/index.html 的场景关键帧一致；
+片头 COVER 秒封面镜头只有和弦铺底（正片时间为负）。
 """
 import os
 import wave
 import numpy as np
 
 SR = 44100
-DUR = 63.0
+COVER = 2.0  # 与 composition/index.html 的 COVER 保持一致
+DUR = 63.0 + COVER
 N = int(SR * DUR)
 t = np.arange(N) / SR
 rng = np.random.default_rng(20260925)
@@ -25,7 +27,7 @@ def env_adsr(n, a, r, sustain=1.0):
 
 
 def place(buf, sig, start):
-    i = int(start * SR)
+    i = int((start + COVER) * SR)
     j = min(len(buf), i + len(sig))
     buf[i:j] += sig[: j - i]
 
@@ -36,7 +38,7 @@ R = np.zeros(N)
 # ——— 1. 铺底和弦（温暖、缓慢起伏）———
 # D 宫五声：D E F# A B；和弦进行 每段约 8 秒
 chords = [
-    (0, [50, 57, 62, 64, 69]),     # D  add9
+    (-COVER, [50, 57, 62, 64, 69]),  # D add9（从封面开始）
     (8, [47, 54, 59, 62, 66]),     # Bm7
     (15.5, [50, 57, 62, 66, 69]),  # D
     (22, [43, 50, 57, 62, 66]),    # G add9 感
@@ -47,7 +49,7 @@ chords = [
     (56, [50, 57, 62, 66, 69, 74]),  # D 终止
 ]
 for k, (start, notes) in enumerate(chords):
-    end = chords[k + 1][0] if k + 1 < len(chords) else DUR
+    end = chords[k + 1][0] if k + 1 < len(chords) else DUR - COVER
     length = end - start + 2.5  # 与下一和弦交叠
     n = int(length * SR)
     tt = np.arange(n) / SR
@@ -64,7 +66,7 @@ for k, (start, notes) in enumerate(chords):
             place(R, s * pan, start)
 
 # ——— 2. 低音持续音 ———
-for start, m, length in [(0, 38, 15.5), (15.5, 38, 14.5), (30, 33, 7), (37, 35, 9), (46, 31, 6), (52, 33, 4), (56, 38, 7)]:
+for start, m, length in [(-COVER, 38, 15.5 + COVER), (15.5, 38, 14.5), (30, 33, 7), (37, 35, 9), (46, 31, 6), (52, 33, 4), (56, 38, 7)]:
     n = int((length + 1.5) * SR)
     tt = np.arange(n) / SR
     s = np.sin(2 * np.pi * hz(m) * tt) * env_adsr(n, 1.2, 1.5) * 0.05
@@ -169,7 +171,7 @@ L, R = reverb(L), reverb(R)
 
 # 整体淡入淡出与响度归一化（峰值 -1 dBFS）
 fade = np.ones(N)
-fade[: int(1.0 * SR)] = np.linspace(0, 1, int(1.0 * SR))
+fade[: int(0.6 * SR)] = np.linspace(0, 1, int(0.6 * SR))
 fade[-int(2.5 * SR):] = np.linspace(1, 0, int(2.5 * SR)) ** 1.5
 L *= fade
 R *= fade
