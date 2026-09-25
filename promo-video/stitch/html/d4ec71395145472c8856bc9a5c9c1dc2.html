@@ -1,0 +1,334 @@
+<!DOCTYPE html><html class="dark stitch-anim-fade-in" lang="zh-Hant" style="height: auto; min-height: 100% !important;" data-stitch-orig-opacity="1"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#003824", "on-primary-fixed-variant": "#574500", "outline-variant": "#4d4635", "on-primary-container": "#554300", "tertiary-fixed": "#ffdad7", "primary-container": "#d4af37", "surface-variant": "#313540", "tertiary": "#ffbfba", "on-secondary-container": "#00311f", "inverse-primary": "#735c00", "surface-container": "#1c1f2a", "surface-tint": "#e9c349", "on-surface": "#dfe2f1", "outline": "#99907c", "surface-dim": "#0f131d", "surface-bright": "#353944", "on-surface-variant": "#d0c5af", "tertiary-fixed-dim": "#ffb3ad", "on-background": "#dfe2f1", "on-tertiary-container": "#900013", "secondary-container": "#00a572", "on-secondary-fixed": "#002113", "on-error": "#690005", "error-container": "#93000a", "surface": "#0f131d", "surface-container-high": "#262a35", "primary-fixed": "#ffe088", "on-tertiary-fixed": "#410004", "on-error-container": "#ffdad6", "surface-container-low": "#171b26", "tertiary-container": "#ff968f", "on-primary": "#3c2f00", "inverse-on-surface": "#2c303b", "on-secondary-fixed-variant": "#005236", "surface-container-highest": "#313540", "secondary-fixed-dim": "#4edea3", "inverse-surface": "#dfe2f1", "background": "#0f131d", "on-tertiary-fixed-variant": "#930013", "surface-container-lowest": "#0a0e18", "primary-fixed-dim": "#e9c349", "error": "#ffb4ab", "on-primary-fixed": "#241a00", "on-tertiary": "#68000a", "primary": "#f2ca50", "secondary": "#4edea3", "secondary-fixed": "#6ffbbe" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "gutter": "1rem", "margin": "1.25rem", "gutter-desktop": "1.5rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Noto Serif"], "bazi-symbol": ["Noto Serif"], "label-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Noto Serif"], "headline-md": ["Noto Serif"], "headline-lg": ["Noto Serif"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-lg": ["Noto Serif"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }], "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131d;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important;
+}
+#app, main, .min-h-screen, div[class*="min-h-screen"] {
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+</style></head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen" style="background-color: rgb(15, 19, 29); color: rgb(248, 250, 252); min-height: 100vh !important; height: auto !important; overflow-y: auto !important;"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><button class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span></button><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWefcnMqcP36zKZVF-C_cyuKlUXf42pnzAGgV60mmZ9FPAsXeLxOH4U6n56agMc8-HFHEgtMrHp_bpXCuIu3W5JMXI5yRFpx99DG-4injtW_u1TpufuJGbToLDEIal51Ky2002NzDHDvFh1GSvWPZgqNGh-xZ6R85rR9aIYKhDHhgeRbH6ZgmbYXLofKr7W1m6J0daMMPnaAEtFfw7IArl_TWCuziUAcDWmFTj6WdjAbj_1Q25eILz" alt="星環天體標誌" class="h-8 w-8 object-contain rounded-md"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-wide">Deep Reading Detail</h1></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="material-symbols-outlined text-primary text-[18px]">diamond</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">128</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface" style="padding-bottom: 8rem; min-height: 100%; overflow: visible; height: auto !important;"><div class="flex flex-col w-full px-margin pb-safe space-y-space-lg" style="padding-bottom: 6rem;">
+<!-- Subtle Celestial Ambient Aura -->
+<div class="relative w-full pt-space-md">
+<!-- Chapter Breadcrumb / Context Subtitle -->
+<div class="flex items-center justify-between gap-space-sm mb-space-xs">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">全篇精解 · 命理專論</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">閱讀時間約 4 分鐘</span>
+</div>
+<!-- Chapter Header Block -->
+<div class="flex flex-col space-y-1 mb-space-sm">
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-normal">第四章 · 關係模式與情感依戀</h2>
+<p class="font-label-lg text-label-lg text-primary-fixed-dim flex items-center gap-1.5">
+<span class="">日柱庚午</span>
+<span class="w-1 h-1 rounded-full bg-primary/40"></span>
+<span class="text-on-surface-variant font-normal">坐沐浴官星 · 情感特徵透視</span>
+</p>
+</div>
+<!-- FR-9 依據錨點 (Basis Anchor Chip) -->
+<a class="group block w-full bg-surface-container-high/70 hover:bg-surface-container-high transition-colors rounded-xl p-space-sm shadow-sm backdrop-blur-md" href="#chart-pro">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">命理依據錨點</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/60">· 點擊追溯排盤</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface truncate">
+              日柱庚午 · 天干庚金受坐支午火丁火正官暗煉
+            </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0">chevron_right</span>
+</div>
+</a>
+</div>
+<!-- Main Narrative Body -->
+<article class="flex flex-col space-y-space-md">
+<!-- Highlight Callout Quote / Lead Paragraph -->
+<div class="relative bg-surface-container-low/90 rounded-xl p-space-md shadow-md overflow-hidden">
+<div class="absolute -right-6 -bottom-6 opacity-5 pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[120px]">format_quote</span>
+</div>
+<div class="relative z-10 flex flex-col space-y-space-xs">
+<div class="flex items-center gap-1 text-primary-container mb-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm tracking-wider font-semibold">核心星性心象</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface italic leading-relaxed">
+          「你在親密關係中看似沉穩自持，實則內心極度渴望靈魂共振。庚金之性剛直不折，但坐支午火烈烈，形成了你既想靠近又恐被熔化的防衛機制。」
+        </p>
+</div>
+</div>
+<!-- Chapter Section 1: Breakdown -->
+<div class="bg-surface-container-low/60 rounded-xl p-space-md space-y-space-sm shadow-sm">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">依戀類型解碼：矛盾型依戀的根源</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        庚金本具肅殺堅毅之性，生來不喜矯飾虛浮，習慣以冷靜理智作為迎向世界的盔甲。然而「午火」為庚金的正官沐浴之地——火主熱情、禮節與熾熱的愛慕，深藏於日柱地支之底，如同在地殼深處奔湧的熔岩。
+      </p>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-high/60 rounded-lg p-space-sm flex flex-col space-y-1">
+<span class="font-label-sm text-label-sm text-tertiary font-medium">外顯防禦</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">孤岸冷清</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">生怕被看穿軟肋，對過度熱切的追求抱有本能戒備。</p>
+</div>
+<div class="bg-surface-container-high/60 rounded-lg p-space-sm flex flex-col space-y-1">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim font-medium">內在渴求</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">極致淬鍊</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 line-clamp-2">期盼一名能以溫柔韌性融化金屬的清正靈魂。</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        這種結構造就了一種隱蔽的「推拉效應」。當伴侶退後，庚金的自尊令你拒絕低頭；當對方走得太近，午火的高溫又喚起你對失去自我疆界的焦慮。這並非薄情，而是礦石鍛造成器前必經的陣痛。
+      </p>
+</div>
+<!-- Chapter Section 2: Strategy -->
+<div class="bg-surface-container-low/60 rounded-xl p-space-md space-y-space-sm shadow-sm">
+<div class="flex items-center gap-space-xs text-secondary">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">相處破局心法：卸下防禦的金火平衡之道</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+        調和庚午日柱的宿命矛盾，關鍵在於引水潤金、納土生金。在相處心理學中，這對應著「情緒透明度」與「安全界限」的同步建立：
+      </p>
+<ul class="space-y-space-sm pt-space-xs">
+<li class="flex items-start gap-space-sm bg-surface-container-high/40 p-space-sm rounded-lg">
+<span class="w-5 h-5 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-label-sm text-label-sm shrink-0 mt-0.5">壹</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">以具體感受代替原則評判</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">將「你這樣做不對」轉譯為「你這樣做讓我感到不被重視」。金氣太剛，唯有真實的情感脆弱能降伏刀鋒。</span>
+</div>
+</li>
+<li class="flex items-start gap-space-sm bg-surface-container-high/40 p-space-sm rounded-lg">
+<span class="w-5 h-5 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-label-sm text-label-sm shrink-0 mt-0.5">貳</span>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">保留「沐浴」的呼吸空隙</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">沐浴星代表自我潔淨與放鬆。在親密中建立每日 30 分鐘的獨立獨處冥想時段，有助於平息午火的無名浮躁。</span>
+</div>
+</li>
+</ul>
+</div>
+</article>
+<!-- FR-12: Shareable Gold Sentence Card -->
+<section class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm tracking-widest text-primary uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+        命書金句卡片 · FR-12
+      </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">可長按儲存或分享</span>
+</div>
+<!-- Luxury Celestial Card Container -->
+<div class="relative w-full rounded-2xl bg-surface-container-lowest p-space-lg shadow-xl overflow-hidden text-center flex flex-col items-center justify-between min-h-[260px] group">
+<!-- Background Starry Atmosphere Ambient Image -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-25 group-hover:opacity-35 transition-opacity" data-alt="A dark celestial cosmic art background with golden stardust nebulae, deep obsidian indigo ink tones, fine ethereal light rays, sacred geometry aesthetics, luxury minimal Chinese astrology atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaNcTi7l1PCBiXYwMOpVS0mthceoUlx0pAxghDlJ3DC9b4AiXp13MN94U5huGckksPFCoyMt3tqdMhEUOuY0r-CIzzbVwSxUAmK6M0P1UI8QImixhgZENKEsgmTUQwpY1tT3qAVxGdQajzBhe06acjw_eGZYMLe_BVXLYCG4k0zXt_hEIUqWtyIsE13tCG3wfO0xtsSeKTxkdO4Mdb17UasCDoRi5JWLiVyL-KdYEMXC_bYquim2YP')"></div>
+<!-- Subtle Gradient Scrim -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/80 via-surface-container-lowest/90 to-surface-container-lowest pointer-events-none"></div>
+<!-- Top Emblem / Watermark -->
+<div class="relative z-10 w-full flex items-center justify-between text-on-surface-variant/60">
+<span class="font-label-sm text-label-sm tracking-widest text-primary/80">· 八字心象命理集 ·</span>
+<span class="font-label-sm text-label-sm">庚午日專屬</span>
+</div>
+<!-- Center Gold Quote -->
+<div class="relative z-10 my-space-md max-w-[280px]">
+<div class="w-6 h-0.5 bg-primary/40 mx-auto mb-space-sm"></div>
+<p class="font-headline-md text-headline-md text-primary leading-relaxed font-normal">
+          「最堅硬的庚金，唯有在懂得熾熱溫度的正官面前，才會甘願化作繞指柔。」
+        </p>
+<div class="w-6 h-0.5 bg-primary/40 mx-auto mt-space-sm"></div>
+</div>
+<!-- Card Bottom with Mock QR & Signature -->
+<div class="relative z-10 w-full flex items-end justify-between pt-space-xs text-left">
+<div class="flex flex-col">
+<span class="font-bazi-symbol text-[14px] text-on-surface">天命有常 · 明心自處</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/60">由東方命理深度算力生成</span>
+</div>
+<!-- Inline SVG QR Code Decorative Element -->
+<div class="w-10 h-10 p-1 bg-surface-container-high rounded-md flex items-center justify-center shrink-0">
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewBox="0 0 24 24">
+<path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14-2h4v2h-4v-2zm-4 0h2v4h-2v-4zm2 4h4v4h-2v-2h-2v-2zm-4 2h2v2h-2v-2zm4-4h2v2h-2v-2z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Share Actions -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="flex-1 h-11 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span class="">分享金句卡片</span>
+</button>
+<button class="w-11 h-11 bg-surface-container-high text-on-surface rounded-lg flex items-center justify-center shadow-sm hover:text-primary active:scale-95 transition-all" title="儲存圖片">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="w-11 h-11 bg-surface-container-high text-on-surface rounded-lg flex items-center justify-center shadow-sm hover:text-primary active:scale-95 transition-all" title="複製文本">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+</section>
+<!-- FR-14 & FR-15: Preset Inquiry Section & Quota Limit -->
+<section class="flex flex-col space-y-space-md pt-space-sm">
+<!-- Section Header & Daily Quota Status Badge -->
+<div class="bg-surface-container-high/50 rounded-xl p-space-md space-y-space-xs">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="">向命盤深挖 (預設追問)</span>
+</h3>
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<!-- Quota Status (FR-15) -->
+<div class="flex items-center justify-between bg-surface-container-lowest/60 rounded-lg px-space-sm py-2 text-on-surface">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">hourglass_top</span>
+<span class="font-label-sm text-label-sm">今日免費追問額度</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-lg text-label-lg text-primary font-bold">剩餘 2 / 3 次</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/60">(每日 0 點重置)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 pt-1">
+        受控精確追問引導，依據八字命理邏輯庫針對此章節核心困惑深度推演。
+      </p>
+</div>
+<!-- Controlled Preset Inquiry Chips (FR-14) -->
+<div class="flex flex-col space-y-space-xs" id="inquiry-chip-container">
+<button class="w-full text-left bg-surface-container hover:bg-surface-container-high active:scale-[0.99] transition-all p-space-sm rounded-xl flex items-center justify-between group" onclick="handleInquiryClick(1)">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm text-label-sm shrink-0">1</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors truncate">「為什麼說我在感情裡總是容易口是心非？」</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:text-primary shrink-0 ml-2">send</span>
+</button>
+<button class="w-full text-left bg-surface-container hover:bg-surface-container-high active:scale-[0.99] transition-all p-space-sm rounded-xl flex items-center justify-between group" onclick="handleInquiryClick(2)">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm text-label-sm shrink-0">2</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors truncate">「我該如何克服對親密關係失控的恐懼？」</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:text-primary shrink-0 ml-2">send</span>
+</button>
+<button class="w-full text-left bg-surface-container hover:bg-surface-container-high active:scale-[0.99] transition-all p-space-sm rounded-xl flex items-center justify-between group" onclick="handleInquiryClick(3)">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-sm text-label-sm shrink-0">3</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors truncate">「怎樣的伴侶特質能化解我的庚金防衛心態？」</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:text-primary shrink-0 ml-2">send</span>
+</button>
+</div>
+<!-- Active Conversation Preview / Stream Response (FR-13) -->
+<div class="bg-surface-container-low rounded-2xl p-space-md space-y-space-sm shadow-md transition-all" id="inquiry-stream-box">
+<!-- Active Question Header Tag -->
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary font-label-sm text-label-sm flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[14px]">forum</span>
+          當前追問解答 · 庚金性情深入
+        </span>
+<!-- AI 生成內容標識 (FR-13) -->
+<span class="font-label-sm text-label-sm text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">smart_toy</span>
+          AI 命理演算生成 (FR-13)
+        </span>
+</div>
+<!-- Question Title -->
+<h4 class="font-headline-sm text-headline-sm text-on-surface pt-1" id="active-inquiry-title">
+        「為什麼說我在感情裡總是容易口是心非？」
+      </h4>
+<!-- Stream Answer Block -->
+<div class="font-body-md text-body-md text-on-surface-variant space-y-space-xs leading-relaxed" id="active-inquiry-content">
+<p class="">
+          在八字推演中，你的日干「庚金」帶有刀劍之肅氣，本能崇尚強大、自主與不可侵犯；然而日支「午火」暗藏丁火正官，正是直接融化金屬的力量。這在心理深層造成了本質衝突：
+        </p>
+<div class="bg-surface-container-high/50 p-space-sm rounded-lg my-space-xs space-y-1">
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="text-primary-fixed-dim">意識層面 (庚金)：</strong>「我絕不能先示弱，示弱意味著喪失自主與尊嚴。」
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface">
+<strong class="text-secondary-fixed-dim">無意識層面 (午火)：</strong>「我無比渴望你能看破我的堅硬，直接抱緊我的脆弱。」
+          </p>
+</div>
+<p class="">
+          因此，你的口是心非實質上是一場「無意識安全測試」：你用冷硬鋒利的言語推開對方，看對方是否會堅定地留下來。懂得你的伴侶不會被你的第一道金屬外殼嚇退，而會給予不離不棄的溫暖確認。
+        </p>
+</div>
+<!-- Action Feedback / Follow-up Status -->
+<div class="pt-space-xs flex items-center justify-between text-on-surface-variant/70 border-t border-surface-container-highest">
+<div class="flex items-center gap-space-sm">
+<button class="hover:text-primary text-on-surface-variant text-[14px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span class="font-label-sm text-label-sm">契合解惑</span>
+</button>
+<button class="hover:text-primary text-on-surface-variant text-[14px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">bookmark</span>
+<span class="font-label-sm text-label-sm">收藏錦囊</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/50">已消耗 1 次追問額度</span>
+</div>
+</div>
+<!-- Disclaimer Footnote -->
+<div class="text-center px-space-md py-space-sm text-on-surface-variant/50">
+<p class="font-label-sm text-label-sm leading-normal">
+        * 命理推演源於傳統陰陽五行象數體系與心理意象關聯，旨在提供人生哲學洞察與自我覺察指引，非確定性宿命論述，請理性參考。
+      </p>
+</div>
+</section>
+</div>
+<!-- Interactive Handler Script -->
+<script>
+  function handleInquiryClick(index) {
+    const titles = {
+      1: "「為什麼說我在感情裡總是容易口是心非？」",
+      2: "「我該如何克服對親密關係失控的恐懼？」",
+      3: "「怎樣的伴侶特質能化解我的庚金防衛心態？」"
+    };
+
+    const contents = {
+      1: `<p>在八字推演中，你的日干「庚金」帶有刀劍之肅氣，本能崇尚強大、自主與不可侵犯；然而日支「午火」暗藏丁火正官，正是直接融化金屬的力量。這在心理深層造成了本質衝突：</p>
+          <div class="bg-surface-container-high/50 p-space-sm rounded-lg my-space-xs space-y-1">
+            <p class="font-body-sm text-body-sm text-on-surface"><strong class="text-primary-fixed-dim">意識層面 (庚金)：</strong>「我絕不能先示弱，示弱意味著喪失自主與尊嚴。」</p>
+            <p class="font-body-sm text-body-sm text-on-surface"><strong class="text-secondary-fixed-dim">無意識層面 (午火)：</strong>「我無比渴望你能看破我的堅硬，直接抱緊我的脆弱。」</p>
+          </div>
+          <p>因此，你的口是心非實質上是一場「無意識安全測試」：你用冷硬鋒利的言語推開對方，看對方是否會堅定地留下來。懂得你的伴侶不會被你的第一道金屬外殼嚇退，而會給予不離不棄的溫暖確認。</p>`,
+      2: `<p>克服失控恐懼的關鍵在於體認到：<strong>接納脆弱並非放棄主導，而是擴充庚金的延展性。</strong></p>
+          <p class="pt-1">庚金遇火煉，生痛楚亦生寶劍。試著在下次感知到防衛警報時，延緩 10 秒發作，深呼吸並明確告訴對方：「我現在有些不知所措，需要一點時間平復。」將對抗轉化為共同面對。</p>`,
+      3: `<p>最契合化解你防衛心態的伴侶，通常帶有<strong>「癸水」或「己土」</strong>特質：</p>
+          <div class="bg-surface-container-high/50 p-space-sm rounded-lg my-space-xs space-y-1">
+            <p class="font-body-sm text-body-sm text-on-surface"><strong class="text-secondary-fixed-dim">潤下之水：</strong>溫柔包容、善於傾聽，能平息你坐支午火的躁意，使你在其面前無須緊繃。</p>
+            <p class="font-body-sm text-body-sm text-on-surface"><strong class="text-primary-fixed-dim">厚德之土：</strong>情緒穩定、踏實可靠，如母性般給予你堅固的安全感，使庚金無後顧之憂。</p>
+          </div>`
+    };
+
+    const titleEl = document.getElementById('active-inquiry-title');
+    const contentEl = document.getElementById('active-inquiry-content');
+    const streamBox = document.getElementById('inquiry-stream-box');
+
+    if (titleEl && contentEl && streamBox) {
+      streamBox.classList.add('opacity-50');
+      setTimeout(() => {
+        titleEl.textContent = titles[index];
+        contentEl.innerHTML = contents[index];
+        streamBox.classList.remove('opacity-50');
+      }, 150);
+    }
+  }
+</script></main>
+
+
+
+
+
+</body></html>

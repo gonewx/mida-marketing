@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>今日運勢五維評分 - 覓搭 MiDa (規範修正版)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed-dim": "#ffb3ad",
+            "tertiary": "#ffbfba",
+            "on-surface": "#dfe2f1",
+            "primary": "#f2ca50",
+            "on-primary-fixed-variant": "#574500",
+            "on-tertiary": "#68000a",
+            "surface-variant": "#313540",
+            "secondary-container": "#00a572",
+            "on-surface-variant": "#d0c5af",
+            "inverse-surface": "#dfe2f1",
+            "primary-container": "#d4af37",
+            "on-primary-container": "#554300",
+            "on-background": "#dfe2f1",
+            "secondary": "#4edea3",
+            "on-primary": "#3c2f00",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#e9c349",
+            "surface-container-highest": "#313540",
+            "on-tertiary-container": "#900013",
+            "surface-container-high": "#262a35",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-fixed-variant": "#930013",
+            "tertiary-fixed": "#ffdad7",
+            "on-secondary-container": "#00311f",
+            "outline-variant": "#4d4635",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#005236",
+            "surface": "#0f131d",
+            "on-secondary": "#003824",
+            "on-error": "#690005",
+            "tertiary-container": "#ff968f",
+            "background": "#0f131d",
+            "primary-fixed-dim": "#e9c349",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0f131d",
+            "on-tertiary-fixed": "#410004",
+            "inverse-primary": "#735c00",
+            "outline": "#99907c",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-bright": "#353944",
+            "on-primary-fixed": "#241a00",
+            "surface-container-lowest": "#0a0e18",
+            "surface-container-low": "#171b26",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#2c303b",
+            "surface-container": "#1c1f2a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "1.25rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "gutter-desktop": "1.5rem"
+          },
+          fontFamily: {
+            "display-lg": ["Noto Serif", "serif"],
+            "display-lg-mobile": ["Noto Serif", "serif"],
+            "headline-lg": ["Noto Serif", "serif"],
+            "headline-md": ["Noto Serif", "serif"],
+            "headline-sm": ["Noto Serif", "serif"],
+            "bazi-symbol": ["Noto Serif", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "display-lg-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "body-lg": ["17px", { lineHeight: "26px", fontWeight: "400" }],
+            "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+            "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "500" }],
+            "bazi-symbol": ["24px", { lineHeight: "28px", letterSpacing: "0.05em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+      font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-ring-glow {
+      box-shadow: 0 0 35px -5px rgba(242, 202, 80, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-on-primary">
+<!-- 原型狀態演示控制器 (專用交互切換器) -->
+<aside aria-label="原型狀態切換" class="bg-surface-container-lowest border-b border-outline-variant/30 px-space-md py-space-xs text-xs text-on-surface-variant sticky top-0 z-50">
+<div class="max-w-md mx-auto flex items-center justify-between gap-space-xs overflow-x-auto py-1 scrollbar-none">
+<span class="text-primary font-medium shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+        [原型狀態演示]
+      </span>
+<div class="flex items-center gap-1 shrink-0">
+<button class="px-2 py-1 rounded bg-primary text-on-primary font-semibold text-[11px] transition-all" id="btn-state-normal" onclick="setPrototypeState('normal')">1. 正常已生成</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface hover:text-primary text-[11px] transition-all" id="btn-state-empty" onclick="setPrototypeState('empty')">2. 未生成空態</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface hover:text-primary text-[11px] transition-all" id="btn-state-computing" onclick="setPrototypeState('computing')">3. 正在運算中</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface hover:text-primary text-[11px] transition-all" id="btn-state-error" onclick="setPrototypeState('error')">4. 運算失敗</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface hover:text-primary text-[11px] transition-all" id="btn-state-purchased" onclick="setPrototypeState('purchased')">5. 歷史已購卡</button>
+</div>
+</div>
+</aside>
+<!-- TopAppBar: 頂欄組件 (依據 Shared Components JSON) -->
+<header class="sticky top-8 z-40 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm dark:shadow-none w-full">
+<div class="max-w-md mx-auto px-margin py-space-sm flex justify-between items-center min-h-[56px]">
+<!-- Leading Logo & Title -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary overflow-hidden shrink-0">
+<img alt="MiDa Star" class="w-6 h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-display-lg-mobile text-headline-sm font-semibold tracking-wider text-primary">覓搭 MiDa</span>
+<span class="text-outline text-xs">·</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">今日</span>
+</div>
+</div>
+</div>
+<!-- Trailing Action: 靈石 · 票券 & 用戶頭像 -->
+<div class="flex items-center gap-2.5">
+<div class="bg-surface-container/90 border border-outline-variant/50 rounded-full px-2.5 py-1 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="flex items-center gap-1 text-primary">
+<span>💎</span>
+<span class="font-semibold text-on-surface" id="top-stones-count">128</span>
+</span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-1 text-primary">
+<span>🎫</span>
+<span class="font-semibold text-on-surface" id="top-tickets-count">3</span>
+</span>
+</div>
+<div class="flex items-center gap-1.5 pl-1" title="Wei 小雨">
+<div class="w-8 h-8 rounded-full border border-primary/40 bg-surface-container flex items-center justify-center text-on-surface text-xs font-semibold overflow-hidden">
+            Wei
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- 主體滾動區域 (針對 390px 移動端寬度最佳化) -->
+<main class="flex-1 w-full max-w-md mx-auto px-margin pt-space-md pb-28">
+<!-- 頂部歷史入口與原日期指示 -->
+<section class="flex items-center justify-between mb-3 bg-surface-container/60 border border-outline-variant/30 rounded-xl px-3 py-2.5 backdrop-blur-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">calendar_month</span>
+<div class="truncate">
+<span class="text-body-sm font-body-sm font-medium text-on-surface block truncate">2026年9月15日 · 農曆八月初五</span>
+<span class="text-[10px] text-outline tracking-wider flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span> 當前錨定 · 原卡
+          </span>
+</div>
+</div>
+<button class="shrink-0 flex items-center gap-1 text-primary hover:text-primary-fixed text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg bg-primary/10 border border-primary/20 transition-all active:scale-95" onclick="alert('打開日期卡歷史歸檔 (歷史已購卡永久免扣費再次閱讀)')">
+<span class="material-symbols-outlined text-[15px]">history</span>
+<span>日期卡歷史</span>
+</button>
+</section>
+<!-- 合規聲明警語 Banner -->
+<section class="mb-4 bg-surface-container-low/90 border border-outline-variant/40 rounded-xl p-3 shadow-inner">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5 shrink-0">info</span>
+<div class="text-[11px] text-on-surface-variant leading-relaxed">
+<span class="inline-block font-semibold text-primary px-1.5 py-0.2 rounded bg-primary/10 border border-primary/20 mr-1">AI 生成</span>
+          本內容僅供自我認知與心理復盤參考。排盤基礎來源於嚴格的確定性歷法演算法（萬年曆與節氣計算），文本由大語言模型輔助推導，不具備絕對命運確定性。
+        </div>
+</div>
+</section>
+<!-- 狀態 1: 正常已生成 (預設展示) -->
+<div class="space-x-0 space-y-4" id="state-view-normal">
+<!-- 核心維度卡片：五維天體總覽 -->
+<section class="bg-surface-container border border-outline-variant/30 rounded-2xl p-5 relative overflow-hidden custom-ring-glow">
+<div class="absolute -right-6 -top-6 w-32 h-32 rounded-full bg-primary/5 blur-2xl pointer-events-none"></div>
+<!-- 卡片標題與標籤 -->
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="text-label-sm font-label-sm text-outline tracking-wider block">DAILY FIVE-DIMENSION RADAR</span>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold">今日心智狀態與五維</h2>
+</div>
+<div class="px-2 py-1 rounded-md bg-secondary/10 border border-secondary/30 text-secondary text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+            永久免費檢視
+          </div>
+</div>
+<!-- 專屬星環天體標識主視覺與評分綜述 -->
+<div class="flex items-center gap-4 py-2 border-b border-outline-variant/20 mb-4">
+<div class="relative w-20 h-20 shrink-0 flex items-center justify-center">
+<img alt="星環天體標識" class="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(242,202,80,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY"/>
+</div>
+<div class="flex-1">
+<div class="text-label-sm text-on-surface-variant mb-1">今日綜合共振係數</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold font-headline-lg text-primary tracking-tight">84.8</span>
+<span class="text-xs text-outline font-medium">/ 100 穩定協調</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface mt-1 leading-snug">
+              能量聚焦於條理梳理與內在修整，適合沉澱規劃與團隊默契交流。
+            </p>
+</div>
+</div>
+<!-- 五維評分條形展示 (嚴格遵守分數：感情 82、事業 91、財富 85、健康 78、人際 89) -->
+<div class="space-y-3 pt-1">
+<!-- 事業 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                事業工作 (專注力與執行)
+              </span>
+<span class="font-bold text-primary text-sm">91 <span class="text-[10px] text-outline font-normal">高能</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-primary h-full rounded-full transition-all duration-500" style="width: 91%"></div>
+</div>
+</div>
+<!-- 人際 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                人際共情 (同理與協作)
+              </span>
+<span class="font-bold text-secondary text-sm">89 <span class="text-[10px] text-outline font-normal">活躍</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-secondary-container to-secondary h-full rounded-full transition-all duration-500" style="width: 89%"></div>
+</div>
+</div>
+<!-- 財富 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#e5c07b]"></span>
+                財富思維 (收支與審慎度)
+              </span>
+<span class="font-bold text-[#e5c07b] text-sm">85 <span class="text-[10px] text-outline font-normal">平穩</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-[#e5c07b] h-full rounded-full transition-all duration-500" style="width: 85%"></div>
+</div>
+</div>
+<!-- 感情 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                親密關係 (溝通與傾聽)
+              </span>
+<span class="font-bold text-tertiary text-sm">82 <span class="text-[10px] text-outline font-normal">溫和</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-500" style="width: 82%"></div>
+</div>
+</div>
+<!-- 健康 -->
+<div>
+<div class="flex justify-between items-center text-xs mb-1">
+<span class="font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                身心能量 (耐力與壓力源)
+              </span>
+<span class="font-bold text-on-surface-variant text-sm">78 <span class="text-[10px] text-outline font-normal">需保養</span></span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full transition-all duration-500" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- 永久免費結論區塊 -->
+<div class="mt-4 pt-3.5 border-t border-outline-variant/30">
+<div class="flex items-center gap-1.5 text-primary text-label-sm font-label-sm mb-1.5">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>基礎觀察結論 (永久免費)</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+            今日天干物候呈現沉著土金相生特質，認知邏輯明晰，利於攻克棘手細節問題。在人際交流中適當換位思考，能自然消弭彼此盲點，無須過度緊繃。
+          </p>
+</div>
+</section>
+<!-- 深度解鎖區：五維反思與個人心理成長建議 (規範修正重點) -->
+<section class="bg-surface-container border border-outline-variant/40 rounded-2xl p-5 relative overflow-hidden transition-all" id="deep-read-lock-container">
+<!-- 標題與無時間指向/無宿命說明 -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">五維反思與個人心理成長建議</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline text-[11px] font-medium flex items-center gap-1" id="lock-badge">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+            深度報告
+          </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4 leading-relaxed">
+          基於今日認知模型所拓展的五維度深度省思方案。內容專注於工作心態調整、關係投射覺察與身心舒緩節律，無任何特定吉凶時辰斷言或宿命警示。
+        </p>
+<!-- 鎖定狀態下的模糊預覽遮罩 (已解鎖時由JS揭露) -->
+<div class="relative rounded-xl border border-outline-variant/20 bg-surface-container-lowest/60 p-4 mb-4 select-none" id="locked-preview-content">
+<div class="filter blur-sm space-y-2 opacity-40">
+<p class="text-xs text-on-surface">【事業心智反思】面對多線程溝通時，保持單核執行模式，避免認知超載...</p>
+<p class="text-xs text-on-surface">【關係同理反思】同理心的高分反映了對他人情緒的敏銳度，但也應建立自我邊界...</p>
+<p class="text-xs text-on-surface">【壓力復原指引】在傍晚進行 15 分鐘的深層呼吸或靜態散步，減緩身心能量的持續耗散...</p>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-surface/40 backdrop-blur-[2px]">
+<span class="material-symbols-outlined text-primary text-3xl mb-1">lock</span>
+<span class="text-body-sm font-medium text-on-surface">解鎖獲取當日完整五維心理反思報告</span>
+<span class="text-[11px] text-outline mt-0.5">一次解鎖 · 永久歸檔至歷史卡無須再次收費</span>
+</div>
+</div>
+<!-- 解鎖後展開內容容器 (預設隱藏) -->
+<div class="hidden space-y-3.5 mb-4 border border-primary/20 bg-primary/5 rounded-xl p-4" id="unlocked-real-content">
+<div class="flex items-center gap-1 text-secondary text-xs font-semibold mb-2">
+<span class="material-symbols-outlined text-sm">verified</span>
+            已成功解鎖 · 今日完整心理反思
+          </div>
+<div class="border-l-2 border-primary pl-3">
+<h4 class="text-xs font-semibold text-primary">事業心智：錨定核心目標</h4>
+<p class="text-body-sm text-on-surface-variant mt-0.5">今日的邏輯整合能力突出，建議將高階難度的決策放在首要時段完成，避免將注意力消磨在繁雜的碎片化即時通訊中。</p>
+</div>
+<div class="border-l-2 border-secondary pl-3">
+<h4 class="text-xs font-semibold text-secondary">關係投射：傾聽多於說服</h4>
+<p class="text-body-sm text-on-surface-variant mt-0.5">高同理心有助於覺察對方的未盡之言，但在協商過程中，明確界定職責與情感界線能讓合作更具長期穩定性。</p>
+</div>
+<div class="border-l-2 border-tertiary pl-3">
+<h4 class="text-xs font-semibold text-tertiary">身心覺察：放緩感官節奏</h4>
+<p class="text-body-sm text-on-surface-variant mt-0.5">能量消耗主要來源於思維活躍度過高，入睡前建議減少電子屏幕暴露，透過輕度伸展釋放肩頸張力。</p>
+</div>
+</div>
+<!-- 解鎖資產說明與按鈕組 (嚴格遵守資產聯動規則) -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3.5" id="unlock-action-panel">
+<div class="flex items-center justify-between text-xs mb-3">
+<span class="text-on-surface-variant">持有資產：</span>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface font-medium">🎫 深讀券 <span class="text-primary font-bold" id="current-ticket-display">3</span> 張</span>
+<span class="text-outline-variant">·</span>
+<span class="flex items-center gap-1 text-on-surface font-medium">💎 靈石 <span class="text-primary font-bold" id="current-stone-display">128</span></span>
+</div>
+</div>
+<div class="text-[11px] text-outline leading-snug mb-3">
+            扣費規則：1 張深讀券或 30 靈石解鎖同一日期卡整日五維，系統優先使用深讀券。解鎖後當日卡片永久有效。
+          </div>
+<!-- 交互按鈕 (觸控高度 >= 44px) -->
+<button class="w-full min-h-[46px] rounded-lg bg-primary hover:bg-primary-container text-on-primary font-semibold text-body-md flex items-center justify-center gap-2 shadow-md transition-all active:scale-98" onclick="executeUnlock()">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span>立即解鎖 (優先使用 1 券 · 剩餘 2 券)</span>
+</button>
+</div>
+</section>
+<!-- 排盤來源與透明度解析卡 -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-4 text-xs text-on-surface-variant space-y-2">
+<div class="flex items-center gap-1.5 text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">device_hub</span>
+<span>演算法排盤與計算透明度說明</span>
+</div>
+<p class="leading-relaxed">
+          覓搭 MiDa 系統採用天文曆法星曆數據，並基於確定性平太陽時轉換天干地支與五行權重矩陣。AI 模組僅用於將複雜數值轉化為通俗的認知心理學與現代生活維度建議，無隱形人工干涉或宿命定論。
+        </p>
+</section>
+</div>
+<!-- 狀態 2: 未生成空態 (透過頂部切換器啟動) -->
+<div class="hidden flex-col items-center justify-center py-16 px-4 text-center bg-surface-container border border-outline-variant/30 rounded-2xl" id="state-view-empty">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-outline mb-4">
+<span class="material-symbols-outlined text-3xl">wb_twilight</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">今日運勢五維尚未排盤</h3>
+<p class="text-body-sm text-on-surface-variant max-w-xs mb-6 leading-relaxed">
+        檢測到當前原日期「2026年9月15日」尚未啟動心智計算，點擊下方即可按標準歷法生成。
+      </p>
+<button class="min-h-[44px] px-6 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-semibold text-body-md transition-all active:scale-98 flex items-center gap-2 shadow-lg" onclick="setPrototypeState('computing')">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>立即計算今日五維</span>
+</button>
+</div>
+<!-- 狀態 3: 正在運算中 (透過頂部切換器啟動) -->
+<div class="hidden flex-col items-center justify-center py-16 px-4 text-center bg-surface-container border border-outline-variant/30 rounded-2xl" id="state-view-computing">
+<div class="w-14 h-14 rounded-full border-2 border-primary border-t-transparent animate-spin flex items-center justify-center mb-4"></div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-semibold mb-2">確定性曆法與心智矩陣運算中...</h3>
+<p class="text-body-sm text-on-surface-variant max-w-xs mb-2">
+        正在校正真太陽時、計算干支生剋並生成自我反思框架。
+      </p>
+<span class="text-[11px] text-outline">耗時約 2~3 秒，請勿頻繁刷新</span>
+</div>
+<!-- 狀態 4: 運算失敗重試 (透過頂部切換器啟動) -->
+<div class="hidden flex-col items-center justify-center py-16 px-4 text-center bg-surface-container border border-error/30 rounded-2xl" id="state-view-error">
+<div class="w-16 h-16 rounded-full bg-error-container/30 text-error flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-3xl">sync_problem</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-error font-semibold mb-2">天體數據同步中斷</h3>
+<p class="text-body-sm text-on-surface-variant max-w-xs mb-6 leading-relaxed">
+        星曆通訊逾時或網路不穩定，未能完成排盤運算。資產未作任何扣除。
+      </p>
+<button class="min-h-[44px] px-6 rounded-lg bg-error hover:bg-error/90 text-on-error font-semibold text-body-md transition-all active:scale-98 flex items-center gap-2" onclick="setPrototypeState('computing')">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>重新嘗試計算</span>
+</button>
+</div>
+<!-- 狀態 5: 歷史已購卡模式說明標籤 (由JS狀態動態聯動) -->
+</main>
+<!-- BottomNavBar: 底部導航欄組件 (依據 Shared Components JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/90 dark:bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg dark:shadow-2xl">
+<div class="max-w-md mx-auto flex justify-around items-center px-margin py-space-xs min-h-[60px]">
+<!-- Tab 1: Today (今日 - 當前高亮) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary dark:text-primary py-space-xs font-semibold min-w-[56px] min-h-[44px] transition-transform duration-150 active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Destiny Book (命書) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs min-w-[56px] min-h-[44px] hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Destiny Book</span>
+</a>
+<!-- Tab 3: Synastry (合盤) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs min-w-[56px] min-h-[44px] hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[24px]">join_inner</span>
+<span class="text-label-sm font-label-sm mt-0.5">Synastry</span>
+</a>
+<!-- Tab 4: Profile (個人/我) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs min-w-[56px] min-h-[44px] hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</a>
+</div>
+</nav>
+<!-- 邏輯腳本：原型狀態切換與資產解鎖嚴格聯動 -->
+<script>
+    let tickets = 3;
+    let stones = 128;
+    let isUnlocked = false;
+
+    function syncAssetDisplay() {
+      document.getElementById('top-stones-count').textContent = stones;
+      document.getElementById('top-tickets-count').textContent = tickets;
+      const curTicket = document.getElementById('current-ticket-display');
+      const curStone = document.getElementById('current-stone-display');
+      if (curTicket) curTicket.textContent = tickets;
+      if (curStone) curStone.textContent = stones;
+    }
+
+    function executeUnlock() {
+      if (isUnlocked) return;
+
+      if (tickets > 0) {
+        tickets -= 1;
+        alert(`已成功消耗 1 張深讀券！\n使用後剩餘：${tickets} 券 · ${stones} 靈石\n此卡已永久歸檔，日後查看不再收費。`);
+      } else if (stones >= 30) {
+        stones -= 30;
+        alert(`深讀券不足，已消耗 30 靈石解鎖！\n使用後剩餘：${tickets} 券 · ${stones} 靈石\n此卡已永久歸檔，日後查看不再收費。`);
+      } else {
+        alert('深讀券與靈石均不足，無法解鎖深度內容！');
+        return;
+      }
+
+      isUnlocked = true;
+      syncAssetDisplay();
+      renderUnlockedState();
+    }
+
+    function renderUnlockedState() {
+      const lockPreview = document.getElementById('locked-preview-content');
+      const unlockedReal = document.getElementById('unlocked-real-content');
+      const actionPanel = document.getElementById('unlock-action-panel');
+      const lockBadge = document.getElementById('lock-badge');
+
+      if (lockPreview) lockPreview.classList.add('hidden');
+      if (unlockedReal) unlockedReal.classList.remove('hidden');
+      if (lockBadge) {
+        lockBadge.className = "px-2 py-0.5 rounded bg-secondary/10 text-secondary text-[11px] font-medium flex items-center gap-1";
+        lockBadge.innerHTML = '<span class="material-symbols-outlined text-[13px]">lock_open</span> 已解鎖';
+      }
+      if (actionPanel) {
+        actionPanel.innerHTML = `
+          <div class="flex items-center justify-between text-xs text-secondary font-medium">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[15px]">verified</span>
+              本日期卡已購 · 永久保存免再扣費
+            </span>
+            <button onclick="alert('報告已匯出至個人認知檔案庫')" class="text-xs text-primary underline">匯出檔案</button>
+          </div>
+        `;
+      }
+    }
+
+    function setPrototypeState(state) {
+      // 隱藏全部
+      ['normal', 'empty', 'computing', 'error'].forEach(id => {
+        const el = document.getElementById(`state-view-${id}`);
+        if (el) el.classList.add('hidden');
+        el && el.classList.remove('flex');
+      });
+
+      // 樣式切換器高亮
+      ['normal', 'empty', 'computing', 'error', 'purchased'].forEach(key => {
+        const btn = document.getElementById(`btn-state-${key}`);
+        if (btn) {
+          btn.className = "px-2 py-1 rounded bg-surface-container text-on-surface hover:text-primary text-[11px] transition-all";
+        }
+      });
+      const activeBtn = document.getElementById(`btn-state-${state}`);
+      if (activeBtn) {
+        activeBtn.className = "px-2 py-1 rounded bg-primary text-on-primary font-semibold text-[11px] transition-all";
+      }
+
+      if (state === 'normal') {
+        const el = document.getElementById('state-view-normal');
+        el.classList.remove('hidden');
+      } else if (state === 'empty') {
+        const el = document.getElementById('state-view-empty');
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+      } else if (state === 'computing') {
+        const el = document.getElementById('state-view-computing');
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+        setTimeout(() => {
+          setPrototypeState('normal');
+        }, 2200);
+      } else if (state === 'error') {
+        const el = document.getElementById('state-view-error');
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+      } else if (state === 'purchased') {
+        const el = document.getElementById('state-view-normal');
+        el.classList.remove('hidden');
+        isUnlocked = true;
+        renderUnlockedState();
+      }
+    }
+  </script>
+</body></html>

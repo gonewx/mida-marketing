@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>雙人合盤與契合度洞察 - 覓搭 MiDa</title>
+<!-- Google Fonts: Noto Serif TC & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#ffb3ad",
+            "tertiary": "#ffbfba",
+            "on-surface": "#dfe2f1",
+            "primary": "#f2ca50",
+            "on-primary-fixed-variant": "#574500",
+            "on-tertiary": "#68000a",
+            "surface-variant": "#313540",
+            "secondary-container": "#00a572",
+            "on-surface-variant": "#d0c5af",
+            "inverse-surface": "#dfe2f1",
+            "primary-container": "#d4af37",
+            "on-primary-container": "#554300",
+            "on-background": "#dfe2f1",
+            "secondary": "#4edea3",
+            "on-primary": "#3c2f00",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#e9c349",
+            "surface-container-highest": "#313540",
+            "on-tertiary-container": "#900013",
+            "surface-container-high": "#262a35",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-fixed-variant": "#930013",
+            "tertiary-fixed": "#ffdad7",
+            "on-secondary-container": "#00311f",
+            "outline-variant": "#4d4635",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#005236",
+            "surface": "#0f131d",
+            "on-secondary": "#003824",
+            "on-error": "#690005",
+            "tertiary-container": "#ff968f",
+            "background": "#0f131d",
+            "primary-fixed-dim": "#e9c349",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0f131d",
+            "on-tertiary-fixed": "#410004",
+            "inverse-primary": "#735c00",
+            "outline": "#99907c",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-bright": "#353944",
+            "on-primary-fixed": "#241a00",
+            "surface-container-lowest": "#0a0e18",
+            "surface-container-low": "#171b26",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#2c303b",
+            "surface-container": "#1c1f2a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Noto Serif TC", "serif"],
+            "headline-md": ["Noto Serif TC", "serif"],
+            "headline-lg": ["Noto Serif TC", "serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Noto Serif TC", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Noto Serif TC", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "bazi-symbol": ["Noto Serif TC", "serif"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(242, 202, 80, 0.2);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen selection:bg-primary selection:text-on-primary pb-28">
+<!-- 原型狀態切換控制器 (Sticky Prototype Switcher) -->
+<aside aria-label="原型狀態切換" class="bg-surface-container-highest/95 border-b border-outline-variant/40 px-3 py-2 sticky top-0 z-50 backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex items-center justify-between text-label-sm font-label-sm gap-2">
+<div class="flex items-center gap-1.5 text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span class="font-semibold hidden sm:inline">[原型狀態演示]</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar py-0.5 w-full justify-start sm:justify-end">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-semibold shrink-0 transition-colors" id="btn-state-1" onclick="setProtoState(1)" type="button">1. 發起方未解鎖</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary shrink-0 transition-colors" id="btn-state-2" onclick="setProtoState(2)" type="button">2. 受邀方等待中</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary shrink-0 transition-colors" id="btn-state-3" onclick="setProtoState(3)" type="button">3. 已完整解鎖</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary shrink-0 transition-colors" id="btn-state-4" onclick="setProtoState(4)" type="button">4. 待對方授權</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary shrink-0 transition-colors" id="btn-state-5" onclick="setProtoState(5)" type="button">5. 自合盤歷史唯讀</button>
+</div>
+</div>
+</aside>
+<!-- TopAppBar (嚴格遵循 Shared Component 規範) -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-margin py-space-sm max-w-7xl mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">auto_awesome</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-lg-mobile text-headline-sm font-semibold tracking-wider text-primary">覓搭 MiDa</span>
+<span class="text-label-sm text-on-surface-variant font-label-sm hidden sm:inline">· 雙人合盤</span>
+</div>
+</div>
+<!-- 中間網頁版導覽 (Responsive Pivot) -->
+<nav class="hidden md:flex items-center space-x-6 text-label-lg font-label-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Today</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Destiny Book</a>
+<a class="text-primary font-bold transition-colors flex items-center gap-1" href="#">
+<span>Synastry</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Profile</a>
+</nav>
+<!-- 頂欄資產與歷史入口 -->
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-2.5 flex items-center gap-1 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" onclick="openHistoryModal()" title="查看合盤關係鏈歷史" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="hidden xs:inline">關係鏈歷史</span>
+</button>
+<div class="px-3 py-1.5 rounded-full bg-surface-container-high/80 border border-outline-variant/40 text-primary font-label-sm text-label-sm font-semibold tracking-wide">
+        💎 128 · 🎫 3
+      </div>
+</div>
+</header>
+<!-- 主體畫布容器 -->
+<main class="max-w-7xl mx-auto px-margin pt-4 space-y-6">
+<!-- 認知免責告示條 (首屏顯著標註) -->
+<section aria-label="AI生成免責條款" class="rounded-lg bg-surface-container/70 border border-outline-variant/30 px-3.5 py-2.5 flex items-center gap-2.5 text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">info</span>
+<p class="leading-tight">
+<strong class="text-primary font-semibold">AI 生成 · 僅供自我認知與關係溝通參考</strong>
+<span class="hidden sm:inline">｜本分析建構於東方干支十神與五行生剋模型，不作絕對宿命斷言。</span>
+</p>
+</section>
+<!-- 頂部英雄區：星環天體標識與關係卡 (Bento 頂層) -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container/60 backdrop-blur-xl border border-primary/20 p-5 md:p-7 shadow-2xl">
+<!-- 柔和星光背景輻射 -->
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-16 -bottom-16 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+<!-- 左側：專屬星環天體標識 + 雙方八字名牌 -->
+<div class="lg:col-span-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+<!-- 專屬星環天體標識 (嚴格使用指定圖片) -->
+<div class="relative shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-full p-1 bg-gradient-to-tr from-primary/20 via-transparent to-primary/40 flex items-center justify-center">
+<img alt="覓搭星環天體徽標" class="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(242,202,80,0.35)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY"/>
+</div>
+<div class="space-y-2.5 flex-1">
+<div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span id="pair-id-label">Pair ID: #MD-88219 (授權生效中)</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-on-surface flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+<span>Wei</span>
+<span class="text-primary text-[16px] font-display-lg">×</span>
+<span>阿紫</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary-container/20 text-primary border border-primary/30">乾造 × 坤造</span>
+</h1>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1 text-body-sm font-body-sm">
+<div class="px-2.5 py-1 rounded bg-surface-container-high/80 border border-outline-variant/30 flex items-center gap-1.5">
+<span class="text-primary font-semibold">庚金</span>
+<span class="text-on-surface-variant text-label-sm">剛毅清肅 · 日元</span>
+</div>
+<span class="material-symbols-outlined text-primary/70 text-[18px]">cached</span>
+<div class="px-2.5 py-1 rounded bg-surface-container-high/80 border border-outline-variant/30 flex items-center gap-1.5">
+<span class="text-secondary font-semibold">乙木</span>
+<span class="text-on-surface-variant text-label-sm">柔和通達 · 乙庚化合金</span>
+</div>
+</div>
+<!-- 隱私與撤回保護提示 -->
+<div class="flex items-center justify-center sm:justify-start gap-1.5 text-on-surface-variant/80 text-label-sm font-label-sm pt-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>雙向授權機制：任一方隨時可於隱私設定撤回，派生深度解讀將即刻安全銷毀。</span>
+</div>
+</div>
+</div>
+<!-- 右側：永久免費契合度總分環與共振等級 -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center bg-surface-container-high/40 rounded-xl p-4 border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- 背景環 -->
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<!-- 進度環 (88.5%) -->
+<path class="text-primary drop-shadow-[0_0_8px_rgba(242,202,80,0.5)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="88.5, 100" stroke-linecap="round" stroke-width="3.2"></path>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-display-lg text-[26px] leading-none font-bold text-primary">88.5</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant scale-90">綜合契合</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1 text-primary text-label-sm font-label-sm uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+<span>永久免費開放</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface">宿命共振 · 鸞鳳化生</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">乙庚相合而有情，剛柔互濟，能共處繁蕪，相持遠行。</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 狀態橫幅通知區 (依原型狀態切換動態調整內容) -->
+<section class="rounded-xl border p-4 bg-surface-container transition-all duration-300" id="state-banner-container">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" id="banner-content">
+<!-- 動態置入文案 -->
+</div>
+</section>
+<!-- 雙人合盤八字核心柱狀結構 (Analytical Rigor) -->
+<section aria-label="八字原局對照" class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">grid_goldenratio</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">干支格局同頻矩陣</h2>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">四柱原局對照 · 授權數據</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Wei 乾造 -->
+<div class="p-3.5 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-primary font-semibold">Wei (乾造)</span>
+<span>時柱 / 日柱 / 月柱 / 年柱</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">時干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-secondary block my-0.5">丙</span>
+<span class="text-label-sm text-on-surface-variant block">七殺·火</span>
+</div>
+<div class="p-2 rounded bg-primary-container/10 border border-primary/30">
+<span class="text-label-sm text-primary block">日主</span>
+<span class="font-bazi-symbol text-bazi-symbol text-primary block my-0.5">庚</span>
+<span class="text-label-sm text-primary block">本元·金</span>
+</div>
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">月干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-on-surface block my-0.5">戊</span>
+<span class="text-label-sm text-on-surface-variant block">偏印·土</span>
+</div>
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">年干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-on-surface block my-0.5">壬</span>
+<span class="text-label-sm text-on-surface-variant block">食神·水</span>
+</div>
+</div>
+</div>
+<!-- 阿紫 坤造 -->
+<div class="p-3.5 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-secondary font-semibold">阿紫 (坤造)</span>
+<span>時柱 / 日柱 / 月柱 / 年柱</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">時干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-on-surface block my-0.5">丁</span>
+<span class="text-label-sm text-on-surface-variant block">食神·火</span>
+</div>
+<div class="p-2 rounded bg-secondary-container/10 border border-secondary/30">
+<span class="text-label-sm text-secondary block">日主</span>
+<span class="font-bazi-symbol text-bazi-symbol text-secondary block my-0.5">乙</span>
+<span class="text-label-sm text-secondary block">本元·木</span>
+</div>
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">月干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-primary block my-0.5">庚</span>
+<span class="text-label-sm text-on-surface-variant block">正官·金</span>
+</div>
+<div class="p-2 rounded bg-surface/80 border border-white/5">
+<span class="text-label-sm text-on-surface-variant block">年干</span>
+<span class="font-bazi-symbol text-bazi-symbol text-on-surface block my-0.5">癸</span>
+<span class="text-label-sm text-on-surface-variant block">偏印·水</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid：永久免費四維明細 + 關係亮點 + 破冰話題卡 -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+<!-- 四大分維契合明細 (永久免費) - 7 欄 -->
+<section aria-label="四大分維契合評估" class="md:col-span-7 rounded-xl bg-surface-container/60 border border-outline-variant/30 p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">donut_large</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">四維契合結構分析</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">永久免費</span>
+</div>
+<div class="space-y-3.5 pt-1">
+<!-- 1. 五行互補 -->
+<div>
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<strong>五行互補度</strong> (金喜水涵，木得金剪)
+              </span>
+<span class="font-bold text-primary">92 分</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- 2. 十神協同 -->
+<div>
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<strong>十神協同度</strong> (印官有位，相互信賴)
+              </span>
+<span class="font-bold text-primary">86 分</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary rounded-full" style="width: 86%"></div>
+</div>
+</div>
+<!-- 3. 性格磨合 -->
+<div>
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<strong>性格磨合度</strong> (果決理性 vs 溫潤隨和)
+              </span>
+<span class="font-bold text-primary">84 分</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<!-- 4. 情感共振 -->
+<div>
+<div class="flex justify-between items-center text-body-sm font-body-sm mb-1">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<strong>情感共振度</strong> (日支相生，精神默契)
+              </span>
+<span class="font-bold text-primary">90 分</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+<div class="pt-2 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+          註：契合分值為天干化合與能量流通度之算法推導，用於理解彼此特質差異，切勿作為排他之判斷。
+        </div>
+</section>
+<!-- 3條關係亮點 (永久免費) - 5 欄 -->
+<section aria-label="3條核心關係亮點" class="md:col-span-5 rounded-xl bg-surface-container/60 border border-outline-variant/30 p-5 space-y-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">關係核心亮點</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">3項亮點</span>
+</div>
+<div class="space-y-2.5">
+<div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 flex gap-2.5 items-start">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified</span>
+<div>
+<h3 class="text-body-md font-semibold text-on-surface">乙庚天干作合</h3>
+<p class="text-body-sm text-on-surface-variant">天生自帶吸引力法則，處事節奏互補，常能在對方猶豫時給出最清晰的錨定點。</p>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 flex gap-2.5 items-start">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">spa</span>
+<div>
+<h3 class="text-body-md font-semibold text-on-surface">情緒能量緩衝池</h3>
+<p class="text-body-sm text-on-surface-variant">阿紫的水木氣息可撫平 Wei 偶爾緊繃的精神壓力；Wei 的決斷力能為阿紫消解選擇障礙。</p>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 flex gap-2.5 items-start">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">balance</span>
+<div>
+<h3 class="text-body-md font-semibold text-on-surface">價值觀高度契合</h3>
+<p class="text-body-sm text-on-surface-variant">對家庭責任與生活品質的底線共識高達 90%，重大決策時極少陷入僵局。</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- 5張破冰話題卡 (永久免費橫向滑動卡片) -->
+<section aria-label="5張破冰話題卡" class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">forum</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">破冰話題與共情練習</h2>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">5 張免費專屬卡片 · 左右滑動</span>
+</div>
+<div class="flex gap-3.5 overflow-x-auto custom-scrollbar pb-2 pt-1">
+<!-- 卡片 1 -->
+<article class="min-w-[260px] max-w-[280px] p-4 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col justify-between shrink-0 hover:border-primary/50 transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">話題 #01</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">psychology</span>
+</div>
+<h3 class="text-body-md font-semibold text-on-surface">週末的低耗能充電</h3>
+<p class="text-body-sm text-on-surface-variant">「問問 TA 為什麼週末總喜歡安靜待著？需要怎樣的陪伴才不覺得被打擾？」</p>
+</div>
+<div class="pt-3 text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>探索彼此獨處邊界</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</article>
+<!-- 卡片 2 -->
+<article class="min-w-[260px] max-w-[280px] p-4 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col justify-between shrink-0 hover:border-primary/50 transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">話題 #02</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">tune</span>
+</div>
+<h3 class="text-body-md font-semibold text-on-surface">壓力觸發與安撫模式</h3>
+<p class="text-body-sm text-on-surface-variant">「當感覺焦躁或情緒低落時，希望對方先給予理智分析，還是毫無保留的傾聽擁抱？」</p>
+</div>
+<div class="pt-3 text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>建立安撫密碼</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</article>
+<!-- 卡片 3 -->
+<article class="min-w-[260px] max-w-[280px] p-4 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col justify-between shrink-0 hover:border-primary/50 transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">話題 #03</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">flight_takeoff</span>
+</div>
+<h3 class="text-body-md font-semibold text-on-surface">旅行中的安全感來源</h3>
+<p class="text-body-sm text-on-surface-variant">「出門旅行如果遇到突發行程變更，誰負責臨時找方案？誰負責安撫同行情緒？」</p>
+</div>
+<div class="pt-3 text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>旅行分工同頻</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</article>
+<!-- 卡片 4 -->
+<article class="min-w-[260px] max-w-[280px] p-4 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col justify-between shrink-0 hover:border-primary/50 transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">話題 #04</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">celebration</span>
+</div>
+<h3 class="text-body-md font-semibold text-on-surface">理想中慶祝紀念日的方式</h3>
+<p class="text-body-sm text-on-surface-variant">「比起高檔餐廳形式感，是否更傾向於一頓親手烹煮的晚餐或漫無目的的散步夜談？」</p>
+</div>
+<div class="pt-3 text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>儀式感共識</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</article>
+<!-- 卡片 5 -->
+<article class="min-w-[260px] max-w-[280px] p-4 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col justify-between shrink-0 hover:border-primary/50 transition-colors">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">話題 #05</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">eco</span>
+</div>
+<h3 class="text-body-md font-semibold text-on-surface">面對衝突的暫停機制</h3>
+<p class="text-body-sm text-on-surface-variant">「如果兩個人爭執不下，是否可以約定一個專屬暗號，雙方強制冷靜 15 分鐘？」</p>
+</div>
+<div class="pt-3 text-label-sm text-primary flex items-center gap-1 font-semibold">
+<span>防禦性降溫機制</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</article>
+</div>
+</section>
+<!-- 深度解鎖區域 (關係經營洞察 · 嚴格控制權限與狀態渲染) -->
+<section class="rounded-xl border border-primary/30 bg-surface-container/90 backdrop-blur-xl p-5 md:p-6 space-y-5 shadow-xl relative overflow-hidden" id="deep-insight-section">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">lock_open</span>
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">本 pair 深度關係經營洞察</h2>
+<p class="text-body-sm text-on-surface-variant">解鎖雙方深層互動暗礁、溝通調頻指南與長效共處防護網（非大運吉凶預測）</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 self-start sm:self-auto px-3 py-1 rounded bg-primary/10 text-primary border border-primary/30 text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">token</span>
+<span>標的：本 pair 關係經營洞察 · 60 靈石</span>
+</div>
+</div>
+<!-- 內容展示容器：已解鎖時完全展現，未解鎖時呈現毛玻璃模糊或等待提示 -->
+<div class="relative" id="insight-content-container">
+<!-- 未解鎖/等待覆蓋層 (動態切換) -->
+<div class="rounded-lg p-6 bg-surface-container-high/90 border border-outline-variant/40 text-center space-y-4" id="locked-overlay">
+<div class="w-12 h-12 mx-auto rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">key</span>
+</div>
+<div class="space-y-1.5 max-w-lg mx-auto">
+<h3 class="text-headline-sm font-headline-sm text-on-surface" id="locked-title">雙方深度關係經營解讀</h3>
+<p class="text-body-sm text-on-surface-variant leading-relaxed" id="locked-desc">
+              發起方解鎖後，在彼此授權有效期內，雙方帳號均可隨時完整查閱本 pair 深度洞察；單方撤回時內容自動銷毀。
+            </p>
+</div>
+<!-- 解鎖互動按鈕容器 (由 JS 依據原型狀態渲染) -->
+<div class="pt-2 flex flex-col items-center gap-2" id="unlock-action-slot">
+<!-- 預設插入狀態 1: 發起方付費按鈕 -->
+</div>
+</div>
+<!-- 深度內容本體 (當解鎖時顯示) -->
+<div class="hidden space-y-4" id="unlocked-real-content">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 space-y-2">
+<div class="flex items-center gap-2 text-primary font-semibold text-body-md">
+<span class="material-symbols-outlined text-[20px]">crisis_alert</span>
+<h4>溝通易觸發的隱性暗礁</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                庚金習慣「直指問題核心」，往往略過情緒鋪墊；乙木則注重「態度是否接納」。當阿紫尋求傾訴時，Wei 的即時解決方案容易被誤讀為冷漠不耐。
+              </p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 space-y-2">
+<div class="flex items-center gap-2 text-secondary font-semibold text-body-md">
+<span class="material-symbols-outlined text-[20px]">healing</span>
+<h4>專屬調頻修復指南</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                建議 Wei 在回應前先默數三秒並確認一句「這確實讓人委屈」；阿紫則可在提出討論時直接表明「我需要 10 分鐘發洩，不需要馬上決定」，雙方即能完美同步。
+              </p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-high/40 border border-outline-variant/20 flex items-start gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">check_circle</span>
+<p>本 pair 深度關係經營解讀已綁定授權鏈。雙方皆可於個人命書及合盤檔案中重複研讀。任一方若在隱私中心「撤銷雙人合盤授權」，所有派生解讀將自動清除銷毀。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 發起新合盤邀請規範入口 (徹底刪除手動錄入第三人生辰，僅保留正規邀請) -->
+<section aria-label="發起合盤規範入口" class="rounded-xl bg-surface-container/40 border border-outline-variant/30 p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="space-y-1 text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">person_add</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">發起新的雙人合盤</h3>
+</div>
+<p class="text-body-sm text-on-surface-variant">
+          為落實隱私與雙向意願保護，覓搭不提供單方面手動錄入他人八字。請複製專屬邀請鏈接，待對方獨立授權命盤。
+        </p>
+</div>
+<button class="min-h-[44px] px-5 py-2.5 rounded-lg bg-surface-container-highest border border-primary/40 text-primary hover:bg-primary/10 transition-colors font-label-lg text-label-lg font-semibold flex items-center gap-2 shrink-0 active:scale-95" onclick="openInviteModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>發起合盤邀請 (待對方授權)</span>
+</button>
+</section>
+</main>
+<!-- 合盤關係鏈歷史彈窗 (Modal) -->
+<dialog class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md p-4 w-full h-full max-w-none flex items-center justify-center border-0 open:flex hidden" id="history-modal">
+<div class="bg-surface-container border border-outline-variant/40 rounded-xl max-w-lg w-full p-5 space-y-4 shadow-2xl relative">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+<div class="flex items-center gap-2 text-primary font-headline-sm">
+<span class="material-symbols-outlined">history</span>
+<h3>合盤關係鏈歷史存檔</h3>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeHistoryModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">按原 pair 與生成日期清晰辨認。若任一方撤回授權，該條派生深度敘事將自動標註失效以保護隱私。</p>
+<div class="space-y-2.5 max-h-72 overflow-y-auto custom-scrollbar pr-1">
+<!-- 歷史項 1: 當前進行中 -->
+<div class="p-3 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-between">
+<div>
+<div class="flex items-center gap-2 font-semibold text-body-md text-on-surface">
+<span>Wei × 阿紫</span>
+<span class="text-label-sm px-1.5 py-0.2 rounded bg-primary/20 text-primary">當前查看</span>
+</div>
+<div class="text-label-sm text-on-surface-variant">建立日期：2025-02-18 · 雙向授權生效中</div>
+</div>
+<span class="text-secondary text-label-sm font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            有效
+          </span>
+</div>
+<!-- 歷史項 2: 自合盤存檔 -->
+<div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="flex items-center gap-2 font-semibold text-body-md text-on-surface">
+<span>Wei (主盤) × Wei (鏡像盤)</span>
+<span class="text-label-sm px-1.5 py-0.2 rounded bg-surface-variant text-on-surface-variant">自合盤存檔</span>
+</div>
+<div class="text-label-sm text-on-surface-variant">生成日期：2024-11-04 · 歸併只讀歷史</div>
+</div>
+<span class="text-on-surface-variant text-label-sm font-semibold">歷史只讀</span>
+</div>
+<!-- 歷史項 3: 已撤銷授權 -->
+<div class="p-3 rounded-lg bg-surface-container-high/30 border border-outline-variant/20 flex items-center justify-between opacity-60">
+<div>
+<div class="flex items-center gap-2 font-semibold text-body-md text-on-surface line-through">
+<span>Wei × 舊友 (已隱匿)</span>
+</div>
+<div class="text-label-sm text-on-surface-variant">對方已於 2025-01-12 撤回授權 · 深度數據已銷毀</div>
+</div>
+<span class="text-error text-label-sm font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">block</span>
+            已失效
+          </span>
+</div>
+</div>
+<div class="pt-2 flex justify-end">
+<button class="px-4 py-2 rounded bg-surface-container-highest text-on-surface hover:text-primary transition-colors text-label-md" onclick="closeHistoryModal()" type="button">關閉清單</button>
+</div>
+</div>
+</dialog>
+<!-- 發起合盤專屬授權邀請 Modal -->
+<dialog class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md p-4 w-full h-full max-w-none flex items-center justify-center border-0 open:flex hidden" id="invite-modal">
+<div class="bg-surface-container border border-outline-variant/40 rounded-xl max-w-md w-full p-5 space-y-4 shadow-2xl relative">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+<div class="flex items-center gap-2 text-primary font-headline-sm">
+<span class="material-symbols-outlined">send</span>
+<h3>發送雙人合盤獨立授權邀請</h3>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeInviteModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-2 text-body-sm text-on-surface-variant">
+<p>受邀方點擊鏈接後，需在其覓搭帳號內獨立確認授權命盤數據。雙方授權建立前，不生成任何排盤。</p>
+<div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-mono text-label-sm break-all select-all">
+          https://mida.app/synastry/invite?pair_token=md_auth_7819_k901
+        </div>
+</div>
+<div class="pt-2 flex items-center justify-end gap-2">
+<button class="px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface text-label-md" onclick="closeInviteModal()" type="button">取消</button>
+<button class="px-4 py-2 rounded bg-primary text-on-primary font-semibold text-label-md hover:bg-primary-container transition-colors flex items-center gap-1" id="btn-copy-link" onclick="copyInviteLink()" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span>複製邀請鏈接</span>
+</button>
+</div>
+</div>
+</dialog>
+<!-- BottomNavBar (嚴格遵循 Shared Component 規範) -->
+<!-- 依據規範：觸控區域 >= 44px, Synastry 為當前高亮 Tab -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-space-xs max-w-7xl mx-auto bg-surface/90 dark:bg-surface/90 backdrop-blur-lg shadow-lg dark:shadow-2xl md:hidden">
+<!-- Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs hover:text-primary-fixed-dim dark:hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95 min-h-[44px] min-w-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">wb_sunny</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</a>
+<!-- Destiny Book -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs hover:text-primary-fixed-dim dark:hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95 min-h-[44px] min-w-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Destiny Book</span>
+</a>
+<!-- Synastry (當前頁面高亮) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary dark:text-primary py-space-xs font-semibold hover:text-primary-fixed-dim dark:hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95 min-h-[44px] min-w-[44px]" href="#">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">join_inner</span>
+<span class="text-label-sm font-label-sm mt-0.5">Synastry</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant py-space-xs hover:text-primary-fixed-dim dark:hover:text-primary-fixed-dim transition-colors duration-200 active:scale-95 min-h-[44px] min-w-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">account_circle</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+<!-- 原型狀態切換邏輯腳本 (符合評審規範驗證) -->
+<script>
+    let currentState = 1;
+
+    const stateConfig = {
+      1: {
+        banner: `
+          <div class="flex items-center gap-2 text-on-surface">
+            <span class="material-symbols-outlined text-primary text-[20px]">account_circle</span>
+            <span class="text-body-sm"><strong>發起方視角 (Wei)</strong>：您已完成命盤綁定。可主動確認解鎖本 pair 深度經營洞察。</span>
+          </div>
+          <span class="text-label-sm px-2.5 py-1 rounded bg-primary/10 text-primary border border-primary/20 shrink-0">發起方操作權利</span>
+        `,
+        lockedTitle: '雙方深度關係經營解讀 (待解鎖)',
+        lockedDesc: '解鎖標的為「本 pair 關係經營洞察 · 60 靈石」，僅發起方可確認消費，雙方在授權有效期間內均可完整讀取。',
+        actionSlot: `
+          <button type="button" onclick="triggerUnlock()" class="min-h-[44px] px-6 py-3 rounded-lg bg-primary text-on-primary font-semibold text-body-md shadow-[0_0_16px_rgba(212,175,55,0.4)] hover:brightness-110 active:scale-98 transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-[20px]">lock_open</span>
+            <span>消耗 60 靈石解鎖雙方深度洞察（餘額 128 靈石）</span>
+          </button>
+          <span class="text-label-sm text-on-surface-variant">確認後立即扣除 60 靈石，解鎖權益雙方即時生效</span>
+        `,
+        isUnlocked: false
+      },
+      2: {
+        banner: `
+          <div class="flex items-center gap-2 text-on-surface">
+            <span class="material-symbols-outlined text-secondary text-[20px]">hourglass_top</span>
+            <span class="text-body-sm"><strong>受邀方視角 (阿紫)</strong>：您已成功授權合盤。目前深度經營洞察正等待發起方解鎖。</span>
+          </div>
+          <span class="text-label-sm px-2.5 py-1 rounded bg-surface-variant text-on-surface-variant shrink-0">等待發起方解鎖</span>
+        `,
+        lockedTitle: '等待發起方 (Wei) 解鎖',
+        lockedDesc: '受邀方界面不提供購買按鈕以避免重複計費。發起方確認解鎖後，您將同步獲得無限制閱讀權限。',
+        actionSlot: `
+          <div class="px-5 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant border border-outline-variant/30 text-body-sm flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[18px]">info</span>
+            <span>受邀方無須付費 · 等待發起方確認解鎖中</span>
+          </div>
+        `,
+        isUnlocked: false
+      },
+      3: {
+        banner: `
+          <div class="flex items-center gap-2 text-secondary">
+            <span class="material-symbols-outlined text-[20px]">check_circle</span>
+            <span class="text-body-sm font-semibold">深度洞察已解鎖：雙方均具備完整閱讀授權 (有效保護至一方撤回止)。</span>
+          </div>
+          <span class="text-label-sm px-2.5 py-1 rounded bg-secondary/10 text-secondary border border-secondary/20 shrink-0">授權有效中</span>
+        `,
+        lockedTitle: '深度關係經營洞察 (已解鎖)',
+        lockedDesc: '',
+        actionSlot: ``,
+        isUnlocked: true
+      },
+      4: {
+        banner: `
+          <div class="flex items-center gap-2 text-primary">
+            <span class="material-symbols-outlined text-[20px]">pending</span>
+            <span class="text-body-sm"><strong>等待對方同意授權中</strong>：合盤邀請鏈接已生成，待阿紫登入並授權出生數據後即刻激活。</span>
+          </div>
+          <button type="button" onclick="openInviteModal()" class="text-label-sm px-2.5 py-1 rounded bg-primary text-on-primary font-semibold shrink-0">重新獲取鏈接</button>
+        `,
+        lockedTitle: '等待對方獨立授權中',
+        lockedDesc: '依據隱私規範，在對方確認同意前，系統嚴禁預排八字或推測性格契合。',
+        actionSlot: `
+          <div class="px-4 py-2 rounded bg-surface-container text-on-surface-variant text-label-sm border border-outline-variant/30">
+            對方尚未確認授權 · 暫無法進行解鎖操作
+          </div>
+        `,
+        isUnlocked: false
+      },
+      5: {
+        banner: `
+          <div class="flex items-center gap-2 text-on-surface-variant">
+            <span class="material-symbols-outlined text-[20px]">archive</span>
+            <span class="text-body-sm"><strong>自合盤歷史唯讀模式</strong>：原雙方帳號已歸併為同一持有者，本合盤轉為歷史存檔，不可重複購買、不可生成新分享。</span>
+          </div>
+          <span class="text-label-sm px-2.5 py-1 rounded bg-surface-variant text-on-surface-variant shrink-0">歷史存檔 · 唯讀</span>
+        `,
+        lockedTitle: '自合盤歷史存檔 (唯讀)',
+        lockedDesc: '由於帳號數據歸併，此記錄僅供個人歷史軌跡查閱。相關付費解鎖通道與分享鏈接已永久封閉。',
+        actionSlot: `
+          <div class="px-4 py-2 rounded bg-surface-container-high text-on-surface-variant/70 text-label-sm border border-outline-variant/20">
+            已封存存檔 · 禁止重複付費或分享
+          </div>
+        `,
+        isUnlocked: false
+      }
+    };
+
+    function setProtoState(stateNum) {
+      currentState = stateNum;
+      
+      // 更新按鈕樣式
+      for (let i = 1; i <= 5; i++) {
+        const btn = document.getElementById(`btn-state-${i}`);
+        if (i === stateNum) {
+          btn.className = "px-2.5 py-1 rounded bg-primary text-on-primary font-semibold shrink-0 transition-colors";
+        } else {
+          btn.className = "px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary shrink-0 transition-colors";
+        }
+      }
+
+      const conf = stateConfig[stateNum];
+      document.getElementById('banner-content').innerHTML = conf.banner;
+      document.getElementById('locked-title').textContent = conf.lockedTitle;
+      document.getElementById('locked-desc').textContent = conf.lockedDesc;
+      document.getElementById('unlock-action-slot').innerHTML = conf.actionSlot;
+
+      const overlay = document.getElementById('locked-overlay');
+      const realContent = document.getElementById('unlocked-real-content');
+
+      if (conf.isUnlocked) {
+        overlay.classList.add('hidden');
+        realContent.classList.remove('hidden');
+      } else {
+        overlay.classList.remove('hidden');
+        realContent.classList.add('hidden');
+      }
+
+      // 自合盤特殊標籤切換
+      const pairLabel = document.getElementById('pair-id-label');
+      if (stateNum === 5) {
+        pairLabel.textContent = "Pair ID: #MD-SELF-ARCHIVE (已封存)";
+      } else if (stateNum === 4) {
+        pairLabel.textContent = "Pair ID: #MD-PENDING (等待授權中)";
+      } else {
+        pairLabel.textContent = "Pair ID: #MD-88219 (授權生效中)";
+      }
+    }
+
+    function triggerUnlock() {
+      // 模擬解鎖成功
+      setProtoState(3);
+    }
+
+    function openHistoryModal() {
+      document.getElementById('history-modal').classList.remove('hidden');
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('history-modal').classList.add('hidden');
+    }
+
+    function openInviteModal() {
+      document.getElementById('invite-modal').classList.remove('hidden');
+    }
+
+    function closeInviteModal() {
+      document.getElementById('invite-modal').classList.add('hidden');
+    }
+
+    function copyInviteLink() {
+      const btn = document.getElementById('btn-copy-link');
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">check</span><span>已複製邀請鏈接</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">content_copy</span><span>複製邀請鏈接</span>`;
+        closeInviteModal();
+      }, 1200);
+    }
+
+    // 初始化狀態 1
+    document.addEventListener('DOMContentLoaded', () => {
+      setProtoState(1);
+    });
+  </script>
+</body></html>

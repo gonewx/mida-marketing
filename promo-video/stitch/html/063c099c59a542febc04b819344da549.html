@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#93000a", "on-surface-variant": "#d0c5af", "surface-container-highest": "#313540", "on-error-container": "#ffdad6", "on-background": "#dfe2f1", "on-primary": "#3c2f00", "tertiary-fixed-dim": "#ffb3ad", "primary-fixed-dim": "#e9c349", "on-secondary": "#003824", "on-surface": "#dfe2f1", "background": "#0f131d", "inverse-on-surface": "#2c303b", "tertiary-container": "#ff968f", "on-tertiary": "#68000a", "on-primary-fixed": "#241a00", "surface-variant": "#313540", "primary": "#f2ca50", "inverse-primary": "#735c00", "primary-container": "#d4af37", "on-primary-container": "#554300", "on-primary-fixed-variant": "#574500", "secondary": "#4edea3", "error": "#ffb4ab", "inverse-surface": "#dfe2f1", "surface-bright": "#353944", "surface-container-lowest": "#0a0e18", "on-error": "#690005", "surface-dim": "#0f131d", "secondary-fixed-dim": "#4edea3", "tertiary-fixed": "#ffdad7", "on-tertiary-container": "#900013", "surface": "#0f131d", "surface-tint": "#e9c349", "on-tertiary-fixed-variant": "#930013", "surface-container-low": "#171b26", "outline-variant": "#4d4635", "primary-fixed": "#ffe088", "on-secondary-container": "#00311f", "outline": "#99907c", "on-tertiary-fixed": "#410004", "secondary-fixed": "#6ffbbe", "on-secondary-fixed": "#002113", "surface-container-high": "#262a35", "on-secondary-fixed-variant": "#005236", "tertiary": "#ffbfba", "surface-container": "#1c1f2a", "secondary-container": "#00a572" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter-desktop": "1.5rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "margin-desktop": "2.5rem", "space-md": "1rem", "gutter": "1rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "headline-md": ["Noto Serif"], "display-lg": ["Noto Serif"], "body-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-sm": ["Noto Serif"], "headline-lg": ["Noto Serif"], "body-sm": ["Plus Jakarta Sans"], "bazi-symbol": ["Noto Serif"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "display-lg-mobile": ["Noto Serif"] }, "fontSize": { "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important;
+}
+#app, main, .min-h-screen, div[class*="min-h-screen"] {
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+</style></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col pt-safe pb-safe selection:bg-primary-container selection:text-on-primary"><!-- 原型狀態演示切換器 (浮動頂部，便於評審快速查驗) -->
+<div class="w-full bg-[#0a0e18] border-b border-[#313540] px-3 py-2 z-50 sticky top-0 backdrop-blur-md bg-opacity-95 text-xs text-[#d0c5af] flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-[#f2ca50]"></span>
+<span class="font-medium text-[#dfe2f1]">覓搭 MiDa 原型狀態切換：</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-[#f2ca50] text-[#241a00] font-semibold text-[11px] transition-colors" id="demo-btn-locked" onclick="setDemoState('locked')">1. 待授權態 (雙路徑/欄位鎖定)</button>
+<button class="px-2.5 py-1 rounded bg-[#1c1f2a] text-[#dfe2f1] hover:bg-[#313540] text-[11px] transition-colors" id="demo-btn-unlocked" onclick="setDemoState('unlocked')">2. 已授權填寫態 (排盤揭示)</button>
+<button class="px-2.5 py-1 rounded bg-[#1c1f2a] text-[#dfe2f1] hover:bg-[#313540] text-[11px] transition-colors" id="demo-btn-loading" onclick="setDemoState('loading')">3. 計算保存中</button>
+<button class="px-2.5 py-1 rounded bg-[#1c1f2a] text-[#dfe2f1] hover:bg-[#313540] text-[11px] transition-colors" id="demo-btn-error" onclick="setDemoState('error')">4. 失敗重試態</button>
+</div>
+</div>
+<main class="flex flex-col relative w-full bg-[#0f131d] min-h-screen max-w-[430px] mx-auto pb-12 shadow-2xl overflow-x-hidden">
+<!-- 頂部導航欄 (統一品牌 覓搭 MiDa & 返回) -->
+<header class="w-full flex items-center justify-between px-4 py-3 border-b border-[#1c1f2a] bg-[#0f131d]/90 backdrop-blur sticky top-[37px] z-40">
+<button aria-label="返回上一頁" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-[#d0c5af] hover:text-[#dfe2f1] hover:bg-[#1c1f2a] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span>
+</button>
+<div class="flex items-center space-x-1.5">
+<span class="text-[#f2ca50] font-bold tracking-wider text-base font-headline-md">覓搭 MiDa</span>
+<span class="text-[#99907c] text-xs font-normal">· 生辰建檔</span>
+</div>
+<button class="text-xs text-[#d0c5af] hover:text-[#f2ca50] flex items-center gap-0.5 px-2 py-1 rounded bg-[#1c1f2a] border border-[#313540]" onclick="openPrivacyModal()" type="button">
+<span class="material-symbols-outlined text-[14px]">help_outline</span>
+<span>授權說明</span>
+</button>
+</header>
+<!-- 頁面主體內容容器 -->
+<div class="flex flex-col w-full px-4 pt-4 space-y-4">
+<!-- 引言卡片 -->
+<div class="relative w-full rounded-xl overflow-hidden bg-[#171b26] border border-[#313540]/60 p-4 shadow-lg">
+<div class="flex items-center space-x-1.5 text-[#f2ca50] mb-1.5">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="text-[11px] font-bold uppercase tracking-widest">Genesis Ritual · 啟元排盤</span>
+</div>
+<h1 class="text-xl font-headline-md font-bold text-[#dfe2f1] tracking-tight mb-1.5">建立專屬生辰命盤</h1>
+<p class="text-xs text-[#d0c5af] leading-relaxed">
+        以生辰年月日時為坐標，推演個人五行氣質與特質底色。為保障隱私安全，敏感生辰資訊需經您獨立授權後始可錄入。
+      </p>
+</div>
+<!-- 前置獨立授權卡片 (依最新規範明確用途與撤回機制，無虛構技術或規格編號) -->
+<section class="w-full rounded-xl bg-[#1c1f2a] border-2 border-[#f2ca50]/50 p-4 shadow-xl relative transition-all" id="auth-consent-card">
+<div class="flex items-start space-x-3">
+<div class="w-10 h-10 rounded-lg bg-[#f2ca50]/15 text-[#f2ca50] flex items-center justify-center shrink-0 border border-[#f2ca50]/30 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<h2 class="text-[15px] font-bold text-[#dfe2f1]">生辰敏感資訊單獨授權告知</h2>
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-[#f2ca50]/20 text-[#f2ca50] border border-[#f2ca50]/30" id="auth-status-badge">待確認授權</span>
+</div>
+<p class="text-xs text-[#d0c5af] leading-relaxed mb-2.5">
+            出生時辰與出生地經緯度屬個人敏感隱私。覓搭僅將其保存於您的專屬帳戶中，用於排盤算法與真太陽時差換算。您可以隨時在「帳戶設定 → 隱私與數據」中撤回授權或一鍵清除。
+          </p>
+<div class="flex items-center text-xs text-[#f2ca50] space-x-1 mb-3">
+<span class="material-symbols-outlined text-[15px]">policy</span>
+<button class="underline underline-offset-2 hover:text-[#ffe088]" onclick="openPrivacyModal()" type="button">查閱《個人敏感資訊保護與排盤授權政策》</button>
+</div>
+</div>
+</div>
+<!-- 勾選框（點擊整條快速勾選） -->
+<div class="flex items-center space-x-3 p-3 rounded-lg bg-[#262a35] border border-[#4d4635] cursor-pointer select-none transition-all active:scale-[0.99]" id="consent-toggle-row" onclick="toggleConsentCheckbox()">
+<div class="w-5 h-5 rounded border border-[#99907c] bg-[#171b26] flex items-center justify-center transition-colors" id="consent-checkbox">
+<span class="material-symbols-outlined text-[16px] text-[#241a00] hidden font-bold" id="consent-checkbox-icon">check</span>
+</div>
+<label class="text-xs text-[#dfe2f1] font-medium flex-1 cursor-pointer pointer-events-none">
+          我已充分知悉並同意單獨授權覓搭採集出生時辰及地點進行命盤推演
+        </label>
+</div>
+<!-- 雙路徑操作按鈕區 (規範要求：主按鈕「同意並授權」，次按鈕「暫不，先瀏覽」不阻斷登錄) -->
+<div class="mt-3.5 pt-3 border-t border-[#313540] flex flex-col sm:flex-row gap-2.5" id="consent-actions-container">
+<button class="flex-1 h-11 rounded-lg bg-[#f2ca50] hover:bg-[#ffe088] active:scale-95 text-[#241a00] font-bold text-sm tracking-wide shadow-md flex items-center justify-center space-x-1.5 transition-transform" id="btn-grant-auth" onclick="handleGrantAuth()" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+<span>同意並授權解鎖填寫</span>
+</button>
+<button class="h-11 px-4 rounded-lg bg-[#262a35] hover:bg-[#313540] active:scale-95 text-[#d0c5af] text-xs font-medium border border-[#313540] flex items-center justify-center space-x-1 transition-all" id="btn-skip-auth" onclick="handleSkipBrowse()" type="button">
+<span>暫不，先瀏覽</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<!-- 已授權狀態提示欄 (已授權時顯示) -->
+<div class="hidden mt-3 p-2.5 rounded-lg bg-[#003824]/60 border border-[#4edea3]/40 flex items-center justify-between text-xs text-[#6ffbbe]" id="consent-granted-bar">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#4edea3]">check_circle</span>
+<span>已完成敏感資訊授權，欄位已解鎖填寫</span>
+</div>
+<button class="text-[11px] underline text-[#d0c5af] hover:text-[#dfe2f1]" onclick="revokeAuth()" type="button">撤回授權</button>
+</div>
+</section>
+<!-- 失敗提示條 (狀態4演示或計算異常時可見) -->
+<div class="hidden p-3 rounded-xl bg-[#93000a]/20 border border-[#ffb4ab]/40 flex items-start space-x-2.5 text-xs text-[#ffb4ab]" id="error-alert-banner">
+<span class="material-symbols-outlined text-[18px] text-[#ffb4ab] mt-0.5 shrink-0">error</span>
+<div class="flex-1">
+<p class="font-semibold text-sm text-[#ffdad6]">排盤資料保存或計算失敗</p>
+<p class="mt-0.5 text-xs opacity-90">網路連線超時或伺服器排盤響應異常，您的授權狀態已妥善保留，請重試。</p>
+<button class="mt-2 px-3 py-1.5 rounded-lg bg-[#f2ca50] text-[#241a00] font-bold text-xs flex items-center space-x-1 active:scale-95" onclick="handleRetrySubmit()" type="button">
+<span class="material-symbols-outlined text-[15px]">replay</span>
+<span>重試排盤計算</span>
+</button>
+</div>
+</div>
+<!-- 敏感輸入表單區域 (包含出生時間、地點、排盤性別) -->
+<div class="flex flex-col space-y-4 w-full relative">
+<!-- 1. 公曆 / 農曆 切換與日期 -->
+<div class="flex flex-col space-y-2 bg-[#1c1f2a] p-3.5 rounded-xl border border-[#313540]/60">
+<div class="flex items-center justify-between">
+<span class="text-sm font-semibold text-[#dfe2f1]">出生日期配置</span>
+<span class="text-[11px] text-[#d0c5af]">年月日時起卦之源</span>
+</div>
+<div class="w-full bg-[#171b26] p-1 rounded-lg flex border border-[#313540]">
+<button class="flex-1 py-1.5 text-center rounded font-medium text-xs transition-all bg-[#f2ca50] text-[#241a00] shadow-sm" id="btn-solar" onclick="selectCalendar('solar')" type="button">公曆 (Solar)</button>
+<button class="flex-1 py-1.5 text-center rounded font-medium text-xs transition-all text-[#d0c5af] hover:text-[#dfe2f1]" id="btn-lunar" onclick="selectCalendar('lunar')" type="button">農曆 (Lunar)</button>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-1">
+<div class="bg-[#262a35] rounded-lg p-2.5 flex flex-col items-center justify-center border border-[#313540]">
+<span class="text-base font-bold text-[#f2ca50]">1998</span>
+<span class="text-[10px] text-[#d0c5af]">年 (戊寅)</span>
+</div>
+<div class="bg-[#262a35] rounded-lg p-2.5 flex flex-col items-center justify-center border border-[#313540]">
+<span class="text-base font-bold text-[#f2ca50]">08</span>
+<span class="text-[10px] text-[#d0c5af]">月 (庚申)</span>
+</div>
+<div class="bg-[#262a35] rounded-lg p-2.5 flex flex-col items-center justify-center border border-[#313540]">
+<span class="text-base font-bold text-[#f2ca50]">15</span>
+<span class="text-[10px] text-[#d0c5af]">日 (甲子)</span>
+</div>
+</div>
+</div>
+<!-- 下方敏感欄位容器 (未授權時覆蓋鎖定遮罩與提示) -->
+<div class="relative space-y-4 rounded-xl transition-all" id="sensitive-fields-container">
+<!-- 鎖定遮罩 (待授權時顯示) -->
+<div class="absolute inset-0 z-30 bg-[#0f131d]/85 backdrop-blur-[2px] rounded-xl flex flex-col items-center justify-center p-6 text-center border-2 border-dashed border-[#f2ca50]/40" id="fields-locked-overlay">
+<div class="w-12 h-12 rounded-full bg-[#1c1f2a] border border-[#f2ca50]/50 flex items-center justify-center text-[#f2ca50] shadow-lg mb-2.5">
+<span class="material-symbols-outlined text-[26px]">lock</span>
+</div>
+<h3 class="text-sm font-bold text-[#dfe2f1] mb-1">敏感欄位已受隱私保護鎖定</h3>
+<p class="text-xs text-[#d0c5af] max-w-[260px] leading-relaxed mb-3">
+            請先在上方閱讀並點選「同意並授權」，即可解鎖出生時辰、地點與排盤性別填寫。
+          </p>
+<button class="px-4 py-2 rounded-lg bg-[#f2ca50] text-[#241a00] font-bold text-xs shadow-md active:scale-95 flex items-center space-x-1" onclick="focusConsentSection()" type="button">
+<span class="material-symbols-outlined text-[15px]">arrow_upward</span>
+<span>前往確認授權</span>
+</button>
+</div>
+<!-- 2. 出生時間 (時辰不確定機制) -->
+<div class="bg-[#1c1f2a] p-3.5 rounded-xl border border-[#313540]/60 space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-xs font-bold text-[#d0c5af] uppercase tracking-wider flex items-center space-x-1">
+<span>出生時間 (Birth Time)</span>
+</label>
+<span class="text-xs text-[#4edea3] flex items-center space-x-1 bg-[#003824]/40 px-2 py-0.5 rounded border border-[#4edea3]/30" id="hour-branch-badge">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span id="hour-branch-text">未時 (13:00 - 15:00)</span>
+</span>
+</div>
+<!-- 精確時間顯示 (時辰確定時顯示) -->
+<div class="bg-[#262a35] rounded-lg p-3.5 flex items-center justify-between border border-[#313540]" id="exact-time-panel">
+<div class="flex items-center space-x-2.5">
+<div class="w-11 h-11 rounded-lg bg-[#313540] flex items-center justify-center text-[#f2ca50] font-headline-md text-xl font-bold border border-[#4d4635]">14</div>
+<span class="font-headline-md text-[#dfe2f1] font-bold text-lg">:</span>
+<div class="w-11 h-11 rounded-lg bg-[#313540] flex items-center justify-center text-[#f2ca50] font-headline-md text-xl font-bold border border-[#4d4635]">30</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-[#f2ca50]">辛未時</div>
+<div class="text-[11px] text-[#d0c5af]">納音：路旁土</div>
+</div>
+</div>
+<!-- 時辰不確定時的精度提示欄 (切換後絕不顯示虛假精確時間數字) -->
+<div class="hidden bg-[#262a35] rounded-lg p-3.5 border border-[#f2ca50]/40 text-left" id="unknown-time-alert">
+<div class="flex items-center space-x-2 text-[#f2ca50] text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>已切換為：時辰不確定（未知時辰）</span>
+</div>
+<p class="text-xs text-[#d0c5af] leading-relaxed">
+              排盤將依「年月日本命三柱」展開深度解析。時柱與晚運部分留待後續明確時補正，絕不隨機捏造偽精確時間。
+            </p>
+</div>
+<!-- 時辰不確定開關 -->
+<div class="bg-[#171b26] p-2.5 rounded-lg flex items-center justify-between border border-[#313540]">
+<div class="flex items-center space-x-2.5">
+<button aria-label="切換時辰不確定開關" class="w-11 h-6 bg-[#313540] rounded-full p-0.5 transition-colors relative flex items-center cursor-pointer" id="unknown-toggle-btn" onclick="toggleTimeUnknown()" type="button">
+<div class="w-5 h-5 rounded-full bg-[#d0c5af] transition-transform transform translate-x-0 shadow-sm" id="unknown-toggle-knob"></div>
+</button>
+<span class="text-xs text-[#dfe2f1] font-medium">時辰不確定 (Unsure of hour)</span>
+</div>
+<span class="text-[11px] px-2 py-0.5 bg-[#262a35] text-[#d0c5af] rounded border border-[#313540]" id="precision-badge">依日柱推演 · 支援補正</span>
+</div>
+</div>
+<!-- 3. 出生地點與真太陽時校準 -->
+<div class="bg-[#1c1f2a] p-3.5 rounded-xl border border-[#313540]/60 space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-bold text-[#d0c5af] uppercase tracking-wider">出生地點與真太陽時</label>
+<span class="text-[11px] text-[#d0c5af]">消除經度時差影響</span>
+</div>
+<div class="bg-[#262a35] rounded-lg p-3 flex flex-col space-y-2 border border-[#313540]">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[#f2ca50] text-[20px]">location_on</span>
+<span class="text-sm text-[#dfe2f1] font-medium">台北市 (Taipei)</span>
+</div>
+<span class="text-xs text-[#d0c5af] bg-[#171b26] px-2 py-0.5 rounded border border-[#313540]">東八區 GMT+8</span>
+</div>
+<div class="flex items-center justify-between bg-[#171b26] px-2.5 py-1.5 rounded border border-[#313540]/60 text-xs">
+<div class="flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-[#4edea3]"></span>
+<span class="text-[#4edea3] font-medium">真太陽時校準已開啟</span>
+</div>
+<span class="text-[#d0c5af]">經度差補正：+02分14秒</span>
+</div>
+</div>
+</div>
+<!-- 4. 排盤性別 -->
+<div class="bg-[#1c1f2a] p-3.5 rounded-xl border border-[#313540]/60 space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="text-xs font-bold text-[#d0c5af] uppercase tracking-wider">排盤性別 (Chart Gender)</label>
+<span class="text-[11px] text-[#d0c5af]">決定大運順逆起算</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="h-12 bg-[#f2ca50] text-[#241a00] rounded-lg flex items-center justify-center space-x-2 font-bold text-sm shadow-md transition-all active:scale-95" id="gender-qian" onclick="selectGender('qian')" type="button">
+<span class="material-symbols-outlined text-[18px]">male</span>
+<span>乾造 (男命)</span>
+</button>
+<button class="h-12 bg-[#262a35] text-[#d0c5af] rounded-lg flex items-center justify-center space-x-2 font-medium text-sm border border-[#313540] transition-all hover:text-[#dfe2f1] active:scale-95" id="gender-kun" onclick="selectGender('kun')" type="button">
+<span class="material-symbols-outlined text-[18px]">female</span>
+<span>坤造 (女命)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 底部主操作區域 -->
+<div class="pt-2 flex flex-col space-y-2.5 items-center">
+<button class="w-full h-12 rounded-lg bg-[#f2ca50] hover:bg-[#ffe088] text-[#241a00] font-headline-sm font-bold text-sm tracking-wide shadow-xl flex items-center justify-center space-x-2 transition-transform active:scale-95 disabled:opacity-50 disabled:pointer-events-none" id="btn-primary-action" onclick="handlePrimaryAction()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="btn-primary-icon">lock_open</span>
+<span id="btn-primary-label">同意並授權 · 解鎖填寫</span>
+</button>
+<div class="flex items-center space-x-1.5 text-[#99907c] text-xs">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>覓搭隱私保護承諾 · 隨時可自個人中心撤銷</span>
+</div>
+</div>
+</div>
+<!-- 隱私條款詳情彈窗 Modal -->
+<div class="fixed inset-0 z-50 bg-[#0a0e18]/80 backdrop-blur-sm hidden flex items-end sm:items-center justify-center p-0 sm:p-4" id="privacy-modal">
+<div class="w-full max-w-[420px] bg-[#1c1f2a] border border-[#313540] rounded-t-2xl sm:rounded-2xl p-5 shadow-2xl flex flex-col max-h-[85vh] overflow-y-auto text-[#dfe2f1]">
+<div class="flex items-center justify-between pb-3 border-b border-[#313540]">
+<div class="flex items-center space-x-2 text-[#f2ca50]">
+<span class="material-symbols-outlined text-[20px]">security</span>
+<h4 class="font-bold text-sm">覓搭生辰敏感資訊授權說明</h4>
+</div>
+<button class="text-[#d0c5af] hover:text-[#dfe2f1] p-1" onclick="closePrivacyModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="py-3 text-xs text-[#d0c5af] space-y-3 leading-relaxed">
+<div>
+<strong class="text-[#dfe2f1] block mb-1">1. 資訊收集範圍與最小化原則</strong>
+          僅收集您所輸入的出生公曆/農曆年月日、時辰及出生城市經緯度，不索取任何非必要個人通訊錄或設備隱私權限。
+        </div>
+<div>
+<strong class="text-[#dfe2f1] block mb-1">2. 保存用途與演算法規範</strong>
+          收集之數據專供本系統推演四柱八字、真太陽時經度換算與命理趨勢分析，絕不向任何第三方機構進行商業授信或畫像變現。
+        </div>
+<div>
+<strong class="text-[#dfe2f1] block mb-1">3. 用戶自主權與撤回刪除機制</strong>
+          您可隨時於應用內「我的 → 隱私與安全」一鍵關閉排盤記錄並徹底刪除已存生辰檔，撤回授權不影響其他基礎功能使用。
+        </div>
+</div>
+<div class="pt-3 border-t border-[#313540] flex space-x-2">
+<button class="w-full py-2.5 rounded-lg bg-[#f2ca50] text-[#241a00] font-bold text-xs active:scale-95" onclick="closePrivacyModal()" type="button">我已理解並返回</button>
+</div>
+</div>
+</div>
+</main>
+<!-- 交互邏輯與原型狀態切換腳本 -->
+<script>
+  var currentState = 'locked'; // 'locked' | 'unlocked' | 'loading' | 'error'
+  var isConsentChecked = false;
+  var isTimeUnknown = false;
+  var currentCalendar = 'solar';
+  var currentGender = 'qian';
+
+  function setDemoState(state) {
+    currentState = state;
+    var buttons = ['locked', 'unlocked', 'loading', 'error'];
+    buttons.forEach(function(b) {
+      var btn = document.getElementById('demo-btn-' + b);
+      if (btn) {
+        if (b === state) {
+          btn.className = 'px-2.5 py-1 rounded bg-[#f2ca50] text-[#241a00] font-semibold text-[11px] transition-colors';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded bg-[#1c1f2a] text-[#dfe2f1] hover:bg-[#313540] text-[11px] transition-colors';
+        }
+      }
+    });
+
+    var overlay = document.getElementById('fields-locked-overlay');
+    var consentCard = document.getElementById('auth-consent-card');
+    var consentActions = document.getElementById('consent-actions-container');
+    var consentGrantedBar = document.getElementById('consent-granted-bar');
+    var consentCheckbox = document.getElementById('consent-checkbox');
+    var consentCheckboxIcon = document.getElementById('consent-checkbox-icon');
+    var authStatusBadge = document.getElementById('auth-status-badge');
+    var primaryBtn = document.getElementById('btn-primary-action');
+    var primaryIcon = document.getElementById('btn-primary-icon');
+    var primaryLabel = document.getElementById('btn-primary-label');
+    var errorBanner = document.getElementById('error-alert-banner');
+
+    // 狀態分支處理
+    if (state === 'locked') {
+      // 1. 待授權態
+      isConsentChecked = false;
+      overlay.classList.remove('hidden');
+      consentActions.classList.remove('hidden');
+      consentGrantedBar.classList.add('hidden');
+      errorBanner.classList.add('hidden');
+      consentCheckbox.classList.remove('bg-[#f2ca50]', 'border-[#f2ca50]');
+      consentCheckbox.classList.add('bg-[#171b26]', 'border-[#99907c]');
+      consentCheckboxIcon.classList.add('hidden');
+      authStatusBadge.innerText = '待確認授權';
+      authStatusBadge.className = 'text-[10px] font-medium px-2 py-0.5 rounded bg-[#f2ca50]/20 text-[#f2ca50] border border-[#f2ca50]/30';
+      primaryBtn.disabled = false;
+      primaryBtn.className = 'w-full h-12 rounded-lg bg-[#f2ca50] hover:bg-[#ffe088] text-[#241a00] font-headline-sm font-bold text-sm tracking-wide shadow-xl flex items-center justify-center space-x-2 transition-transform active:scale-95';
+      primaryIcon.innerText = 'lock_open';
+      primaryLabel.innerText = '同意並授權 · 解鎖填寫';
+    } else if (state === 'unlocked') {
+      // 2. 已授權填寫態
+      isConsentChecked = true;
+      overlay.classList.add('hidden');
+      consentActions.classList.add('hidden');
+      consentGrantedBar.classList.remove('hidden');
+      errorBanner.classList.add('hidden');
+      consentCheckbox.classList.add('bg-[#f2ca50]', 'border-[#f2ca50]');
+      consentCheckbox.classList.remove('bg-[#171b26]', 'border-[#99907c]');
+      consentCheckboxIcon.classList.remove('hidden');
+      authStatusBadge.innerText = '已單獨授權';
+      authStatusBadge.className = 'text-[10px] font-medium px-2 py-0.5 rounded bg-[#003824] text-[#4edea3] border border-[#4edea3]/40';
+      primaryBtn.disabled = false;
+      primaryBtn.className = 'w-full h-12 rounded-lg bg-[#f2ca50] hover:bg-[#ffe088] text-[#241a00] font-headline-sm font-bold text-sm tracking-wide shadow-xl flex items-center justify-center space-x-2 transition-transform active:scale-95';
+      primaryIcon.innerText = 'stars';
+      primaryLabel.innerText = '啟動排盤 · 揭示命書';
+    } else if (state === 'loading') {
+      // 3. 計算保存中
+      overlay.classList.add('hidden');
+      consentActions.classList.add('hidden');
+      consentGrantedBar.classList.remove('hidden');
+      errorBanner.classList.add('hidden');
+      primaryBtn.disabled = true;
+      primaryBtn.className = 'w-full h-12 rounded-lg bg-[#d4af37]/70 text-[#241a00] font-headline-sm font-bold text-sm tracking-wide flex items-center justify-center space-x-2 cursor-wait';
+      primaryIcon.className = 'material-symbols-outlined text-[20px] animate-spin';
+      primaryIcon.innerText = 'progress_activity';
+      primaryLabel.innerText = '正在校準真太陽時並演算命盤...';
+    } else if (state === 'error') {
+      // 4. 失敗重試態
+      overlay.classList.add('hidden');
+      consentActions.classList.add('hidden');
+      consentGrantedBar.classList.remove('hidden');
+      errorBanner.classList.remove('hidden');
+      primaryBtn.disabled = false;
+      primaryBtn.className = 'w-full h-12 rounded-lg bg-[#f2ca50] hover:bg-[#ffe088] text-[#241a00] font-headline-sm font-bold text-sm tracking-wide shadow-xl flex items-center justify-center space-x-2 transition-transform active:scale-95';
+      primaryIcon.className = 'material-symbols-outlined text-[20px]';
+      primaryIcon.innerText = 'replay';
+      primaryLabel.innerText = '重新發起排盤請求';
+    }
+  }
+
+  function toggleConsentCheckbox() {
+    if (currentState === 'locked') {
+      isConsentChecked = !isConsentChecked;
+      var box = document.getElementById('consent-checkbox');
+      var icon = document.getElementById('consent-checkbox-icon');
+      if (isConsentChecked) {
+        box.classList.add('bg-[#f2ca50]', 'border-[#f2ca50]');
+        box.classList.remove('bg-[#171b26]', 'border-[#99907c]');
+        icon.classList.remove('hidden');
+      } else {
+        box.classList.remove('bg-[#f2ca50]', 'border-[#f2ca50]');
+        box.classList.add('bg-[#171b26]', 'border-[#99907c]');
+        icon.classList.add('hidden');
+      }
+    }
+  }
+
+  function handleGrantAuth() {
+    isConsentChecked = true;
+    setDemoState('unlocked');
+  }
+
+  function revokeAuth() {
+    setDemoState('locked');
+  }
+
+  function handleSkipBrowse() {
+    alert('已為您切換至【先瀏覽模式】。保持登錄狀態，生辰檔案暫未建立，您可在後續隨時於帳戶中心補全。即將進入首頁。');
+  }
+
+  function focusConsentSection() {
+    var card = document.getElementById('auth-consent-card');
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('ring-2', 'ring-[#f2ca50]');
+      setTimeout(function() {
+        card.classList.remove('ring-2', 'ring-[#f2ca50]');
+      }, 1000);
+    }
+  }
+
+  function toggleTimeUnknown() {
+    isTimeUnknown = !isTimeUnknown;
+    var toggleBtn = document.getElementById('unknown-toggle-btn');
+    var knob = document.getElementById('unknown-toggle-knob');
+    var exactPanel = document.getElementById('exact-time-panel');
+    var alertPanel = document.getElementById('unknown-time-alert');
+    var badge = document.getElementById('hour-branch-badge');
+    var badgeText = document.getElementById('hour-branch-text');
+    var precisionBadge = document.getElementById('precision-badge');
+
+    if (isTimeUnknown) {
+      toggleBtn.classList.remove('bg-[#313540]');
+      toggleBtn.classList.add('bg-[#f2ca50]');
+      knob.classList.remove('translate-x-0', 'bg-[#d0c5af]');
+      knob.classList.add('translate-x-5', 'bg-[#241a00]');
+      exactPanel.classList.add('hidden');
+      alertPanel.classList.remove('hidden');
+      badgeText.innerText = '時辰未知 (日柱起盤)';
+      badge.className = 'text-xs text-[#d0c5af] flex items-center space-x-1 bg-[#171b26] px-2 py-0.5 rounded border border-[#313540]';
+      precisionBadge.innerText = '已開啟未知補正機制';
+    } else {
+      toggleBtn.classList.add('bg-[#313540]');
+      toggleBtn.classList.remove('bg-[#f2ca50]');
+      knob.classList.add('translate-x-0', 'bg-[#d0c5af]');
+      knob.classList.remove('translate-x-5', 'bg-[#241a00]');
+      exactPanel.classList.remove('hidden');
+      alertPanel.classList.add('hidden');
+      badgeText.innerText = '未時 (13:00 - 15:00)';
+      badge.className = 'text-xs text-[#4edea3] flex items-center space-x-1 bg-[#003824]/40 px-2 py-0.5 rounded border border-[#4edea3]/30';
+      precisionBadge.innerText = '依日柱推演 · 支援補正';
+    }
+  }
+
+  function selectCalendar(type) {
+    currentCalendar = type;
+    var btnSolar = document.getElementById('btn-solar');
+    var btnLunar = document.getElementById('btn-lunar');
+    if (type === 'solar') {
+      btnSolar.className = 'flex-1 py-1.5 text-center rounded font-medium text-xs transition-all bg-[#f2ca50] text-[#241a00] shadow-sm';
+      btnLunar.className = 'flex-1 py-1.5 text-center rounded font-medium text-xs transition-all text-[#d0c5af] hover:text-[#dfe2f1]';
+    } else {
+      btnLunar.className = 'flex-1 py-1.5 text-center rounded font-medium text-xs transition-all bg-[#f2ca50] text-[#241a00] shadow-sm';
+      btnSolar.className = 'flex-1 py-1.5 text-center rounded font-medium text-xs transition-all text-[#d0c5af] hover:text-[#dfe2f1]';
+    }
+  }
+
+  function selectGender(gender) {
+    currentGender = gender;
+    var qian = document.getElementById('gender-qian');
+    var kun = document.getElementById('gender-kun');
+    if (gender === 'qian') {
+      qian.className = 'h-12 bg-[#f2ca50] text-[#241a00] rounded-lg flex items-center justify-center space-x-2 font-bold text-sm shadow-md transition-all active:scale-95';
+      kun.className = 'h-12 bg-[#262a35] text-[#d0c5af] rounded-lg flex items-center justify-center space-x-2 font-medium text-sm border border-[#313540] transition-all hover:text-[#dfe2f1] active:scale-95';
+    } else {
+      kun.className = 'h-12 bg-[#f2ca50] text-[#241a00] rounded-lg flex items-center justify-center space-x-2 font-bold text-sm shadow-md transition-all active:scale-95';
+      qian.className = 'h-12 bg-[#262a35] text-[#d0c5af] rounded-lg flex items-center justify-center space-x-2 font-medium text-sm border border-[#313540] transition-all hover:text-[#dfe2f1] active:scale-95';
+    }
+  }
+
+  function handlePrimaryAction() {
+    if (currentState === 'locked') {
+      handleGrantAuth();
+    } else if (currentState === 'unlocked' || currentState === 'error') {
+      setDemoState('loading');
+      setTimeout(function() {
+        setDemoState('unlocked');
+        alert('🎉 排盤演化完成！已進入命盤揭示章節。');
+      }, 1500);
+    }
+  }
+
+  function handleRetrySubmit() {
+    setDemoState('loading');
+    setTimeout(function() {
+      setDemoState('unlocked');
+      alert('重新計算成功！排盤已更新。');
+    }, 1200);
+  }
+
+  function openPrivacyModal() {
+    document.getElementById('privacy-modal').classList.remove('hidden');
+  }
+
+  function closePrivacyModal() {
+    document.getElementById('privacy-modal').classList.add('hidden');
+  }
+
+  // 初始化默認在 1. 待授權態
+  setDemoState('locked');
+</script></body></html>

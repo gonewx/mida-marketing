@@ -1,0 +1,17 @@
+{
+  "name": "mida-promo-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "stitch": "NODE_USE_ENV_PROXY=1 node scripts/render-stitch.mjs",
+    "music": "python3 scripts/music.py",
+    "render": "NODE_USE_ENV_PROXY=1 node scripts/render-video.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.9",
+    "playwright": "1.56.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}

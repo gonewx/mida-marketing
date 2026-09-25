@@ -1,0 +1,455 @@
+<!DOCTYPE html><html class="dark stitch-anim-fade-in" lang="zh-Hant" style="height: auto; min-height: 100% !important;" data-stitch-orig-opacity="1"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#003824", "on-primary-fixed-variant": "#574500", "outline-variant": "#4d4635", "on-primary-container": "#554300", "tertiary-fixed": "#ffdad7", "primary-container": "#d4af37", "surface-variant": "#313540", "tertiary": "#ffbfba", "on-secondary-container": "#00311f", "inverse-primary": "#735c00", "surface-container": "#1c1f2a", "surface-tint": "#e9c349", "on-surface": "#dfe2f1", "outline": "#99907c", "surface-dim": "#0f131d", "surface-bright": "#353944", "on-surface-variant": "#d0c5af", "tertiary-fixed-dim": "#ffb3ad", "on-background": "#dfe2f1", "on-tertiary-container": "#900013", "secondary-container": "#00a572", "on-secondary-fixed": "#002113", "on-error": "#690005", "error-container": "#93000a", "surface": "#0f131d", "surface-container-high": "#262a35", "primary-fixed": "#ffe088", "on-tertiary-fixed": "#410004", "on-error-container": "#ffdad6", "surface-container-low": "#171b26", "tertiary-container": "#ff968f", "on-primary": "#3c2f00", "inverse-on-surface": "#2c303b", "on-secondary-fixed-variant": "#005236", "surface-container-highest": "#313540", "secondary-fixed-dim": "#4edea3", "inverse-surface": "#dfe2f1", "background": "#0f131d", "on-tertiary-fixed-variant": "#930013", "surface-container-lowest": "#0a0e18", "primary-fixed-dim": "#e9c349", "error": "#ffb4ab", "on-primary-fixed": "#241a00", "on-tertiary": "#68000a", "primary": "#f2ca50", "secondary": "#4edea3", "secondary-fixed": "#6ffbbe" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "gutter": "1rem", "margin": "1.25rem", "gutter-desktop": "1.5rem", "margin-desktop": "2.5rem", "space-sm": "0.5rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Noto Serif"], "bazi-symbol": ["Noto Serif"], "label-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Noto Serif"], "headline-md": ["Noto Serif"], "headline-lg": ["Noto Serif"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-lg": ["Noto Serif"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }], "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131d;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+html, body {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  position: relative !important;
+}
+#app, main, .min-h-screen, div[class*="min-h-screen"] {
+  min-height: 100vh !important;
+  height: auto !important;
+  overflow-y: visible !important;
+}
+</style></head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen" style="background-color: rgb(15, 19, 29); color: rgb(248, 250, 252); min-height: 100vh !important; height: auto !important; overflow-y: auto !important;"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="覓搭 MiDa 專屬星環標識" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoZ1xH5uPWJ1eLzb1-BU9DOWtPWu4QKsJMEMy2dvG62CBQLoeO1HXaAfl0RvueAgLc8GsjGFbTeckH3l6t-xjHZWDJ2grJpe_E7TiWvwD4AUioDU3g72l-grIZMnouXk8Gxrhxuvmp6NMbbLLnSNGNO7qTlSIvh8Ew4YWQiiAVrrkdMoQMRJdD3fsUg7wBjORjZWwXBcy0cqxFP_dxUluAM1IbSj9TpuTz89fGRV0UugsaKcKsuLXL"><span class="font-headline-sm text-headline-sm text-primary tracking-wide"><span style="letter-spacing: -0.45px; white-space: nowrap; background-color: rgba(15, 19, 29, 0.85);" class="">覓搭 MiDa</span></span><span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline ml-space-xs">Destiny Book</span></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="material-symbols-outlined text-primary text-[18px]">diamond</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">128</span></div><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="material-symbols-outlined text-secondary text-[18px]">confirmation_number</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">3</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface" style="padding-bottom: 8rem; min-height: 100%; overflow: visible; height: auto !important;"><div class="flex flex-col w-full px-margin pb-space-xl gap-space-lg">
+<!-- Ambient Glow Effects (Top & Mid backdrop) -->
+<div class="relative w-full">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 w-72 h-44 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-80 right-2 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+</div>
+<!-- Perspective Switch Segment -->
+<section class="w-full flex flex-col gap-space-xs">
+<div class="p-1 rounded-xl bg-surface-container flex items-center shadow-md">
+<button class="flex-1 py-2 px-space-sm rounded-lg bg-surface-bright text-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-all shadow-sm" id="tab-bazi" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span class="">八字視角</span>
+</button>
+<button class="flex-1 py-2 px-space-sm rounded-lg text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-all flex items-center justify-center gap-space-xs" id="tab-astro" type="button">
+<span class="material-symbols-outlined text-[18px]">planet</span>
+<span class="">占星視角</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-[10px] font-label-sm text-primary">Beta</span>
+</button>
+</div>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant/70 tracking-widest pt-1">
+      傳統東方玄學體系與現代量化認知之交匯
+    </p>
+</section>
+<!-- Editorial Visual Hook Card -->
+<div class="relative w-full h-36 rounded-xl overflow-hidden bg-surface-container-high shadow-lg flex items-end p-space-md">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A mystical deep navy and gold celestial background with traditional Chinese celestial charts, subtle starlight constellations, and elegant ethereal golden dust swirls representing personal destiny alignment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVrLtGdWdE6sQA2_4227PCzVdyJDk4vyk2gawAmQiTkm3Si2Ckt84Ck16mfs8d6HEAtP1phFZSpdU_ky3YfMPAwZuXBfQkesybTMurZl0qrydnH1d02-yt7qIJ0lPvITwFwpjDrv5RnnHmb_RsWd15K0Grf0mgnWL46XAuwe4HNAJUGYV3sM8nmzB4Gh8GMH6zJF9_kx6NeNFqxADkskMMuc20DYSh7Yzg3U7ewSANBnP3tqau1j7F')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/70 to-transparent"></div>
+<div class="relative z-10 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">auto_awesome</span>
+        NATAL DESTINY MATRIX · 命格本原
+      </span>
+<h2 class="font-headline-md text-headline-md text-on-surface">庚金生夏 · 劍鋒粹火</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">天干三透重金，得坐下午火煉化，自成大器而鋒銳內斂。</p>
+</div>
+</div>
+<!-- Professional Chart Anchor (chart-pro) -->
+<section class="w-full rounded-xl bg-surface-container-high/90 backdrop-blur-xl p-space-md flex flex-col gap-space-md shadow-xl relative overflow-hidden">
+<!-- Top Header: Day Master Highlight & Metadata -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-primary-container/20 text-primary font-label-sm text-label-sm font-semibold">日主元神</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">庚金 · 生於午月</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          格局定性：<span class="text-on-surface font-semibold">正官格</span> · 總體氣候：<span class="text-secondary font-semibold">身強體健</span>
+</p>
+</div>
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary hover:bg-surface-bright transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+<!-- Four Pillars Matrix Container -->
+<div class="w-full bg-surface-container-lowest/80 rounded-lg p-space-sm flex flex-col gap-space-xs">
+<!-- Column Labels -->
+<div class="grid grid-cols-4 text-center py-1">
+<div class="font-label-sm text-label-sm text-on-surface-variant">時柱 (外境)</div>
+<div class="font-label-sm text-label-sm text-primary font-bold">日柱 (本元)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">月柱 (天命)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">年柱 (祖蔭)</div>
+</div>
+<!-- Heavenly Stems (天干) -->
+<div class="grid grid-cols-4 gap-1.5 text-center">
+<!-- 時柱天干: 辛 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">劫財</span>
+<span class="font-bazi-symbol text-bazi-symbol text-primary-fixed">辛</span>
+<span class="font-label-sm text-[10px] text-primary-fixed/80 px-1 rounded bg-primary-fixed/10">陰金</span>
+</div>
+<!-- 日柱天干: 庚 (Day Master Focus) -->
+<div class="p-2 rounded-md bg-primary-container/25 flex flex-col items-center gap-1 shadow-sm relative">
+<span class="absolute -top-1 right-1 flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">元男</span>
+<span class="font-bazi-symbol text-bazi-symbol text-primary font-bold">庚</span>
+<span class="font-label-sm text-[10px] text-primary px-1 rounded bg-primary/20">陽金</span>
+</div>
+<!-- 月柱天干: 庚 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">比肩</span>
+<span class="font-bazi-symbol text-bazi-symbol text-primary-fixed">庚</span>
+<span class="font-label-sm text-[10px] text-primary-fixed/80 px-1 rounded bg-primary-fixed/10">陽金</span>
+</div>
+<!-- 年柱天干: 戊 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">偏印</span>
+<span class="font-bazi-symbol text-bazi-symbol text-[#eab308]">戊</span>
+<span class="font-label-sm text-[10px] text-[#eab308]/80 px-1 rounded bg-[#eab308]/10">陽土</span>
+</div>
+</div>
+<!-- Earthly Branches (地支) -->
+<div class="grid grid-cols-4 gap-1.5 text-center mt-1">
+<!-- 時柱地支: 未 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-bazi-symbol text-bazi-symbol text-[#eab308]">未</span>
+<span class="font-label-sm text-[10px] text-[#eab308]/80 px-1 rounded bg-[#eab308]/10">陰土</span>
+<div class="flex flex-col gap-0.5 pt-1 text-on-surface-variant font-label-sm text-[10px] leading-tight">
+<span class="">乙 丁 己</span>
+<span class="text-on-surface-variant/60">財 · 印 · 傷</span>
+</div>
+</div>
+<!-- 日柱地支: 午 -->
+<div class="p-2 rounded-md bg-primary-container/15 flex flex-col items-center gap-1 shadow-sm">
+<span class="font-bazi-symbol text-bazi-symbol text-tertiary">午</span>
+<span class="font-label-sm text-[10px] text-tertiary px-1 rounded bg-tertiary/10">陽火</span>
+<div class="flex flex-col gap-0.5 pt-1 text-on-surface-variant font-label-sm text-[10px] leading-tight">
+<span class="">丁 己</span>
+<span class="text-tertiary/80 font-medium">官 · 印</span>
+</div>
+</div>
+<!-- 月柱地支: 申 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-bazi-symbol text-bazi-symbol text-primary-fixed">申</span>
+<span class="font-label-sm text-[10px] text-primary-fixed/80 px-1 rounded bg-primary-fixed/10">陽金</span>
+<div class="flex flex-col gap-0.5 pt-1 text-on-surface-variant font-label-sm text-[10px] leading-tight">
+<span class="">庚 壬 戊</span>
+<span class="text-on-surface-variant/60">比 · 食 · 梟</span>
+</div>
+</div>
+<!-- 年柱地支: 寅 -->
+<div class="p-2 rounded-md bg-surface-container flex flex-col items-center gap-1 shadow-sm">
+<span class="font-bazi-symbol text-bazi-symbol text-secondary">寅</span>
+<span class="font-label-sm text-[10px] text-secondary/80 px-1 rounded bg-secondary/10">陽木</span>
+<div class="flex flex-col gap-0.5 pt-1 text-on-surface-variant font-label-sm text-[10px] leading-tight">
+<span class="">甲 丙 戊</span>
+<span class="text-on-surface-variant/60">財 · 殺 · 梟</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Five Elements Legend & Distribution -->
+<div class="flex flex-col gap-space-xs pt-1">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm">五行局勢佔比與平衡度</span>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 font-label-sm text-[11px]"><span class="w-2 h-2 rounded-full bg-primary-fixed"></span>金 35%</span>
+<span class="flex items-center gap-1 font-label-sm text-[11px]"><span class="w-2 h-2 rounded-full bg-tertiary"></span>火 25%</span>
+<span class="flex items-center gap-1 font-label-sm text-[11px]"><span class="w-2 h-2 rounded-full bg-secondary"></span>木 15%</span>
+<span class="flex items-center gap-1 font-label-sm text-[11px]"><span class="w-2 h-2 rounded-full bg-[#eab308]"></span>土 15%</span>
+<span class="flex items-center gap-1 font-label-sm text-[11px]"><span class="w-2 h-2 rounded-full bg-[#38bdf8]"></span>水 10%</span>
+</div>
+</div>
+<!-- Segmented Bar -->
+<div class="w-full h-2.5 rounded-full bg-surface-container flex overflow-hidden p-0.5 gap-0.5">
+<div class="h-full rounded-l-full bg-primary-fixed" style="width: 35%;"></div>
+<div class="h-full bg-tertiary" style="width: 25%;"></div>
+<div class="h-full bg-secondary" style="width: 15%;"></div>
+<div class="h-full bg-[#eab308]" style="width: 15%;"></div>
+<div class="h-full rounded-r-full bg-[#38bdf8]" style="width: 10%;"></div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant/80 px-1 pt-0.5">
+<span class="">喜用神：<strong class="text-tertiary font-semibold">木 · 火</strong></span>
+<span class="">仇忌神：<strong class="text-primary-fixed font-semibold">金 · 土</strong></span>
+<span class="text-secondary font-medium">調候：得令</span>
+</div>
+</div>
+<!-- Verification Note Badge -->
+<div class="flex items-center justify-center gap-1.5 p-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm text-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span class="">這張盤是一切解讀的根基 · 確定性排盤引擎運算 · 非AI虛構</span>
+</div>
+</section>
+<!-- Section Header: Chapter Table of Contents -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase">ARCHIVE CONTENT</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">八字本命卷 · 完整八章</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+      已研讀 2 / 8
+    </span>
+</div>
+<!-- Chapters List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Chapter 1: Unlocked & Read -->
+<div class="p-space-md rounded-xl bg-surface-container-high/70 hover:bg-surface-container-high transition-colors flex flex-col gap-2 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold">章節 01</span>
+<span class="flex items-center gap-0.5 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 已閱讀
+          </span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] flex items-center gap-1">
+          依據：日主庚金
+          <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">性格底色 · 鏡中本真</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+          庚金帶煞，剛毅銳利卻懷赤子之心。你如何對待邊界感，以及深層自我對秩序與承諾的執著。
+        </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary font-medium">免費開放</span>
+<button class="text-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5 hover:underline" type="button">
+          重溫章節 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Chapter 2: Unlocked & Read -->
+<div class="p-space-md rounded-xl bg-surface-container-high/70 hover:bg-surface-container-high transition-colors flex flex-col gap-2 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold">章節 02</span>
+<span class="flex items-center gap-0.5 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 已閱讀
+          </span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+          依據：正官合月
+          <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">天賦格局 · 潛能開顯</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+          午火冶煉金石，適合在體系變動中建立制度。剖析你的事業核心資產與領導魄力由何而發。
+        </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary font-medium">免費開放</span>
+<button class="text-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5 hover:underline" type="button">
+          重溫章節 <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Chapter 3: Unlocked & Unread -->
+<div class="p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-colors flex flex-col gap-2 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary font-label-sm text-label-sm font-semibold">章節 03</span>
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[10px] font-bold">新解讀</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[11px] flex items-center gap-1">
+          依據：五行水弱
+          <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">身心的補給 · 五行養生能量</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+          火旺金焦之氣候對呼吸道、睡眠及情緒燃盡的真實映射，附專屬調神養生起居指南。
+        </p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary font-medium">免費開放</span>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 hover:brightness-110 shadow-sm" type="button">
+<span class="">開始閱讀</span>
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+</button>
+</div>
+</div>
+<!-- Chapter 4: Locked -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 flex flex-col gap-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">章節 04</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+          未解鎖
+        </span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant">關係模式 · 情感防衛與依戀</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 pt-1 line-clamp-2">
+          配偶宮坐午火官星：如何在親密關係中卸下防衛心機，解讀對伴侶高標準背後的安全感需求。
+        </p>
+</div>
+</div>
+<!-- Chapter 5: Locked -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 flex flex-col gap-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">章節 05</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+          未解鎖
+        </span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant">財富的形狀 · 傷官生財與資產流向</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 pt-1 line-clamp-2">
+          寅木正財藏於年支，時柱未土收庫：偏財機遇、創業主軸與終身資產留存的最佳策略。
+        </p>
+</div>
+</div>
+<!-- Chapter 6: Locked -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 flex flex-col gap-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">章節 06</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+          未解鎖
+        </span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant">親密的節奏 · 正緣特質與婚緣時機</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 pt-1 line-clamp-2">
+          命中契合者的八字用神標籤、初遇場景推演及近年（2026-2028）最強動婚天象解析。
+        </p>
+</div>
+</div>
+<!-- Chapter 7: Locked -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 flex flex-col gap-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">章節 07</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+          未解鎖
+        </span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant">社交與貴人 · 十神呼應網</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 pt-1 line-clamp-2">
+          月支申金比肩為同道，戊土偏印為指路明燈。透析職場與社會圈中最能托舉你的命格群體。
+        </p>
+</div>
+</div>
+<!-- Chapter 8: Locked -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 flex flex-col gap-2 opacity-85">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">章節 08</span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">lock</span>
+          未解鎖
+        </span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface-variant">流年與節奏 · 未來大運起伏</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 pt-1 line-clamp-2">
+          十年一大運，五年一轉折。未來十年間重要年份的吉凶避險清單與人生波段最佳踩點。
+        </p>
+</div>
+</div>
+</div>
+<!-- Version Unlock Card (FR-27) -->
+<section class="w-full rounded-2xl bg-gradient-to-b from-surface-container-high via-surface-container to-surface-container-low p-space-lg shadow-2xl relative overflow-hidden flex flex-col gap-space-md">
+<!-- Decorative Ring Accents -->
+<div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm font-semibold">
+            版本 v2026.1
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">深度論命典藏</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">解鎖完整八字命書</h3>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+</div>
+</div>
+<!-- Feature Checklist -->
+<div class="flex flex-col gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="">解鎖全本 8 萬字深度拆解及後續章節更新</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="">命盤專屬吉凶流年日曆與每月開運提示</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="">合盤配對權限升級：解鎖 3 位深度合盤席位</span>
+</div>
+</div>
+<!-- Price & Wallet Status Module -->
+<div class="rounded-xl bg-surface-container-lowest/90 p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">解鎖所需代幣</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">150</span>
+<span class="font-label-lg text-label-lg text-primary font-medium">靈石</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant">當前靈石餘額</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">diamond</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">128</span>
+<span class="font-label-sm text-label-sm text-error font-medium">(差 22)</span>
+</div>
+</div>
+</div>
+<!-- Action Button (Insufficient Balance State) -->
+<button class="w-full py-3.5 px-space-md rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:brightness-105 active:scale-[0.99] transition-all" id="btn-recharge-unlock" type="button">
+<span class="material-symbols-outlined text-[20px]">add_card</span>
+<span class="">補充 22 靈石並立即解鎖</span>
+</button>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+          解鎖後此版本永久回看 · 評分永遠免費
+        </span>
+<a class="text-primary hover:underline flex items-center" href="#">
+          邀請好友獲深讀券 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple Tab Interaction
+  const tabBazi = document.getElementById('tab-bazi');
+  const tabAstro = document.getElementById('tab-astro');
+
+  if (tabBazi && tabAstro) {
+    tabAstro.addEventListener('click', () => {
+      alert('占星視角即將推出，已為您預約新曆星盤演算通道。');
+    });
+  }
+
+  // Recharge CTA Feedback
+  const unlockBtn = document.getElementById('btn-recharge-unlock');
+  if (unlockBtn) {
+    unlockBtn.addEventListener('click', () => {
+      unlockBtn.classList.add('opacity-90');
+      setTimeout(() => {
+        alert('導向靈石補充中心：精選補給「25 靈石特惠包」');
+        unlockBtn.classList.remove('opacity-90');
+      }, 150);
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-sm"><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="today" href="#"><span class="material-symbols-outlined text-[22px]">explore</span><span class="font-label-sm text-label-sm">今日</span></a><a aria-current="page" class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center gap-1 transition-colors text-primary font-semibold" data-path="destiny-book" href="#"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="font-label-sm text-label-sm">命書</span></a><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="synastry-match" href="#"><span class="material-symbols-outlined text-[22px]">all_inclusive</span><span class="font-label-sm text-label-sm">合盤</span></a><a class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">account_circle</span><span class="font-label-sm text-label-sm">我</span></a></div></nav>
+
+
+
+
+
+
+
+
+
+<div id="snapdom-measure-slot" aria-hidden="true" style="position: absolute; left: -99999px; top: 0px; width: 0px; height: 0px; overflow: hidden; opacity: 0; pointer-events: none; contain: size layout style;"></div></body></html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-TW"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0f131d;color:#dfe2f1;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline":"#99907c","on-primary-fixed":"#241a00","on-secondary-fixed":"#002113","surface":"#0f131d","primary-fixed-dim":"#e9c349","secondary-fixed":"#6ffbbe","surface-container-highest":"#313540","on-surface":"#dfe2f1","surface-tint":"#e9c349","secondary-container":"#00a572","primary-container":"#d4af37","secondary":"#4edea3","error-container":"#93000a","background":"#0f131d","on-primary":"#3c2f00","on-surface-variant":"#d0c5af","surface-container-high":"#262a35","primary":"#f2ca50","tertiary":"#ffbfba","inverse-on-surface":"#2c303b","surface-container-low":"#171b26","primary-fixed":"#ffe088","on-error-container":"#ffdad6","surface-dim":"#0f131d","on-tertiary":"#68000a","on-secondary-container":"#00311f","on-tertiary-fixed":"#410004","surface-container-lowest":"#0a0e18","tertiary-fixed":"#ffdad7","on-primary-fixed-variant":"#574500","tertiary-container":"#ff968f","on-secondary":"#003824","on-error":"#690005","on-tertiary-container":"#900013","inverse-surface":"#dfe2f1","on-background":"#dfe2f1","outline-variant":"#4d4635","surface-container":"#1c1f2a","inverse-primary":"#735c00","secondary-fixed-dim":"#4edea3","on-tertiary-fixed-variant":"#930013","tertiary-fixed-dim":"#ffb3ad","on-primary-container":"#554300","surface-bright":"#353944","surface-variant":"#313540","error":"#ffb4ab","on-secondary-fixed-variant":"#005236"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"1rem","margin":"1.25rem","space-sm":"0.5rem","gutter-desktop":"1.5rem","space-xl":"2.5rem","space-xs":"0.25rem","space-lg":"1.5rem","margin-desktop":"2.5rem","space-md":"1rem"},"fontFamily":{"label-lg":["Plus Jakarta Sans"],"bazi-symbol":["Noto Serif"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Noto Serif"],"display-lg-mobile":["Noto Serif"],"display-lg":["Noto Serif"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Noto Serif"],"label-sm":["Plus Jakarta Sans"],"headline-md":["Noto Serif"]},"fontSize":{"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"600"}],"bazi-symbol":["24px",{"lineHeight":"28px","letterSpacing":"0.05em","fontWeight":"700"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"0.01em","fontWeight":"500"}],"display-lg-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"30px","letterSpacing":"0.02em","fontWeight":"500"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-gutter flex items-center justify-between gap-3"><div class="flex items-center gap-2 min-w-0"><button aria-label="返回" class="w-11 h-11 flex items-center justify-center text-on-surface rounded-full hover:bg-surface-container-high active:scale-95 transition-all" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate" id="pageNavTitle">支付憑證</h1></div><div class="flex items-center gap-2 shrink-0"><div class="w-8 h-8 rounded-full overflow-hidden shrink-0 flex items-center justify-center bg-surface-container-high border border-outline-variant/30"><img alt="Logo Mark" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2dNmxun6gEciSuTJ3M2gaqgH8vfDajciaDopdqe8y-tR9kDry4p0IyzXi8TVjdn6GhwyqEkgLHlgb5mBzgkZlh1upbYkBBO2mlxtI6nA97Ho-Lkm5Ajtblw8ufSFVK_Hp-M2cyYrIkQ8fatPEG9UbzERblB-CMJbjw71Xwyb6SLfGs8-woXR1bDjITsevCXh0v0MSDjyS_i7rTpT5Y7k_-Cin0NySAAK62NvOcMxiJiYTMKN4dwtpM6Fvw6AAny0-Kg"/></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full px-gutter pb-space-xl relative overflow-hidden"><div class="absolute -top-12 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div><div class="absolute top-48 -right-20 w-64 h-64 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div><div class="relative z-20 mt-space-md mb-space-sm bg-surface-container-low border border-outline-variant/30 rounded-xl p-3"><div class="flex items-center justify-between mb-2"><span class="font-label-sm text-label-sm text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">tune</span>[原型狀態演示切換]</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono" id="activeStateIndicator">狀態 1</span></div><div class="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1"><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary text-on-primary transition-all" id="stateBtn-1" onclick="switchPaymentState(1)" type="button">1. 正在確認付款(預設)</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-2" onclick="switchPaymentState(2)" type="button">2. 正在到賬</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-3" onclick="switchPaymentState(3)" type="button">3. 成功到賬</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-4" onclick="switchPaymentState(4)" type="button">4. 取消/退出</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-5" onclick="switchPaymentState(5)" type="button">5. 網路逾時</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-6" onclick="switchPaymentState(6)" type="button">6. 未付已過期</button><button class="shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="stateBtn-7" onclick="switchPaymentState(7)" type="button">7. 退款處理中/已扣回</button></div></div><section class="flex flex-col items-center text-center mt-2 mb-space-md relative z-10" id="statusHeaderSection"><div class="relative flex items-center justify-center w-24 h-24 mb-space-sm" id="iconContainer"><div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-primary-fixed to-secondary-fixed opacity-25 blur-[10px] animate-pulse" id="iconHalo"></div><div class="relative w-20 h-20 rounded-full bg-surface-container flex items-center justify-center shadow-xl"><div class="w-14 h-14 rounded-full flex items-center justify-center relative z-10 text-primary" id="statusIconCore"><span class="material-symbols-outlined text-[36px] animate-spin">sync</span></div></div><div class="absolute -bottom-1 -right-1 bg-surface-container-highest text-on-surface-variant w-6 h-6 rounded-full flex items-center justify-center shadow-md" id="statusBadgeMini"><span class="material-symbols-outlined text-[14px]">hourglass_top</span></div></div><div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-surface-container-high mb-2 shadow-sm" id="statusBadgePill"><span class="material-symbols-outlined text-primary text-[14px]" id="statusPillIcon">sync</span><span class="font-label-sm text-label-sm text-primary tracking-wider" id="statusPillText">Stripe 結算事實同步中</span></div><h2 class="font-headline-md text-headline-md text-on-surface mb-1" id="statusHeadline">正在確認付款</h2><p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs" id="statusSubtext">已收到瀏覽器返回，正在等待 Stripe 官方結算事實回傳...</p></section><section class="mb-space-md relative z-10" id="assetBalanceCard"><div class="bg-surface-container-high rounded-xl p-space-md relative overflow-hidden shadow-lg"><div class="flex items-center justify-between mb-space-sm"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">diamond</span><span class="font-label-lg text-label-lg text-on-surface" id="assetTitle">專屬命理資產池動態</span></div><div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-0.5 rounded-full" id="assetPill"><div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" id="assetDot"></div><span class="font-label-sm text-label-sm text-primary" id="assetStatusText">入庫校準佇列中</span></div></div><div class="grid grid-cols-3 gap-2 bg-surface-container-lowest rounded-lg p-space-sm mb-3"><div class="flex flex-col items-center justify-center text-center p-1"><span class="font-label-sm text-label-sm text-on-surface-variant">充值前餘額</span><span class="font-headline-sm text-headline-sm text-on-surface mt-1" id="beforeBal">128</span><span class="font-label-sm text-label-sm text-on-surface-variant">顆</span></div><div class="flex flex-col items-center justify-center text-center p-1 bg-surface-container-low rounded"><span class="font-label-sm text-label-sm text-primary" id="midBalLabel">待入賬</span><span class="font-headline-sm text-headline-sm text-primary font-bold mt-1" id="midBalVal">+350</span><span class="font-label-sm text-label-sm text-primary">顆</span></div><div class="flex flex-col items-center justify-center text-center p-1"><span class="font-label-sm text-label-sm text-on-surface-variant" id="afterBalLabel">校準後餘額</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1" id="afterBalVal">478</span><span class="font-label-sm text-label-sm text-on-surface-variant">顆</span></div></div><div class="flex items-start gap-2 bg-surface-container-low p-2.5 rounded-lg" id="assetTipBox"><span class="material-symbols-outlined text-primary-fixed text-[18px] shrink-0 mt-0.5" id="assetTipIcon">info</span><p class="font-body-sm text-body-sm text-on-surface-variant leading-snug" id="assetTipText">以服務端 confirmed paid+granted 為準，確認到賬後靈石方可用於解鎖命書深度章節、日運五維或合盤深度洞察。</p></div></div></section><section class="mb-space-md relative z-10"><div class="bg-surface-container rounded-xl p-space-md shadow-md"><div class="flex items-center justify-between pb-3 mb-3 bg-surface-container-high/50 -mx-space-md -mt-space-md px-space-md pt-3.5 rounded-t-xl"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-on-surface-variant text-[18px]">receipt_long</span><span class="font-label-lg text-label-lg text-on-surface">交易憑證明細</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Stripe Gateway</span></div><div class="space-y-3"><div class="flex items-center justify-between min-w-0"><span class="font-body-sm text-body-sm text-on-surface-variant shrink-0">訂單編號</span><div class="flex items-center gap-1.5 min-w-0"><span class="font-label-sm text-label-sm text-on-surface truncate font-mono" id="orderIdText">ord_stripe_20260920_88921</span><button aria-label="複製訂單號" class="p-1 rounded bg-surface-container-highest hover:bg-surface-bright text-on-surface active:scale-95 transition-all flex items-center justify-center" id="copyOrderBtn" onclick="copyOrderId()"><span class="material-symbols-outlined text-[15px]" id="copyIcon">content_copy</span></button></div></div><div class="flex items-center justify-between min-w-0"><span class="font-body-sm text-body-sm text-on-surface-variant shrink-0">Stripe 交易號</span><div class="flex items-center gap-1 text-right"><span class="font-label-sm text-label-sm text-on-surface font-mono truncate max-w-[170px]" id="stripeTxnId">pi_3MtwL2LkdIwHu7ix28az</span><span class="material-symbols-outlined text-on-surface-variant text-[14px]">verified</span></div></div><div class="flex items-center justify-between"><span class="font-body-sm text-body-sm text-on-surface-variant">購買品項</span><div class="text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium">350 靈石包</span><span class="font-label-sm text-label-sm text-primary ml-1.5">(USD $29.99)</span></div></div><div class="flex items-center justify-between"><span class="font-body-sm text-body-sm text-on-surface-variant">支付方式</span><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-on-surface text-[16px]">credit_card</span><span class="font-body-sm text-body-sm text-on-surface">Apple Pay / 信用卡</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">(•••• 4242)</span></div></div><div class="flex items-center justify-between"><span class="font-body-sm text-body-sm text-on-surface-variant" id="timeLabelText">最後同步時間</span><span class="font-label-sm text-label-sm text-on-surface font-mono" id="orderTimeText">2026-09-20 15:43:10 (UTC+8)</span></div></div></div></section><section class="mb-space-lg space-y-2 relative z-10"><div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5" id="orderNoticeBox"><span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5" id="noticeBoxIcon">sync_saved_locally</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-medium" id="noticeBoxTitle">服務端結算狀態同步說明</span><p class="font-body-sm text-body-sm text-on-surface-variant" id="noticeBoxDesc">已收到瀏覽器返回，正在等待 Stripe 官方結算事實回傳。系統以服務端確實驗證為準，請勿重複提交支付。</p></div></div><div class="bg-surface-container-low rounded-lg p-3 flex items-start gap-2.5"><span class="material-symbols-outlined text-outline text-[18px] shrink-0 mt-0.5">contact_support</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-medium">售後諮詢與電子發票</span><p class="font-body-sm text-body-sm text-on-surface-variant">如需發票、退款諮詢或訂單異常查驗，請提供此訂單編號聯繫 <a class="text-primary hover:underline font-mono" href="mailto:support@mida.gonewx.com">support@mida.gonewx.com</a></p></div></div></section><section class="flex flex-col gap-3 relative z-10 mt-auto" id="ctaActionSection"><button class="w-full py-3.5 px-space-md rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all" id="primaryActionBtn" onclick="handlePrimaryAction()"><span class="material-symbols-outlined text-[20px]" id="primaryBtnIcon">sync</span><span id="primaryBtnText">檢查最新狀態</span></button><button class="w-full py-3.5 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high active:scale-[0.98] text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-all" id="secondaryActionBtn" onclick="handleViewReceipt()"><span class="material-symbols-outlined text-on-surface-variant text-[18px]">history_edu</span><span id="secondaryBtnText">查看 Web 購買記錄</span></button></section><div class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-surface-container-highest/95 backdrop-blur-md text-on-surface px-4 py-2 rounded-full font-label-sm text-label-sm shadow-2xl flex items-center gap-2 pointer-events-none opacity-0 transition-opacity duration-300 z-50" id="copyToast"><span class="material-symbols-outlined text-secondary text-[16px]">check</span><span id="toastMsg">訂單編號已成功複製到剪貼板</span></div></div><script>
+let currentState = 1;
+
+function switchPaymentState(st) {
+  currentState = st;
+  for (let i = 1; i <= 7; i++) {
+    const btn = document.getElementById('stateBtn-' + i);
+    if (btn) {
+      if (i === st) {
+        btn.className = 'shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary text-on-primary font-bold shadow transition-all';
+      } else {
+        btn.className = 'shrink-0 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface transition-all';
+      }
+    }
+  }
+  document.getElementById('activeStateIndicator').innerText = '狀態 ' + st;
+  renderStateUI(st);
+}
+
+function renderStateUI(st) {
+  const iconHalo = document.getElementById('iconHalo');
+  const iconCore = document.getElementById('statusIconCore');
+  const badgeMini = document.getElementById('statusBadgeMini');
+  const pillIcon = document.getElementById('statusPillIcon');
+  const pillText = document.getElementById('statusPillText');
+  const headline = document.getElementById('statusHeadline');
+  const subtext = document.getElementById('statusSubtext');
+  
+  const assetCard = document.getElementById('assetBalanceCard');
+  const assetDot = document.getElementById('assetDot');
+  const assetStatusText = document.getElementById('assetStatusText');
+  const beforeBal = document.getElementById('beforeBal');
+  const midBalLabel = document.getElementById('midBalLabel');
+  const midBalVal = document.getElementById('midBalVal');
+  const afterBalLabel = document.getElementById('afterBalLabel');
+  const afterBalVal = document.getElementById('afterBalVal');
+  const assetTipText = document.getElementById('assetTipText');
+  
+  const timeLabelText = document.getElementById('timeLabelText');
+  const orderTimeText = document.getElementById('orderTimeText');
+  const noticeBox = document.getElementById('orderNoticeBox');
+  const noticeBoxIcon = document.getElementById('noticeBoxIcon');
+  const noticeBoxTitle = document.getElementById('noticeBoxTitle');
+  const noticeBoxDesc = document.getElementById('noticeBoxDesc');
+  
+  const primaryBtn = document.getElementById('primaryActionBtn');
+  const primaryBtnIcon = document.getElementById('primaryBtnIcon');
+  const primaryBtnText = document.getElementById('primaryBtnText');
+  const secondaryBtn = document.getElementById('secondaryActionBtn');
+  const secondaryBtnText = document.getElementById('secondaryBtnText');
+
+  // Default resets
+  assetCard.style.display = 'block';
+  iconHalo.className = 'absolute inset-0 rounded-full opacity-25 blur-[10px] animate-pulse';
+  primaryBtn.className = 'w-full py-3.5 px-space-md rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-lg transition-all active:scale-[0.98]';
+  primaryBtn.disabled = false;
+
+  if (st === 1) {
+    // 正在確認付款
+    iconHalo.className += ' bg-gradient-to-tr from-primary via-primary-fixed to-secondary-fixed';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] animate-spin text-primary">sync</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container-highest text-on-surface-variant w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">hourglass_top</span>';
+    pillIcon.innerText = 'sync';
+    pillIcon.className = 'material-symbols-outlined text-primary text-[14px]';
+    pillText.innerText = '正在等待 Stripe 回傳';
+    pillText.className = 'font-label-sm text-label-sm text-primary tracking-wider';
+    headline.innerText = '正在確認付款';
+    subtext.innerText = '已收到瀏覽器返回，正在等待 Stripe 官方結算事實回傳...';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-primary animate-pulse';
+    assetStatusText.innerText = '入庫校準佇列中';
+    assetStatusText.className = 'font-label-sm text-label-sm text-primary';
+    beforeBal.innerText = '128';
+    midBalLabel.innerText = '待入賬';
+    midBalVal.innerText = '+350';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-primary font-bold mt-1';
+    afterBalLabel.innerText = '校準後預計餘額';
+    afterBalVal.innerText = '478';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-on-surface font-bold mt-1';
+    assetTipText.innerText = '以服務端 confirmed paid+granted 為準，確認到賬後靈石方可用於解鎖命書深度章節、日運五維或合盤深度洞察。';
+    
+    timeLabelText.innerText = '最後同步時間';
+    orderTimeText.innerText = '2026-09-20 15:43:10 (UTC+8)';
+    noticeBoxTitle.innerText = '服務端結算狀態同步說明';
+    noticeBoxDesc.innerText = '已收到瀏覽器返回，正在等待 Stripe 官方結算事實回傳。系統以服務端確實驗證為準，請勿重複提交支付。';
+    
+    primaryBtn.className += ' bg-surface-container-highest hover:bg-surface-bright text-on-surface';
+    primaryBtnIcon.innerText = 'sync';
+    primaryBtnText.innerText = '檢查最新狀態';
+    secondaryBtnText.innerText = '查看 Web 購買記錄';
+  } else if (st === 2) {
+    // 正在到賬
+    iconHalo.className += ' bg-gradient-to-tr from-primary to-secondary-fixed';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] text-primary animate-pulse">hourglass_top</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container-high text-primary w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">pending</span>';
+    pillIcon.innerText = 'payment';
+    pillIcon.className = 'material-symbols-outlined text-secondary text-[14px]';
+    pillText.innerText = '第三方收款已確認 · 權益分配中';
+    pillText.className = 'font-label-sm text-label-sm text-secondary tracking-wider';
+    headline.innerText = '已付款 · 350 靈石正在到賬';
+    subtext.innerText = '第三方收款已確認，系統正在入庫校準權益，請稍候...';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-secondary animate-pulse';
+    assetStatusText.innerText = '權益入庫分配中';
+    assetStatusText.className = 'font-label-sm text-label-sm text-secondary';
+    beforeBal.innerText = '128';
+    midBalLabel.innerText = '正在到賬';
+    midBalVal.innerText = '+350';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-secondary font-bold mt-1';
+    afterBalLabel.innerText = '預計最新餘額';
+    afterBalVal.innerText = '478';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-secondary font-bold mt-1';
+    assetTipText.innerText = 'Stripe 扣款已完成，後端正在寫入您的命理資產池，幾秒鐘後即可手動使用。';
+    
+    timeLabelText.innerText = '扣款確認時間';
+    orderTimeText.innerText = '2026-09-20 15:42:50 (UTC+8)';
+    noticeBoxTitle.innerText = '權益非同步分配說明';
+    noticeBoxDesc.innerText = '資金結算已由 Stripe 授權成功，命理資產池正進行原子化寫入，若稍有延遲請點擊刷新。';
+    
+    primaryBtn.className += ' bg-surface-container-highest hover:bg-surface-bright text-on-surface';
+    primaryBtnIcon.innerText = 'refresh';
+    primaryBtnText.innerText = '刷新到賬狀態';
+    secondaryBtnText.innerText = '查看 Web 購買記錄';
+  } else if (st === 3) {
+    // 成功到賬
+    iconHalo.className += ' bg-gradient-to-tr from-primary via-primary-fixed to-secondary-fixed';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[38px] text-secondary">check_circle</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-secondary-container text-on-secondary-container w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px] font-bold">done_all</span>';
+    pillIcon.innerText = 'verified';
+    pillIcon.className = 'material-symbols-outlined text-secondary text-[14px]';
+    pillText.innerText = '服務端確認完成 · 權益已入賬';
+    pillText.className = 'font-label-sm text-label-sm text-secondary tracking-wider';
+    headline.innerText = '支付成功 · 靈石已即時入賬';
+    subtext.innerText = '天道循環，能量具足。您的命理資產已實時校準完畢。';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-secondary animate-ping';
+    assetStatusText.innerText = '已入庫確認';
+    assetStatusText.className = 'font-label-sm text-label-sm text-secondary';
+    beforeBal.innerText = '128';
+    midBalLabel.innerText = '本次到賬';
+    midBalVal.innerText = '+350';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-primary font-bold mt-1';
+    afterBalLabel.innerText = '當前最新餘額';
+    afterBalVal.innerText = '478';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-secondary font-bold mt-1';
+    assetTipText.innerText = '靈石已注入專屬命理資產池（以服務端 confirmed paid+granted 為準），可用於手動解鎖命書深度章節、日運五維或合盤深度洞察。';
+    
+    timeLabelText.innerText = '支付完成時間';
+    orderTimeText.innerText = '2026-09-20 15:42:18 (UTC+8)';
+    noticeBoxTitle.innerText = '訂單完成與扣款存證';
+    noticeBoxDesc.innerText = '本筆購買已確認完成。靈石已妥善入庫，系統絕不自動消費，需您在相應功能頁主動點擊解鎖。';
+    
+    primaryBtn.className += ' bg-primary hover:bg-primary-fixed-dim text-on-primary';
+    primaryBtnIcon.innerText = 'explore';
+    primaryBtnText.innerText = '返回原內容 (手動解鎖運勢/命書)';
+    secondaryBtnText.innerText = '查看 Web 購買記錄';
+  } else if (st === 4) {
+    // 取消/退出收銀台
+    iconHalo.className += ' bg-gradient-to-tr from-outline to-surface-container-highest';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] text-on-surface-variant">cancel</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container-high text-on-surface-variant w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">close</span>';
+    pillIcon.innerText = 'info';
+    pillIcon.className = 'material-symbols-outlined text-outline text-[14px]';
+    pillText.innerText = '收銀台對話中斷';
+    pillText.className = 'font-label-sm text-label-sm text-outline tracking-wider';
+    headline.innerText = '結賬未完成';
+    subtext.innerText = '您已退出 Stripe 收銀台。若您實際已完成扣款，請點擊下方「重新查詢訂單」確認到賬，請勿直接重複支付。';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-outline';
+    assetStatusText.innerText = '餘額未變動';
+    assetStatusText.className = 'font-label-sm text-label-sm text-outline';
+    beforeBal.innerText = '128';
+    midBalLabel.innerText = '本次未變動';
+    midBalVal.innerText = '0';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-on-surface-variant font-bold mt-1';
+    afterBalLabel.innerText = '當前餘額';
+    afterBalVal.innerText = '128';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-on-surface font-bold mt-1';
+    assetTipText.innerText = '嚴禁未經確認判定支付失敗。若第三方扣款成功，伺服器收到 Webhook 後將自動校準充值。';
+    
+    timeLabelText.innerText = '退出時間';
+    orderTimeText.innerText = '2026-09-20 15:43:00 (UTC+8)';
+    noticeBoxTitle.innerText = '重要避免重複支付提示';
+    noticeBoxDesc.innerText = '若您在銀行或 Apple Pay 已看見扣款記錄，請切勿再次付款，點擊下方按鈕重新查詢後台入賬事實。';
+    
+    primaryBtn.className += ' bg-surface-container-highest hover:bg-surface-bright text-on-surface';
+    primaryBtnIcon.innerText = 'search_check';
+    primaryBtnText.innerText = '重新查詢訂單';
+    secondaryBtnText.innerText = '返回儲值方案列表';
+  } else if (st === 5) {
+    // 網路逾時
+    iconHalo.className += ' bg-gradient-to-tr from-error to-outline';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] text-error">wifi_off</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container-high text-error w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">warning</span>';
+    pillIcon.innerText = 'sync_problem';
+    pillIcon.className = 'material-symbols-outlined text-error text-[14px]';
+    pillText.innerText = '網路逾時 · 連線中斷';
+    pillText.className = 'font-label-sm text-label-sm text-error tracking-wider';
+    headline.innerText = '連線逾時 · 訂單處理中';
+    subtext.innerText = '已記錄最後同步時間：2026-09-20 15:43:10 (UTC+8)。訂單編號已封裝，請點擊「檢查狀態」或聯繫客服 support@mida.gonewx.com，切勿盲目重複扣款。';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-error';
+    assetStatusText.innerText = '伺服器核對中';
+    assetStatusText.className = 'font-label-sm text-label-sm text-error';
+    beforeBal.innerText = '128';
+    midBalLabel.innerText = '待確認';
+    midBalVal.innerText = '--';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-error font-bold mt-1';
+    afterBalLabel.innerText = '當前餘額';
+    afterBalVal.innerText = '128';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-on-surface font-bold mt-1';
+    assetTipText.innerText = '不聲稱支付失敗或自動另付。系統已保全訂單 session，正持續發起背景異步對賬。';
+    
+    timeLabelText.innerText = '最後同步時間';
+    orderTimeText.innerText = '2026-09-20 15:43:10 (UTC+8)';
+    noticeBoxTitle.innerText = '查單與客服通道';
+    noticeBoxDesc.innerText = '如多次檢查仍超時，可直接複製訂單編號聯繫 support@mida.gonewx.com 為您人工校驗入庫。';
+    
+    primaryBtn.className += ' bg-surface-container-highest hover:bg-surface-bright text-on-surface';
+    primaryBtnIcon.innerText = 'sync';
+    primaryBtnText.innerText = '檢查狀態';
+    secondaryBtnText.innerText = '聯繫客服 support@mida.gonewx.com';
+  } else if (st === 6) {
+    // 未付已過期
+    iconHalo.className += ' bg-gradient-to-tr from-surface-variant to-outline-variant';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] text-outline">history_toggle_off</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container text-outline w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">event_busy</span>';
+    pillIcon.innerText = 'timer_off';
+    pillIcon.className = 'material-symbols-outlined text-outline text-[14px]';
+    pillText.innerText = '結賬會話已失效';
+    pillText.className = 'font-label-sm text-label-sm text-outline tracking-wider';
+    headline.innerText = '結賬會話已過期';
+    subtext.innerText = '該筆報價結賬會話已超過有效時限，請返回重新選擇儲值方案。';
+    
+    assetCard.style.display = 'none';
+    
+    timeLabelText.innerText = '過期時間';
+    orderTimeText.innerText = '2026-09-20 16:12:00 (UTC+8)';
+    noticeBoxTitle.innerText = '報價會話時效提醒';
+    noticeBoxDesc.innerText = '為保證匯率與促銷方案時效，超過 30 分鐘未結賬之會話自動關閉，原賬戶未扣除任何資金。';
+    
+    primaryBtn.className += ' bg-primary hover:bg-primary-fixed-dim text-on-primary';
+    primaryBtnIcon.innerText = 'restart_alt';
+    primaryBtnText.innerText = '重新選擇報價方案';
+    secondaryBtnText.innerText = '返回我的賬戶';
+  } else if (st === 7) {
+    // 退款處理中/已扣回
+    iconHalo.className += ' bg-gradient-to-tr from-tertiary to-outline';
+    iconCore.innerHTML = '<span class="material-symbols-outlined text-[36px] text-tertiary">replay</span>';
+    badgeMini.className = 'absolute -bottom-1 -right-1 bg-surface-container-high text-tertiary w-6 h-6 rounded-full flex items-center justify-center shadow-md';
+    badgeMini.innerHTML = '<span class="material-symbols-outlined text-[14px]">undo</span>';
+    pillIcon.innerText = 'assignment_return';
+    pillIcon.className = 'material-symbols-outlined text-tertiary text-[14px]';
+    pillText.innerText = '退款申請已受理 · 權益扣回';
+    pillText.className = 'font-label-sm text-label-sm text-tertiary tracking-wider';
+    headline.innerText = '退款已處理 · 靈石等額扣回';
+    subtext.innerText = '扣回 350 靈石，當前餘額已更新。退款款項將依銀行結算週期原路退回您的支付賬戶。';
+    
+    assetDot.className = 'w-1.5 h-1.5 rounded-full bg-tertiary';
+    assetStatusText.innerText = '等額扣回已執行';
+    assetStatusText.className = 'font-label-sm text-label-sm text-tertiary';
+    beforeBal.innerText = '478';
+    midBalLabel.innerText = '扣回靈石';
+    midBalVal.innerText = '-350';
+    midBalVal.className = 'font-headline-sm text-headline-sm text-tertiary font-bold mt-1';
+    afterBalLabel.innerText = '扣回後餘額';
+    afterBalVal.innerText = '128';
+    afterBalVal.className = 'font-headline-sm text-headline-sm text-on-surface font-bold mt-1';
+    assetTipText.innerText = '相應退款金額 (USD $29.99) 將於 3-7 個工作日內原路退回至 Apple Pay / 信用卡 (•••• 4242)。';
+    
+    timeLabelText.innerText = '退款受理時間';
+    orderTimeText.innerText = '2026-09-20 17:05:40 (UTC+8)';
+    noticeBoxTitle.innerText = '退款憑證與進度查詢';
+    noticeBoxDesc.innerText = '若銀行未及時入賬或需索取正式退款憑證，請提供此訂單編號聯繫 support@mida.gonewx.com。';
+    
+    primaryBtn.className += ' bg-surface-container-highest hover:bg-surface-bright text-on-surface';
+    primaryBtnIcon.innerText = 'receipt_long';
+    primaryBtnText.innerText = '查看退款明細憑證';
+    secondaryBtnText.innerText = '返回個人中心';
+  }
+}
+
+function handlePrimaryAction() {
+  if (currentState === 3) {
+    console.log('Returning to content for manual unlock...');
+    window.location.hash = '#/reading/daily';
+  } else if (currentState === 1 || currentState === 2 || currentState === 5) {
+    showToast('正在向伺服器查詢訂單最新狀態...');
+  } else if (currentState === 4 || currentState === 6) {
+    window.location.hash = '#/recharge';
+  } else if (currentState === 7) {
+    showToast('已打開退款明細');
+  }
+}
+
+function copyOrderId() {
+  const orderId = document.getElementById('orderIdText').innerText.trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(orderId).then(() => showToast('訂單編號已成功複製到剪貼板'));
+  } else {
+    const textarea = document.createElement('textarea');
+    textarea.value = orderId;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    showToast('訂單編號已成功複製到剪貼板');
+  }
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('copyToast');
+  const toastMsg = document.getElementById('toastMsg');
+  if (msg) toastMsg.innerText = msg;
+  toast.classList.remove('opacity-0');
+  toast.classList.add('opacity-100');
+  
+  setTimeout(() => {
+    toast.classList.remove('opacity-100');
+    toast.classList.add('opacity-0');
+  }, 2200);
+}
+
+function handleViewReceipt() {
+  window.location.hash = '#/account/orders';
+}
+
+// Initialize default state 1 (正在確認付款)
+switchPaymentState(1);
+</script></main>
+</body></html>

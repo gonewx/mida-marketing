@@ -1,0 +1,202 @@
+<!DOCTYPE html><html class="dark" lang="zh-TW" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>覓搭 MiDa - 命理星曆開屏</title>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cosmic: {
+              950: '#070a12',
+              900: '#0b0f19',
+              850: '#0e1322',
+              800: '#141a2c',
+            },
+            astral: {
+              gold: '#e6c888',
+              goldLight: '#fbf0d0',
+              goldDark: '#9f7838',
+              violet: '#a78bfa',
+              cyan: '#38bdf8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Astrolabe Keyframes and Celestial Motion -->
+<style data-purpose="celestial-animations">
+    @keyframes orbit-cw {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbit-ccw {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-5px) scale(1.02); }
+    }
+    @keyframes gold-shimmer {
+      0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 10px rgba(230,200,136,0.3)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 20px rgba(230,200,136,0.7)); }
+    }
+    @keyframes pulse-halo {
+      0%, 100% { transform: scale(0.96); opacity: 0.35; }
+      50% { transform: scale(1.04); opacity: 0.65; }
+    }
+    .anim-orbit-slow { animation: orbit-cw 72s linear infinite; }
+    .anim-orbit-reverse { animation: orbit-ccw 54s linear infinite; }
+    .anim-orbit-fast { animation: orbit-cw 28s linear infinite; }
+    .anim-float { animation: float-badge 5s ease-in-out infinite; }
+    .anim-pulse-halo { animation: pulse-halo 6s ease-in-out infinite; }
+    .anim-shimmer { animation: gold-shimmer 3s ease-in-out infinite; }
+  </style>
+<!-- Typography & Aesthetic Glass Details -->
+<style data-purpose="cosmic-surfaces">
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff7db 0%, #e6c888 45%, #b98e3b 85%, #f4e1a4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .astral-card {
+      background: linear-gradient(180deg, rgba(25, 32, 54, 0.65) 0%, rgba(13, 17, 30, 0.75) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(230, 200, 136, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen overflow-x-hidden font-sans antialiased flex flex-col justify-between select-none relative">
+<!-- BEGIN: AmbientNebulaGlow -->
+<!-- Background radial glow layers for deep space aura -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0" data-purpose="nebula-light-effects">
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full bg-violet-600/20 blur-[110px]"></div>
+<div class="absolute top-[28%] left-[-80px] w-[260px] h-[260px] rounded-full bg-amber-500/15 blur-[95px]"></div>
+<div class="absolute top-[40%] right-[-70px] w-[240px] h-[240px] rounded-full bg-indigo-500/20 blur-[100px]"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] h-[260px] rounded-full bg-amber-400/10 blur-[120px]"></div>
+</div>
+<!-- END: AmbientNebulaGlow -->
+<!-- BEGIN: TopStatusBarAndNav -->
+<!-- Top navigation bar with status indicator & skip control -->
+<header class="relative z-20 px-6 pt-5 flex items-center justify-between" data-purpose="top-navigation">
+
+<!-- Skip Button -->
+<button aria-label="Skip to main app" class="absolute top-6 right-6 z-20 text-xs tracking-wider px-3.5 py-1.5 rounded-full border border-amber-400/20 bg-slate-900/60 text-slate-300 hover:text-amber-200 transition-colors flex items-center gap-1 active:scale-95" type="button">
+      跳過 <span class="text-amber-300 font-serif">›</span>
+</button>
+</header>
+<!-- END: TopStatusBarAndNav -->
+<!-- BEGIN: MainAstrolabeStage -->
+<!-- Central Celestial Astrolabe Core Section -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-2" data-purpose="astrolabe-main-content">
+<!-- Astrolabe Circular Container -->
+<div class="relative w-[320px] h-[320px] sm:w-[350px] sm:h-[350px] flex items-center justify-center my-auto" data-purpose="astrolabe-container">
+<!-- Halo glow behind Astrolabe -->
+<div class="absolute inset-0 rounded-full anim-pulse-halo bg-gradient-to-tr from-violet-600/25 via-amber-500/20 to-transparent blur-2xl pointer-events-none"></div>
+<!-- Outer Ring: 12 Earthly Branches & Bagua Signs engraved track -->
+<div class="absolute inset-0 rounded-full border-2 border-amber-300/35 anim-orbit-slow flex items-center justify-center shadow-[inset_0_0_24px_rgba(230,200,136,0.15)]" data-purpose="outer-zodiac-ring">
+<!-- Circular ticks & Earthly Branches marks positioned around circumference -->
+<span class="absolute top-1 text-[10px] font-serif text-amber-200/90 font-medium tracking-tighter">子 ☰</span>
+<span class="absolute right-4 top-8 text-[10px] font-serif text-amber-200/80">丑 ☱</span>
+<span class="absolute right-1 top-24 text-[10px] font-serif text-amber-200/80">寅 ☲</span>
+<span class="absolute right-1 bottom-24 text-[10px] font-serif text-amber-200/80">卯 ☳</span>
+<span class="absolute right-4 bottom-8 text-[10px] font-serif text-amber-200/80">辰 ☴</span>
+<span class="absolute bottom-1 text-[10px] font-serif text-amber-200/90 font-medium tracking-tighter">巳 ☵</span>
+<span class="absolute left-4 bottom-8 text-[10px] font-serif text-amber-200/80">午 ☶</span>
+<span class="absolute left-1 bottom-24 text-[10px] font-serif text-amber-200/80">未 ☷</span>
+<span class="absolute left-1 top-24 text-[10px] font-serif text-amber-200/80">申 ☰</span>
+<span class="absolute left-4 top-8 text-[10px] font-serif text-amber-200/80">酉 ☱</span>
+<span class="absolute top-5 left-20 text-[10px] font-serif text-amber-200/80">戌 ☲</span>
+<span class="absolute top-5 right-20 text-[10px] font-serif text-amber-200/80">亥 ☳</span>
+</div>
+<!-- Secondary Ring: Astrolabe Coordinate Arc with dashes -->
+<div class="absolute inset-4 rounded-full border border-dashed border-violet-400/40 anim-orbit-reverse" data-purpose="middle-coordinate-ring">
+<!-- Floating Planet Orbit 1 (Solar Corona Gold) -->
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-amber-300 shadow-[0_0_12px_#fde047] flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+<!-- Floating Planet Orbit 2 (Emerald Jadeite Planet) -->
+<div class="absolute bottom-6 right-5 w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]"></div>
+<!-- Floating Planet Orbit 3 (Coral Red Luminary) -->
+<div class="absolute bottom-10 left-5 w-2.5 h-2.5 rounded-full bg-rose-400 shadow-[0_0_9px_#fb7185]"></div>
+</div>
+<!-- Inner High-Precision Celestial Dial -->
+<div class="absolute inset-10 rounded-full border border-amber-200/25 anim-orbit-fast" data-purpose="inner-astral-ring">
+<div class="absolute top-2 left-6 w-2 h-2 rounded-full bg-sky-300 shadow-[0_0_8px_#38bdf8]"></div>
+<div class="absolute bottom-3 right-8 w-1.5 h-1.5 rounded-full bg-amber-200"></div>
+</div>
+<!-- Center Metallic Astrolabe Core Emblem with Logo -->
+<div class="relative z-10 w-36 h-36 rounded-full p-[3px] bg-gradient-to-tr from-amber-500 via-amber-200 to-violet-500 shadow-[0_12px_36px_rgba(0,0,0,0.85)] anim-float flex items-center justify-center" data-purpose="central-metallic-emblem">
+<!-- Inner metallic beveled disk -->
+<div class="w-full h-full rounded-full bg-[#111728] border border-amber-300/40 flex items-center justify-center p-3 relative overflow-hidden shadow-[inset_0_2px_12px_rgba(230,200,136,0.3)]">
+<!-- Glass glare on metal -->
+<div class="absolute -top-6 -left-6 w-24 h-24 bg-white/10 rounded-full blur-md"></div>
+<!-- Provided Brand Mark Image -->
+<img alt="覓搭 MiDa 徽章" class="w-full h-full object-contain filter drop-shadow-[0_4px_14px_rgba(167,139,250,0.5)] anim-shimmer select-none pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs05IUW00C4MrzE7E51PcSt2ClFD-LFh4DlB-2LfBOHDGFbAwAbdjpVe86pTM_XiC3GKxpcZ2UlfAi_94fW3D2WUCvlTUsszMn_yM0jqx9r-FFQkiy7TZ_Pe9ARa3o6C2z3Q7ppNyqCbtn4wHfUUXffPdFkrZzkmuL53X2bOSoHU11p5EgC2LEvJVAEiguSmzEZYAQZ6MkxAYPHTBkXkcugSaugfGe01-FkYNsdjmu7FjEd1V1DW6gOw_nwJczVNap1A">
+</div>
+</div>
+</div>
+<!-- BEGIN: BrandingAndMetaInfo -->
+<!-- App Brand title, Slogan, and MingLi resonance indicators -->
+<div class="text-center mt-2 max-w-sm px-4" data-purpose="brand-presentation">
+<h1 class="text-3xl font-extrabold tracking-widest gold-gradient-text drop-shadow-[0_2px_10px_rgba(230,200,136,0.35)]">
+        覓搭 <span class="text-2xl font-semibold tracking-normal text-amber-200/90 font-mono">MiDa</span>
+</h1>
+<p class="text-xs text-slate-300 tracking-wider mt-1.5 font-normal">
+        以命理為內核，開啟有理由的遇見
+      </p>
+<!-- Metaphysics Resonance Pill Badges -->
+<div class="flex flex-wrap items-center justify-center gap-1.5 mt-3.5" data-purpose="resonance-tags">
+<span class="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-amber-500/15 border border-amber-300/30 text-amber-200">
+          甲木 正印
+        </span>
+<span class="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-rose-500/15 border border-rose-400/30 text-rose-200">
+          丙火 偏財
+        </span>
+<span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-violet-500/20 border border-violet-400/40 text-violet-200 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-ping"></span>
+          雙盤共振 96.8%
+        </span>
+</div>
+</div>
+<!-- END: BrandingAndMetaInfo -->
+</main>
+<!-- END: MainAstrolabeStage -->
+<!-- BEGIN: BottomCalibrationAndAction -->
+<!-- Calibration progress card and explore entrance button -->
+<footer class="relative z-20 px-5 pb-7 pt-2 max-w-md w-full mx-auto" data-purpose="bottom-calibration-tray">
+<!-- Calibration Card -->
+<div class="astral-card rounded-2xl p-3.5 mb-4 shadow-xl" data-purpose="calibration-status-card">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<div class="flex items-center gap-1.5 text-slate-200">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span class="font-normal">正在校準星曆與四柱五行場域...</span>
+</div>
+<span class="font-mono text-amber-300 font-semibold text-[13px]">99%</span>
+</div>
+<!-- Precision Progress bar -->
+<div class="w-full h-1.5 bg-slate-800/90 rounded-full overflow-hidden p-[1px] border border-amber-400/20">
+<div class="h-full bg-gradient-to-r from-amber-400 via-violet-400 to-amber-200 rounded-full transition-all duration-700 w-[99%]"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-slate-400 mt-2 font-mono">
+<span class="">北緯 25°02′ 東經 121°33′</span>
+<span class="text-amber-300/80">真太陽時天球投影</span>
+</div>
+</div>
+<!-- Main Entry Button -->
+<button class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 text-slate-950 font-bold text-sm tracking-wide shadow-[0_4px_22px_rgba(230,200,136,0.45)] hover:shadow-[0_6px_28px_rgba(230,200,136,0.6)] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5" data-purpose="explore-resonance-button" type="button">
+<span class="">探索專屬契合 · 開啟共鳴</span>
+<span class="text-amber-800 text-xs">✦</span>
+</button>
+</footer>
+<!-- END: BottomCalibrationAndAction -->
+
+
+</body></html>

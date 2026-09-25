@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>合盤邀請與裂變分享 - 覓搭 MiDa</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Noto Serif TC & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#ffb3ad",
+            "tertiary": "#ffbfba",
+            "on-surface": "#dfe2f1",
+            "primary": "#f2ca50",
+            "on-primary-fixed-variant": "#574500",
+            "on-tertiary": "#68000a",
+            "surface-variant": "#313540",
+            "secondary-container": "#00a572",
+            "on-surface-variant": "#d0c5af",
+            "inverse-surface": "#dfe2f1",
+            "primary-container": "#d4af37",
+            "on-primary-container": "#554300",
+            "on-background": "#dfe2f1",
+            "secondary": "#4edea3",
+            "on-primary": "#3c2f00",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#e9c349",
+            "surface-container-highest": "#313540",
+            "on-tertiary-container": "#900013",
+            "surface-container-high": "#262a35",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-fixed-variant": "#930013",
+            "tertiary-fixed": "#ffdad7",
+            "on-secondary-container": "#00311f",
+            "outline-variant": "#4d4635",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#005236",
+            "surface": "#0f131d",
+            "on-secondary": "#003824",
+            "on-error": "#690005",
+            "tertiary-container": "#ff968f",
+            "background": "#0f131d",
+            "primary-fixed-dim": "#e9c349",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0f131d",
+            "on-tertiary-fixed": "#410004",
+            "inverse-primary": "#735c00",
+            "outline": "#99907c",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-bright": "#353944",
+            "on-primary-fixed": "#241a00",
+            "surface-container-lowest": "#0a0e18",
+            "surface-container-low": "#171b26",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#2c303b",
+            "surface-container": "#1c1f2a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Noto Serif TC", "serif"],
+            "headline-md": ["Noto Serif TC", "serif"],
+            "headline-lg": ["Noto Serif TC", "serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Noto Serif TC", "serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Noto Serif TC", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "bazi-symbol": ["Noto Serif TC", "serif"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0f131d;
+      color: #dfe2f1;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .gold-glow {
+      box-shadow: 0 0 24px -4px rgba(242, 202, 80, 0.15);
+    }
+    .ethereal-border {
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .glass-panel {
+      background: rgba(28, 31, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- 原型狀態切換控制器 (Prototype State Selector Bar) -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/30 py-2 px-3 z-50 text-xs">
+<div class="max-w-md mx-auto flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">tune</span>
+          [原型狀態演示]
+        </span>
+<span class="text-[10px] text-outline">點選即時切換邏輯視圖</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
+<button class="px-2 py-1 rounded bg-primary/20 text-primary border border-primary/40 font-medium transition text-left" id="state-btn-normal" onclick="setPrototypeState('normal')">
+          1. 正常邀請中
+        </button>
+<button class="px-2 py-1 rounded bg-surface-variant/40 text-on-surface-variant border border-outline-variant/20 hover:text-on-surface transition text-left" id="state-btn-copied" onclick="setPrototypeState('copied')">
+          2. 連結已複製
+        </button>
+<button class="px-2 py-1 rounded bg-surface-variant/40 text-on-surface-variant border border-outline-variant/20 hover:text-on-surface transition text-left" id="state-btn-accepted" onclick="setPrototypeState('accepted')">
+          3. 好友已接受並註冊
+        </button>
+<button class="px-2 py-1 rounded bg-surface-variant/40 text-on-surface-variant border border-outline-variant/20 hover:text-on-surface transition text-left" id="state-btn-expired" onclick="setPrototypeState('expired')">
+          4. 邀請已失效重新發起
+        </button>
+</div>
+</div>
+</div>
+<!-- 頂部導航與資產列 (TopAppBar) -->
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 w-full px-margin py-space-sm">
+<div class="max-w-md mx-auto flex justify-between items-center w-full">
+<!-- 返回合盤 (標準觸控高 >= 44px) -->
+<a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors min-h-[44px] min-w-[44px] -ml-2 px-2 rounded-lg active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+<span class="font-label-lg text-label-lg">返回合盤</span>
+</a>
+<!-- 標題 -->
+<div class="text-center font-headline-sm text-headline-sm font-semibold text-on-surface tracking-wide">
+        合盤邀請與好友分享
+      </div>
+<!-- 資產展示 -->
+<div class="flex items-center bg-surface-container-high/70 border border-outline-variant/40 rounded-full px-2.5 py-1 text-xs font-label-sm font-medium tracking-tight text-on-surface">
+<span class="text-primary font-semibold">💎 128</span>
+<span class="mx-1 text-outline-variant">·</span>
+<span class="text-secondary font-semibold">🎫 3</span>
+</div>
+</div>
+</header>
+<!-- 首屏警示標註條 -->
+<div class="w-full bg-surface-container-lowest/90 border-b border-outline-variant/20 py-1.5 px-4 text-center">
+<div class="max-w-md mx-auto flex items-center justify-center gap-1.5 text-[11px] text-on-surface-variant font-label-sm tracking-wider">
+<span class="material-symbols-outlined text-[14px] text-primary">info</span>
+<span>AI 生成 · 僅供自我認知與文化參考</span>
+</div>
+</div>
+<!-- 主內容容器 (適配 390px 寬度並擴展至平板/桌面居中) -->
+<main class="flex-1 w-full max-w-md mx-auto px-margin pt-4 pb-28 flex flex-col gap-4">
+<!-- 狀態反饋提示 Banner (動態由 JS 切換顯示) -->
+<div class="hidden rounded-xl p-3.5 border transition-all text-xs flex items-start gap-2.5" id="state-banner">
+<!-- 內部動態渲染 -->
+</div>
+<!-- 核心視覺：星環天體標識與品牌主視覺卡片 -->
+<section class="glass-panel rounded-2xl p-5 ethereal-border relative overflow-hidden text-center gold-glow">
+<!-- 宇宙背景微光氛圍 -->
+<div class="absolute -top-16 -left-16 w-36 h-36 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-16 -right-16 w-36 h-36 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- 專屬星環天體標識 (嚴格使用 https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY) -->
+<div class="relative mx-auto w-24 h-24 mb-3 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-primary/10 blur-md animate-pulse"></div>
+<img alt="覓搭 MiDa 星環天體標識" class="w-20 h-20 object-contain relative z-10 drop-shadow-[0_0_12px_rgba(242,202,80,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY"/>
+</div>
+<!-- 品牌名與標語 (絕無誇大承諾) -->
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="font-headline-sm text-headline-sm font-bold tracking-wider text-primary">覓搭 MiDa</span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container-highest border border-outline-variant/40 text-on-surface-variant font-label-sm">雙人合盤</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2 font-medium">以干支合化，探尋命理共鳴</h1>
+<p class="text-xs text-on-surface-variant font-body-sm leading-relaxed max-w-xs mx-auto">
+        基於東方天干地支與五行生剋模型，探討人際磁場互動。分享邀請連結，好友完成註冊即可開啟共盤探索。
+      </p>
+<!-- 前提關鍵提醒 -->
+<div class="mt-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 text-[11px] text-primary/90 font-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>合盤需雙方完成獨立生辰授權並建檔後方可生成計算</span>
+</div>
+</section>
+<!-- 隱私安全與分享欄位預覽卡片 -->
+<section class="glass-panel rounded-2xl p-4 ethereal-border flex flex-col gap-3.5">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">shield</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">隱私安全與分享卡預覽</span>
+</div>
+<span class="text-[11px] font-label-sm px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">預設匿名保護</span>
+</div>
+<!-- 隱私權限開關 -->
+<div class="flex items-center justify-between bg-surface-container/70 p-3 rounded-xl border border-outline-variant/20">
+<div class="flex flex-col">
+<span class="text-xs font-label-lg font-medium text-on-surface">允許展示公開暱稱</span>
+<span class="text-[11px] text-on-surface-variant font-body-sm">開啟後卡片將顯示「Wei 小雨」，關閉則保持全匿名代號</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer min-h-[44px] min-w-[44px] justify-end">
+<input class="sr-only peer" id="privacy-toggle" onchange="togglePrivacy(this)" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface after:content-[''] after:absolute after:top-[14px] after:right-[22px] peer-checked:after:right-[2px] after:bg-on-surface after:border-surface after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- 實際分享卡片預覽區 (分享卡嚴格遵循真實分享內容) -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 relative overflow-hidden">
+<div class="text-[10px] uppercase font-label-sm text-outline tracking-wider mb-2 flex items-center justify-between">
+<span>對外實際分享外觀預覽</span>
+<span class="text-secondary font-medium" id="preview-mode-tag">【匿名保護模式】</span>
+</div>
+<div class="flex items-center gap-3.5 bg-surface/70 rounded-lg p-3 border border-outline-variant/20">
+<!-- 匿名頭像 / 符號 -->
+<div class="w-12 h-12 rounded-full bg-surface-variant/80 border border-primary/30 flex items-center justify-center shrink-0">
+<span class="font-bazi-symbol text-bazi-symbol text-primary" id="avatar-symbol">庚</span>
+</div>
+<!-- 使用者欄位展示 -->
+<div class="flex-1 min-w-0 text-left">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-sm font-semibold text-on-surface truncate" id="preview-name">命主 · 庚金日元</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-secondary/15 text-secondary border border-secondary/30">陽金</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-body-sm mt-0.5 truncate">「庚金肅斂 · 尋覓相生共鳴」</p>
+</div>
+</div>
+<!-- 欄位承諾明細清單 -->
+<div class="mt-3 grid grid-cols-2 gap-2 text-[11px] text-outline font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
+<span>絕無精確生辰年月</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
+<span>絕無未授權個資外流</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 專屬口令與分享操作區塊 -->
+<section class="glass-panel rounded-2xl p-4 ethereal-border flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">link</span>
+          專屬合盤邀請通道
+        </span>
+<span class="text-[11px] font-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded border border-secondary/30" id="invite-status-badge">
+          有效中 · 剩餘 47 小時
+        </span>
+</div>
+<!-- 專屬邀請碼 / 口令真實展示 (刪除不實相機對盤口令) -->
+<div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="text-[10px] text-outline font-label-sm uppercase">專屬合盤憑證口令 (非相機自動對盤)</span>
+<span class="font-mono text-sm font-semibold tracking-wider text-primary truncate mt-0.5" id="invite-code-text">MIDA-HEPAN-8974-V2</span>
+</div>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-lg bg-surface-variant hover:bg-surface-bright text-xs font-label-lg text-on-surface border border-outline-variant/40 active:scale-95 transition flex items-center gap-1" onclick="copyInviteLink()">
+<span class="material-symbols-outlined text-sm" id="copy-btn-icon">content_copy</span>
+<span id="copy-btn-text">複製口令</span>
+</button>
+</div>
+<!-- 主行動按鈕：金色按鈕深色字 (觸控高 >= 44px) -->
+<button class="w-full min-h-[48px] py-3 px-4 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_16px_rgba(242,202,80,0.35)] active:scale-98 transition duration-150" id="main-share-btn" onclick="copyInviteLink()">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">share</span>
+<span>複製專屬邀請連結</span>
+</button>
+<!-- 常用通訊軟體分享網格 (LINE, WhatsApp, 微信, 複製鏈接) -->
+<div class="pt-1">
+<div class="text-[11px] font-label-sm text-center text-on-surface-variant mb-2.5">或透過常用通訊軟體邀請</div>
+<div class="grid grid-cols-4 gap-2">
+<!-- LINE -->
+<button class="min-h-[44px] flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container hover:bg-surface-variant border border-outline-variant/20 transition active:scale-95" onclick="handleSocialShare('LINE')">
+<span class="w-7 h-7 rounded-full bg-[#06C755]/20 text-[#06C755] flex items-center justify-center font-bold text-xs mb-1">L</span>
+<span class="text-[11px] font-label-sm text-on-surface">LINE</span>
+</button>
+<!-- WhatsApp -->
+<button class="min-h-[44px] flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container hover:bg-surface-variant border border-outline-variant/20 transition active:scale-95" onclick="handleSocialShare('WhatsApp')">
+<span class="w-7 h-7 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center font-bold text-xs mb-1">W</span>
+<span class="text-[11px] font-label-sm text-on-surface">WhatsApp</span>
+</button>
+<!-- 微信 WeChat -->
+<button class="min-h-[44px] flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container hover:bg-surface-variant border border-outline-variant/20 transition active:scale-95" onclick="handleSocialShare('微信')">
+<span class="w-7 h-7 rounded-full bg-[#07C160]/20 text-[#07C160] flex items-center justify-center font-bold text-xs mb-1">微</span>
+<span class="text-[11px] font-label-sm text-on-surface">微信</span>
+</button>
+<!-- 複製鏈接 -->
+<button class="min-h-[44px] flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container hover:bg-surface-variant border border-outline-variant/20 transition active:scale-95" onclick="copyInviteLink()">
+<span class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs mb-1">
+<span class="material-symbols-outlined text-[16px]">link</span>
+</span>
+<span class="text-[11px] font-label-sm text-on-surface">複製鏈接</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 嚴格對齊之獎勵與規範說明 (絕無誇大承諾與模糊條款) -->
+<section class="glass-panel rounded-2xl p-4 ethereal-border flex flex-col gap-3">
+<div class="flex items-center gap-2 border-b border-outline-variant/20 pb-2">
+<span class="material-symbols-outlined text-primary text-base">card_giftcard</span>
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface">雙邊發券與權益邊界說明</h3>
+</div>
+<div class="flex flex-col gap-2.5 text-xs font-body-sm text-on-surface-variant">
+<!-- 規則 1: 註冊即發券 -->
+<div class="flex items-start gap-2 bg-surface-container/50 p-2.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5">task_alt</span>
+<div>
+<strong class="text-on-surface font-label-lg block text-xs">註冊即雙邊發券（無須預先建檔）</strong>
+<p class="text-[11px] text-on-surface-variant/90 leading-relaxed mt-0.5">
+              好友透過您的專屬有效連結完成註冊，雙方各得 1 張深讀券。不額外要求建檔，帳號完成註冊即時發放至資產帳戶。
+            </p>
+</div>
+</div>
+<!-- 規則 2: 深讀券權益邊界明確告知 -->
+<div class="flex items-start gap-2 bg-surface-container/50 p-2.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5">info</span>
+<div>
+<strong class="text-on-surface font-label-lg block text-xs">深讀券嚴格使用權限</strong>
+<p class="text-[11px] text-on-surface-variant/90 leading-relaxed mt-0.5">
+              深讀券僅限用於每日運勢整卡解鎖，不可用於合盤與命書。合盤深度解析需透過專屬解鎖機制。
+            </p>
+</div>
+</div>
+<!-- 規則 3: 上限與永久有效說明 -->
+<div class="flex items-start gap-2 bg-surface-container/50 p-2.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-outline text-base shrink-0 mt-0.5">calendar_month</span>
+<div class="w-full">
+<div class="flex items-center justify-between">
+<strong class="text-on-surface font-label-lg block text-xs">月度邀請上限規範</strong>
+<span class="text-primary font-semibold text-[11px]">本月已獲 2 / 6 張</span>
+</div>
+<!-- 進度條 -->
+<div class="w-full bg-surface-variant h-1.5 rounded-full my-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 33.3%;"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant/90 leading-relaxed">
+              每人每 UTC 自然月透過邀請最多獲 6 張深讀券，已存入券永久有效不截斷，過月不失效。
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 底部版權與免責嚴肅備註 -->
+<div class="text-center text-[10px] text-outline font-label-sm py-2">
+      覓搭 MiDa 演算法系統 · 恪守個人隱私與自主授權規範 · 2025
+    </div>
+</main>
+<!-- 吐司通知 (Toast Notification for Copy) -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-2" id="toast">
+<div class="glass-panel border border-primary/40 text-primary px-4 py-2 rounded-full text-xs font-label-sm shadow-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span id="toast-message">已複製專屬邀請連結至剪貼簿</span>
+</div>
+</div>
+<!-- 底部固定導航欄 (BottomNavBar: Today, Destiny Book, Synastry, Profile) -->
+<!-- 依據規則：「合盤 Synastry」為當前活躍頁面 -->
+<nav class="fixed bottom-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 flex justify-around items-center px-margin py-space-xs max-w-7xl mx-auto">
+<!-- 今日 Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[48px] min-w-[48px] hover:text-primary-fixed-dim transition-colors active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl">wb_sunny</span>
+<span class="text-[11px] font-label-sm mt-0.5">今日</span>
+</a>
+<!-- 命書 Destiny Book -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[48px] min-w-[48px] hover:text-primary-fixed-dim transition-colors active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<span class="text-[11px] font-label-sm mt-0.5">命書</span>
+</a>
+<!-- 合盤 Synastry (ACTIVE TAB - 嚴格應用 style_active_navigation) -->
+<a class="flex flex-col items-center justify-center text-primary py-space-xs font-semibold min-h-[48px] min-w-[48px] active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">join_inner</span>
+<span class="text-[11px] font-label-sm mt-0.5">合盤</span>
+</a>
+<!-- 我 Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[48px] min-w-[48px] hover:text-primary-fixed-dim transition-colors active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+<span class="text-[11px] font-label-sm mt-0.5">我</span>
+</a>
+</nav>
+<!-- 原型狀態切換與交互邏輯 Script -->
+<script>
+    // 預覽隱私切換
+    function togglePrivacy(checkbox) {
+      const previewName = document.getElementById('preview-name');
+      const previewModeTag = document.getElementById('preview-mode-tag');
+      
+      if (checkbox.checked) {
+        previewName.textContent = 'Wei 小雨 (庚金日元)';
+        previewModeTag.textContent = '【公開暱稱模式】';
+        previewModeTag.className = 'text-primary font-medium';
+      } else {
+        previewName.textContent = '命主 · 庚金日元';
+        previewModeTag.textContent = '【匿名保護模式】';
+        previewModeTag.className = 'text-secondary font-medium';
+      }
+    }
+
+    // 複製互動反饋
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = msg || '已複製到剪貼板';
+      
+      toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+      }, 2500);
+    }
+
+    function copyInviteLink() {
+      const dummyUrl = "https://mida.destiny.app/synastry/invite?token=MIDA-HEPAN-8974-V2";
+      navigator.clipboard?.writeText(dummyUrl).then(() => {
+        showToast('已複製專屬邀請連結至剪貼簿');
+      }).catch(() => {
+        showToast('已複製專屬邀請連結至剪貼簿');
+      });
+
+      // 更新按鈕微交互
+      const copyIcon = document.getElementById('copy-btn-icon');
+      const copyText = document.getElementById('copy-btn-text');
+      if (copyIcon && copyText) {
+        copyIcon.textContent = 'done';
+        copyText.textContent = '已複製';
+        setTimeout(() => {
+          copyIcon.textContent = 'content_copy';
+          copyText.textContent = '複製口令';
+        }, 2000);
+      }
+    }
+
+    function handleSocialShare(platform) {
+      showToast(`正在調用 ${platform} 分享專屬合盤卡...`);
+    }
+
+    // 原型演示狀態矩陣
+    function setPrototypeState(state) {
+      const states = ['normal', 'copied', 'accepted', 'expired'];
+      states.forEach(s => {
+        const btn = document.getElementById(`state-btn-${s}`);
+        if (btn) {
+          if (s === state) {
+            btn.className = "px-2 py-1 rounded bg-primary/20 text-primary border border-primary/40 font-medium transition text-left";
+          } else {
+            btn.className = "px-2 py-1 rounded bg-surface-variant/40 text-on-surface-variant border border-outline-variant/20 hover:text-on-surface transition text-left";
+          }
+        }
+      });
+
+      const banner = document.getElementById('state-banner');
+      const statusBadge = document.getElementById('invite-status-badge');
+      const mainBtn = document.getElementById('main-share-btn');
+      const inviteCode = document.getElementById('invite-code-text');
+
+      if (state === 'normal') {
+        banner.className = "hidden";
+        statusBadge.textContent = "有效中 · 剩餘 47 小時";
+        statusBadge.className = "text-[11px] font-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded border border-secondary/30";
+        inviteCode.textContent = "MIDA-HEPAN-8974-V2";
+        mainBtn.innerHTML = `<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">share</span><span>複製專屬邀請連結</span>`;
+        mainBtn.disabled = false;
+        mainBtn.className = "w-full min-h-[48px] py-3 px-4 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-sm font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_16px_rgba(242,202,80,0.35)] active:scale-98 transition duration-150";
+      } 
+      else if (state === 'copied') {
+        banner.className = "rounded-xl p-3.5 border bg-primary/10 border-primary/30 text-primary text-xs flex items-start gap-2.5";
+        banner.innerHTML = `
+          <span class="material-symbols-outlined text-base shrink-0 mt-0.5">content_copy</span>
+          <div class="leading-relaxed">
+            <strong>專屬連結已產生並複製！</strong> 請將連結傳送給好友，好友完成註冊即可各得 1 張深讀券。
+          </div>
+        `;
+        showToast('專屬連結已在剪貼簿中');
+      } 
+      else if (state === 'accepted') {
+        banner.className = "rounded-xl p-3.5 border bg-secondary/10 border-secondary/30 text-secondary text-xs flex items-start gap-2.5";
+        banner.innerHTML = `
+          <span class="material-symbols-outlined text-base shrink-0 mt-0.5">celebration</span>
+          <div class="leading-relaxed">
+            <strong>好友已完成註冊！</strong> 雙方各 1 張深讀券已發放入帳。雙方完成生辰建檔授權後即可查看「合化分析」。
+          </div>
+        `;
+        statusBadge.textContent = "好友已完成註冊 · 獎勵已發";
+        statusBadge.className = "text-[11px] font-label-sm text-secondary bg-secondary/20 px-2 py-0.5 rounded border border-secondary/40 font-semibold";
+        mainBtn.innerHTML = `<span class="material-symbols-outlined text-lg">check_circle</span><span>好友已受邀 · 點此再發起新邀請</span>`;
+      } 
+      else if (state === 'expired') {
+        banner.className = "rounded-xl p-3.5 border bg-error-container/40 border-error/40 text-error text-xs flex items-start gap-2.5";
+        banner.innerHTML = `
+          <span class="material-symbols-outlined text-base shrink-0 mt-0.5">hourglass_disabled</span>
+          <div class="leading-relaxed">
+            <strong>此合盤邀請口令已逾 48 小時失效。</strong> 原連結無法再綁定關係，請點擊下方重新生成全新口令。
+          </div>
+        `;
+        statusBadge.textContent = "已過期失效";
+        statusBadge.className = "text-[11px] font-label-sm text-error bg-error-container/20 px-2 py-0.5 rounded border border-error/30";
+        inviteCode.textContent = "EXPIRED-TOKEN-0000";
+        mainBtn.innerHTML = `<span class="material-symbols-outlined text-lg">refresh</span><span>重新生成有效邀請連結</span>`;
+        mainBtn.className = "w-full min-h-[48px] py-3 px-4 rounded-lg bg-surface-variant text-primary border border-primary/40 font-label-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-surface-bright active:scale-98 transition duration-150";
+      }
+    }
+  </script>
+</body></html>

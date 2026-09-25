@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>西式占星星盤排盤 - 覓搭 MiDa</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#ffb3ad",
+            "tertiary": "#ffbfba",
+            "on-surface": "#dfe2f1",
+            "primary": "#f2ca50",
+            "on-primary-fixed-variant": "#574500",
+            "on-tertiary": "#68000a",
+            "surface-variant": "#313540",
+            "secondary-container": "#00a572",
+            "on-surface-variant": "#d0c5af",
+            "inverse-surface": "#dfe2f1",
+            "primary-container": "#d4af37",
+            "on-primary-container": "#554300",
+            "on-background": "#dfe2f1",
+            "secondary": "#4edea3",
+            "on-primary": "#3c2f00",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#002113",
+            "surface-tint": "#e9c349",
+            "surface-container-highest": "#313540",
+            "on-tertiary-container": "#900013",
+            "surface-container-high": "#262a35",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-fixed-variant": "#930013",
+            "tertiary-fixed": "#ffdad7",
+            "on-secondary-container": "#00311f",
+            "outline-variant": "#4d4635",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#005236",
+            "surface": "#0f131d",
+            "on-secondary": "#003824",
+            "on-error": "#690005",
+            "tertiary-container": "#ff968f",
+            "background": "#0f131d",
+            "primary-fixed-dim": "#e9c349",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#0f131d",
+            "on-tertiary-fixed": "#410004",
+            "inverse-primary": "#735c00",
+            "outline": "#99907c",
+            "secondary-fixed-dim": "#4edea3",
+            "surface-bright": "#353944",
+            "on-primary-fixed": "#241a00",
+            "surface-container-lowest": "#0a0e18",
+            "surface-container-low": "#171b26",
+            "secondary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#2c303b",
+            "surface-container": "#1c1f2a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Noto Serif", "Noto Serif TC", "serif"],
+            "headline-md": ["Noto Serif", "Noto Serif TC", "serif"],
+            "headline-lg": ["Noto Serif", "Noto Serif TC", "serif"],
+            "headline-sm": ["Noto Serif", "Noto Serif TC", "serif"],
+            "display-lg-mobile": ["Noto Serif", "Noto Serif TC", "serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "bazi-symbol": ["Noto Serif", "Noto Serif TC", "serif"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .gold-glow {
+      box-shadow: 0 0 24px rgba(242, 202, 80, 0.15);
+    }
+    .gold-border {
+      border: 1px solid rgba(242, 202, 80, 0.22);
+    }
+    .glass-card {
+      background: rgba(28, 31, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(242, 202, 80, 0.18);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary pb-28">
+<!-- 原型狀態切換器 (Prototype State Control) -->
+<aside aria-label="原型狀態控制" class="bg-surface-container-lowest border-b border-outline-variant/40 px-margin py-2 z-50 text-xs">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+<span class="font-label-sm font-semibold tracking-wide">[原型狀態演示]</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar">
+<button class="px-3 py-1.5 rounded-lg border border-primary bg-primary/20 text-primary font-label-sm transition-all min-h-[32px] flex items-center" id="btn-state-known" onclick="setScreenState('known')" type="button">
+          1. 完整已知時辰
+        </button>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface-variant hover:text-on-surface font-label-sm transition-all min-h-[32px] flex items-center" id="btn-state-unknown" onclick="setScreenState('unknown')" type="button">
+          2. 未知時辰 (宮位鎖定)
+        </button>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface-variant hover:text-on-surface font-label-sm transition-all min-h-[32px] flex items-center" id="btn-state-loading" onclick="setScreenState('loading')" type="button">
+          3. 星盤計算中
+        </button>
+</div>
+</div>
+</aside>
+<!-- 命書下級專用頂部導航 -->
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 px-margin py-2.5 max-w-7xl w-full mx-auto">
+<div class="flex justify-between items-center w-full min-h-[44px]">
+<!-- 返回鍵 (觸控區域 >= 44px) -->
+<a aria-label="返回命書目錄" class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors min-h-[44px] min-w-[44px] pr-2 -ml-2 pl-2 rounded-lg" href="javascript:void(0)">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wide text-on-surface">命書目錄</span>
+</a>
+<!-- 品牌天體標識與右側占星視角指示 -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<img alt="覓搭 MiDa 專屬天體標識" class="w-7 h-7 object-contain opacity-90 drop-shadow-[0_0_8px_rgba(242,202,80,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH7IAnJMLFcIG72sEuCTKRp2ZzYtaB0Uo4v24AbPvZccz_5iRyiLQy_LuyuzzRUcuFDGbG07LBIhkA_sxT9b7AjLpW4oTdQrZYrkcmnrjZDXAYSm5mzJmt9ZKHsWURl9O1z-Tqnj0QOBnF48xpqpyO7xpvkAdBarKqjZM_-Su_bwk0Y-ykxbLlX84Z1iuoibrw2HJ-o2Fq_hQy3cxlGVekSQbUoAJvP0sEUZihIZuuYO_k852cdj5asTyCmM13HoqD2y9vO5FikeY"/>
+<span class="font-display-lg-mobile text-headline-sm font-semibold tracking-wider text-primary hidden sm:inline">覓搭 MiDa</span>
+</div>
+<!-- 當前視角標籤 (純客觀標記，無 Pro/體系切換器) -->
+<div class="flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded-full border border-outline-variant/40 min-h-[36px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">西式占星視角</span>
+</div>
+<!-- 獨立分享操作按鈕 (觸控區域 >= 44px) -->
+<button aria-label="分享星盤" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-variant/30 transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</button>
+</div>
+</div>
+</header>
+<!-- 主內容容器 -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-margin pt-4 space-y-6">
+<!-- 規範嚴格要求：首屏顯著醒目標註「AI 生成 · 僅供自我認知參考」 -->
+<div class="w-full flex items-center justify-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-high/80 border border-outline-variant/60 shadow-inner">
+<span class="material-symbols-outlined text-primary text-base" data-icon="info">info</span>
+<span class="font-label-sm text-label-sm tracking-wide text-on-surface font-medium">AI 生成 · 僅供自我認知參考</span>
+</div>
+</div>
+<!-- 狀態 3：計算加載中骨架 (默認隱藏) -->
+<section class="hidden glass-card rounded-xl p-8 text-center space-y-4" id="state-loading-view">
+<div class="relative w-16 h-16 mx-auto flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl animate-spin" data-icon="progress_activity">progress_activity</span>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-md text-headline-md text-primary font-medium">正在以瑞士星曆表精確演算...</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">真太陽時經緯度校準 · 普拉西德 (Placidus) 分宮體系投射</p>
+</div>
+</section>
+<!-- 主資料盤面 (狀態 1 與 狀態 2 共用，動態切換宮位資訊) -->
+<div class="space-y-6" id="chart-content-area">
+<!-- 未知時辰警示條 (狀態 2 時顯示) -->
+<div class="hidden glass-card border-tertiary-container/40 bg-surface-container-high p-4 rounded-xl" id="unknown-time-banner">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary-container text-xl mt-0.5" data-icon="warning">warning</span>
+<div class="space-y-1">
+<h3 class="font-label-lg text-label-lg text-tertiary-container font-semibold">出生時辰不確定模式</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              因時辰不確定，天文演算法無法推導上升點 (ASC)、天頂 (MC) 與十二後續宮位度數。此時盤面僅客觀展示核心十大行星的黃道星座度數，不推導假精確度數與宮位歸屬。
+            </p>
+</div>
+</div>
+</div>
+<!-- 頂部命主檔案與天體星盤視覺 -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- 左側：星盤圓盤核心可視化 (7欄) -->
+<div class="lg:col-span-7 glass-card rounded-xl p-5 md:p-6 flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="scatter_plot">scatter_plot</span>
+<h2 class="font-headline-md text-headline-sm md:text-headline-md text-on-surface font-semibold">本命天體星盤</h2>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-variant/50 text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/30" id="chart-time-badge">
+              1995.10.24 · 14:32 (真太陽時校準)
+            </span>
+</div>
+<!-- 星盤 SVG 向量結構 (具備黃道12宮、主要行星投影與角度連線) -->
+<div class="my-6 relative flex items-center justify-center">
+<div class="w-full max-w-[340px] md:max-w-[420px] aspect-square relative flex items-center justify-center">
+<!-- 盤面同心圓與黃道刻度 -->
+<svg class="w-full h-full drop-shadow-[0_0_20px_rgba(242,202,80,0.12)]" viewbox="0 0 400 400">
+<!-- 外層黃道環 -->
+<circle cx="200" cy="200" fill="none" r="185" stroke="#4d4635" stroke-opacity="0.6" stroke-width="1.5"></circle>
+<circle cx="200" cy="200" fill="none" r="150" stroke="#f2ca50" stroke-opacity="0.35" stroke-width="1"></circle>
+<circle cx="200" cy="200" fill="none" r="85" stroke="#4d4635" stroke-opacity="0.5" stroke-width="1"></circle>
+<circle cx="200" cy="200" fill="#171b26" r="30" stroke="#f2ca50" stroke-opacity="0.5" stroke-width="1"></circle>
+<!-- 地平線軸 ASC - DSC (已知時辰時清晰，未知時辰時虛化) -->
+<g class="transition-opacity duration-300" id="svg-axes">
+<line stroke="#f2ca50" stroke-dasharray="4 2" stroke-width="1.8" x1="20" x2="380" y1="200" y2="200"></line>
+<line stroke="#f2ca50" stroke-opacity="0.6" stroke-width="1.2" x1="200" x2="200" y1="20" y2="380"></line>
+<!-- ASC 軸文字標籤 -->
+<text fill="#f2ca50" font-family="Plus Jakarta Sans" font-size="11" font-weight="700" x="28" y="194">ASC 23°</text>
+<text fill="#d0c5af" font-family="Plus Jakarta Sans" font-size="10" x="345" y="194">DSC</text>
+<text fill="#f2ca50" font-family="Plus Jakarta Sans" font-size="10" font-weight="600" x="206" y="32">MC</text>
+</g>
+<!-- 黃道12星座分段線 -->
+<g stroke="#313540" stroke-width="1">
+<line x1="200" x2="200" y1="15" y2="50"></line>
+<line x1="200" x2="200" y1="350" y2="385"></line>
+<line x1="15" x2="50" y1="200" y2="200"></line>
+<line x1="350" x2="385" y1="200" y2="200"></line>
+<line x1="69" x2="94" y1="69" y2="94"></line>
+<line x1="306" x2="331" y1="306" y2="331"></line>
+<line x1="69" x2="94" y1="331" y2="306"></line>
+<line x1="306" x2="331" y1="94" y2="69"></line>
+</g>
+<!-- 主要相位幾何連線 (Aspect Lines) -->
+<g stroke-linecap="round">
+<!-- 三合 120° (綠/金色柔和線) -->
+<line stroke="#4edea3" stroke-opacity="0.7" stroke-width="1" x1="120" x2="280" y1="100" y2="120"></line>
+<line stroke="#4edea3" stroke-opacity="0.7" stroke-width="1" x1="120" x2="220" y1="100" y2="290"></line>
+<line stroke="#4edea3" stroke-opacity="0.7" stroke-width="1" x1="280" x2="220" y1="120" y2="290"></line>
+<!-- 刑衝 90° / 180° (紅/粉色張力線) -->
+<line stroke="#ff968f" stroke-opacity="0.6" stroke-width="1.2" x1="90" x2="310" y1="240" y2="160"></line>
+<line stroke="#ff968f" stroke-dasharray="3 3" stroke-opacity="0.5" stroke-width="1" x1="90" x2="200" y1="240" y2="70"></line>
+</g>
+<!-- 星盤核心行星節點與符號標記 -->
+<!-- 太陽 -->
+<circle cx="120" cy="100" fill="#f2ca50" r="5"></circle>
+<text fill="#f2ca50" font-size="12" font-weight="bold" x="115" y="90">☉</text>
+<!-- 月亮 -->
+<circle cx="280" cy="120" fill="#dfe2f1" r="5"></circle>
+<text fill="#dfe2f1" font-size="12" font-weight="bold" x="286" y="116">☽</text>
+<!-- 水星 -->
+<circle cx="140" cy="80" fill="#4edea3" r="4.5"></circle>
+<text fill="#4edea3" font-size="11" x="146" y="76">☿</text>
+<!-- 金星 -->
+<circle cx="200" cy="70" fill="#f2ca50" r="4.5"></circle>
+<text fill="#f2ca50" font-size="11" x="195" y="60">♀</text>
+<!-- 火星 -->
+<circle cx="310" cy="160" fill="#ff968f" r="4.5"></circle>
+<text fill="#ff968f" font-size="11" x="320" y="164">♂</text>
+<!-- 木星 -->
+<circle cx="220" cy="290" fill="#ffe088" r="4.5"></circle>
+<text fill="#ffe088" font-size="11" x="228" y="300">♃</text>
+<!-- 土星 -->
+<circle cx="90" cy="240" fill="#d0c5af" r="4.5"></circle>
+<text fill="#d0c5af" font-size="11" x="74" y="246">♄</text>
+<!-- 中心天體盤心 Logo 印記 -->
+<circle cx="200" cy="200" fill="#0f131d" r="16"></circle>
+<text fill="#f2ca50" font-size="14" x="194" y="205">✦</text>
+</svg>
+<!-- 未知時辰時的星盤中央遮罩指示 -->
+<div class="hidden absolute inset-0 bg-surface/75 backdrop-blur-[2px] rounded-full flex flex-col items-center justify-center text-center p-6 border border-outline-variant/30" id="unknown-chart-overlay">
+<span class="material-symbols-outlined text-primary text-3xl mb-1" data-icon="lock">lock</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">宮位未定位</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[200px] mt-1">
+                  因時辰未知，不投射 Asc/宮位劃分，保留十星黃道星座刻度。
+                </p>
+</div>
+</div>
+</div>
+<!-- 盤面交互底部提示列 (包含 >=44px 資訊操作項) -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-outline-variant/30 text-xs">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#4edea3]"></span> 和諧相位 (120°/60°)
+              </span>
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#ff968f]"></span> 挑戰相位 (90°/180°)
+              </span>
+</div>
+<!-- 資訊觸控按鈕 (觸控區域 >= 44px) -->
+<button class="min-h-[44px] px-3 flex items-center gap-1 text-primary hover:text-primary-fixed transition-colors font-label-sm" onclick="toggleDetailsSection()" type="button">
+<span class="material-symbols-outlined text-base" data-icon="tune">tune</span>
+<span>切換展開細項目錄</span>
+</button>
+</div>
+</div>
+<!-- 右側：命主核心三要素與配置速覽 (5欄) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<!-- 核心三巨頭 (太陽 / 月亮 / 上升) -->
+<div class="glass-card rounded-xl p-5 space-y-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center justify-between">
+<span>人格基石架構</span>
+<span class="text-xs font-normal text-on-surface-variant">核心自我體系</span>
+</h3>
+<div class="grid grid-cols-3 gap-3">
+<!-- 太陽 -->
+<div class="bg-surface-container p-3 rounded-lg border border-outline-variant/30 text-center space-y-1">
+<div class="text-xs text-on-surface-variant">太陽 ☉</div>
+<div class="font-headline-sm text-primary font-medium">天蠍座</div>
+<div class="text-xs text-on-surface-variant">00°48' · 8宮</div>
+</div>
+<!-- 月亮 -->
+<div class="bg-surface-container p-3 rounded-lg border border-outline-variant/30 text-center space-y-1">
+<div class="text-xs text-on-surface-variant">月亮 ☽</div>
+<div class="font-headline-sm text-on-surface font-medium">天蠍座</div>
+<div class="text-xs text-on-surface-variant">21°15' · 8宮</div>
+</div>
+<!-- 上升 (ASC) -->
+<div class="bg-surface-container p-3 rounded-lg border border-outline-variant/30 text-center space-y-1 transition-all" id="asc-card">
+<div class="text-xs text-on-surface-variant">上升 ASC</div>
+<div class="font-headline-sm text-secondary font-medium" id="asc-sign-text">水瓶座</div>
+<div class="text-xs text-on-surface-variant" id="asc-degree-text">23°10' · 1宮</div>
+</div>
+</div>
+</div>
+<!-- 四大古典元素權重比例 -->
+<div class="glass-card rounded-xl p-5 space-y-3 flex-1 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">四元素力量分佈</h3>
+<span class="text-xs text-on-surface-variant">基於 10 核心行星計權</span>
+</div>
+<div class="space-y-2.5">
+<!-- 水象 (天蠍聚集，偏高) -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-label-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="text-blue-400">💧</span> 水象元素 (感應/直覺)
+                  </span>
+<span class="text-primary font-bold">50% (5星)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<!-- 風象 -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-label-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="text-teal-300">💨</span> 風象元素 (理智/溝通)
+                  </span>
+<span class="text-on-surface font-medium">20% (2星)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<!-- 土象 -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-label-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="text-amber-300">🌱</span> 土象元素 (務實/根基)
+                  </span>
+<span class="text-on-surface font-medium">20% (2星)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<!-- 火象 -->
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-label-sm">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="text-rose-400">🔥</span> 火象元素 (意志/驅力)
+                  </span>
+<span class="text-on-surface font-medium">10% (1星)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-rose-500 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+<div class="pt-2 text-[11px] text-on-surface-variant/80 border-t border-outline-variant/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="psychology">psychology</span>
+<span>水象強勢：感受深沉敏銳，善於洞察隱蔽動機與深層心理結構。</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 規範嚴格要求：行星表標題數量與實際展示行數嚴格一致 (核心星體 (10) 對應 10 行) -->
+<section class="glass-card rounded-xl overflow-hidden border border-outline-variant/40">
+<!-- 表頭折疊開關 (觸控區域 >= 44px) -->
+<button class="w-full px-5 py-3.5 flex items-center justify-between bg-surface-container-low hover:bg-surface-container transition-colors min-h-[44px]" onclick="toggleAccordion('planets-table-container', 'planets-chevron')" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="stars">stars</span>
+<!-- 標題數量：明確標註為 10，下方嚴格展示 10 行數據 -->
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">核心星體 (10)</h3>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant">包含日、月及八大行星</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm">
+<span id="planets-state-text">收起</span>
+<span class="material-symbols-outlined transition-transform duration-200" data-icon="expand_less" id="planets-chevron">expand_less</span>
+</div>
+</button>
+<!-- 行星數據列表 (嚴格 10 行：太陽、月亮、水星、金星、火星、木星、土星、天王星、海王星、冥王星) -->
+<div class="overflow-x-auto" id="planets-table-container">
+<table class="w-full text-left text-sm border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/40 bg-surface-container/60 text-xs text-on-surface-variant uppercase font-label-sm">
+<th class="py-2.5 px-4">星體</th>
+<th class="py-2.5 px-4">黃道星座</th>
+<th class="py-2.5 px-4">度數 (經度)</th>
+<th class="py-2.5 px-4" id="th-house">分宮位置</th>
+<th class="py-2.5 px-4">運行狀態</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm">
+<!-- 行 1: 太陽 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-primary text-base">☉</span> 太陽
+                </td>
+<td class="py-3 px-4 text-primary">天蠍座</td>
+<td class="py-3 px-4 font-mono">00° 48' 12"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 8 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 2: 月亮 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-slate-200 text-base">☽</span> 月亮
+                </td>
+<td class="py-3 px-4 text-primary">天蠍座</td>
+<td class="py-3 px-4 font-mono">21° 15' 44"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 8 宮 (弱勢)</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 3: 水星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-secondary text-base">☿</span> 水星
+                </td>
+<td class="py-3 px-4 text-on-surface">天秤座</td>
+<td class="py-3 px-4 font-mono">26° 02' 19"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 8 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 4: 金星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-primary text-base">♀</span> 金星
+                </td>
+<td class="py-3 px-4 text-on-surface">天蠍座</td>
+<td class="py-3 px-4 font-mono">14° 33' 01"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 8 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 5: 火星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-rose-400 text-base">♂</span> 火星
+                </td>
+<td class="py-3 px-4 text-on-surface">射手座</td>
+<td class="py-3 px-4 font-mono">12° 09' 51"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 10 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 6: 木星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-primary-fixed text-base">♃</span> 木星
+                </td>
+<td class="py-3 px-4 text-on-surface">射手座</td>
+<td class="py-3 px-4 font-mono">15° 40' 02"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 10 宮 (廟旺)</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 7: 土星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-on-surface-variant text-base">♄</span> 土星
+                </td>
+<td class="py-3 px-4 text-on-surface">雙魚座</td>
+<td class="py-3 px-4 font-mono">18° 52' 30"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 1 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-tertiary-container/20 text-tertiary font-medium">逆行 ℞</span></td>
+</tr>
+<!-- 行 8: 天王星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-cyan-400 text-base">♅</span> 天王星
+                </td>
+<td class="py-3 px-4 text-on-surface">摩羯座</td>
+<td class="py-3 px-4 font-mono">26° 44' 18"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 11 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 9: 海王星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-sky-300 text-base">♆</span> 海王星
+                </td>
+<td class="py-3 px-4 text-on-surface">摩羯座</td>
+<td class="py-3 px-4 font-mono">22° 49' 06"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 11 宮</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+<!-- 行 10: 冥王星 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-3 px-4 font-medium text-on-surface flex items-center gap-2">
+<span class="text-purple-400 text-base">♇</span> 冥王星
+                </td>
+<td class="py-3 px-4 text-on-surface">天蠍座</td>
+<td class="py-3 px-4 font-mono">29° 01' 58"</td>
+<td class="py-3 px-4 house-cell text-on-surface">第 9 宮 (廟旺)</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 text-xs rounded bg-surface-variant text-on-surface">順行</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 規範要求：12 宮位列表與主要相位列表 (可展開收起，支持圖例) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- 12 宮位分佈表 (未知時辰時整體鎖定提示) -->
+<section class="glass-card rounded-xl overflow-hidden border border-outline-variant/40" id="houses-section">
+<button class="w-full px-5 py-3.5 flex items-center justify-between bg-surface-container-low hover:bg-surface-container transition-colors min-h-[44px]" onclick="toggleAccordion('houses-content', 'houses-chevron')" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="grid_view">grid_view</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">後續十二宮位 (普拉西德體系)</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_less" id="houses-chevron">expand_less</span>
+</button>
+<!-- 12 宮明細內容 -->
+<div class="p-4 space-y-2 text-xs" id="houses-content">
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="houses-list-grid">
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 1 宮 (ASC)</span>
+<span class="text-primary font-mono">水瓶 23°10'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 2 宮 財帛</span>
+<span class="text-on-surface-variant font-mono">雙魚 29°42'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 3 宮 兄弟</span>
+<span class="text-on-surface-variant font-mono">金牛 02°11'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 4 宮 田宅 (IC)</span>
+<span class="text-on-surface-variant font-mono">金牛 26°05'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 5 宮 子女</span>
+<span class="text-on-surface-variant font-mono">雙子 18°33'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 6 宮 奴僕</span>
+<span class="text-on-surface-variant font-mono">巨蟹 10°54'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 7 宮 夫妻 (DSC)</span>
+<span class="text-on-surface-variant font-mono">獅子 23°10'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 8 宮 疾厄</span>
+<span class="text-on-surface-variant font-mono">處女 29°42'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 9 宮 遷移</span>
+<span class="text-on-surface-variant font-mono">天蠍 02°11'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 10 宮 官祿 (MC)</span>
+<span class="text-primary font-mono">天蠍 26°05'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 11 宮 福德</span>
+<span class="text-on-surface-variant font-mono">射手 18°33'</span>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex justify-between">
+<span class="text-on-surface font-medium">第 12 宮 相貌</span>
+<span class="text-on-surface-variant font-mono">摩羯 10°54'</span>
+</div>
+</div>
+<!-- 未知時辰覆蓋層 -->
+<div class="hidden p-4 rounded bg-surface-container text-center space-y-1" id="houses-unknown-lock">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="lock_clock">lock_clock</span>
+<p class="text-on-surface font-medium">時辰未知 · 宮位不可計算</p>
+<p class="text-on-surface-variant text-[11px]">未獲取精確至分鐘的出生時間，無法確立上升點及 1-12 宮起始度數。</p>
+</div>
+</div>
+</section>
+<!-- 主要相位圖例與相位列表 (Aspects) -->
+<section class="glass-card rounded-xl overflow-hidden border border-outline-variant/40">
+<button class="w-full px-5 py-3.5 flex items-center justify-between bg-surface-container-low hover:bg-surface-container transition-colors min-h-[44px]" onclick="toggleAccordion('aspects-content', 'aspects-chevron')" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="all_inclusive">all_inclusive</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">核心交角相位 (主要容許度)</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant transition-transform duration-200" data-icon="expand_less" id="aspects-chevron">expand_less</span>
+</button>
+<div class="p-4 space-y-2 text-xs" id="aspects-content">
+<div class="space-y-2">
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">☉ 太陽</span>
+<span class="text-secondary font-mono">△ 120°</span>
+<span class="text-on-surface">♃ 木星</span>
+</div>
+<div class="text-right">
+<span class="text-secondary font-medium">拱相 (三合)</span>
+<span class="text-on-surface-variant text-[11px] block">容許度 1°12' (入相)</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">☽ 月亮</span>
+<span class="text-tertiary-container font-mono">□ 90°</span>
+<span class="text-rose-400 font-bold">♂ 火星</span>
+</div>
+<div class="text-right">
+<span class="text-tertiary-container font-medium">刑相 (四分)</span>
+<span class="text-on-surface-variant text-[11px] block">容許度 2°04' (出相)</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">♀ 金星</span>
+<span class="text-primary font-mono">☌ 0°</span>
+<span class="text-slate-200 font-bold">☽ 月亮</span>
+</div>
+<div class="text-right">
+<span class="text-primary font-medium">合相 (會)</span>
+<span class="text-on-surface-variant text-[11px] block">容許度 6°42'</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-rose-400 font-bold">♂ 火星</span>
+<span class="text-secondary font-mono">⚹ 60°</span>
+<span class="text-on-surface-variant font-bold">♄ 土星</span>
+</div>
+<div class="text-right">
+<span class="text-secondary font-medium">六合 (半合)</span>
+<span class="text-on-surface-variant text-[11px] block">容許度 0°42' (精確)</span>
+</div>
+</div>
+</div>
+<!-- 圖例小註釋 -->
+<div class="pt-2 flex items-center justify-between text-[11px] text-on-surface-variant border-t border-outline-variant/30">
+<span>☌ 合相 0° · ⚹ 六合 60° · □ 刑 90° · △ 拱 120°</span>
+<span>主星容許度: 6°-8°</span>
+</div>
+</div>
+</section>
+</div>
+<!-- 規範嚴格要求：計算依據僅描述客觀天文參數，絕不聲稱「確定性無幻覺」 -->
+<section class="glass-card rounded-xl p-5 border border-outline-variant/40 space-y-3">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">排盤計算依據與天文參數說明</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-body-sm text-on-surface-variant">
+<div class="space-y-1 bg-surface-container/50 p-3 rounded border border-outline-variant/30">
+<div class="font-label-sm font-semibold text-on-surface">1. 星曆計算引擎</div>
+<p>集成瑞士星曆表 (Swiss Ephemeris DE431)，天文坐標精度基準依據 JPL 數值積分，星體黃經誤差小於 0.001 角秒。</p>
+</div>
+<div class="space-y-1 bg-surface-container/50 p-3 rounded border border-outline-variant/30">
+<div class="font-label-sm font-semibold text-on-surface">2. 時間與地理校準</div>
+<p>出生平太陽時經地理經緯度 (時差方程式 Equation of Time) 修正轉化為真太陽時 (True Solar Time) 進行黃道地心投影。</p>
+</div>
+<div class="space-y-1 bg-surface-container/50 p-3 rounded border border-outline-variant/30">
+<div class="font-label-sm font-semibold text-on-surface">3. 分宮制數學模型</div>
+<p>採用普拉西德 (Placidus) 半弧四分分宮法；如遇高緯度極晝夜區，備用波菲利 (Porphyry) 算法映射。</p>
+</div>
+</div>
+<div class="text-[11px] text-on-surface-variant/80 border-t border-outline-variant/30 pt-2 flex items-start gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary flex-shrink-0 mt-0.5" data-icon="policy">policy</span>
+<span>本系統恪守客觀天文推導規範，提供幾何交角度數參考。所有分析文本由神經網絡輔助合成，僅供使用者個人心理探索與哲學思考，不可替代任何形式之專業醫療、法律或財務決策。</span>
+</div>
+</section>
+<!-- 底部主要 CTA 按鈕 (深色字體、金色背景、符合 >=44px) -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-surface-container-high border border-outline-variant/40">
+<div>
+<h4 class="font-headline-sm text-on-surface font-semibold">深入解讀：天蠍群星的深層轉化課題</h4>
+<p class="text-xs text-on-surface-variant">基於本命盤 8 宮太陽與月亮配置的專屬心智報告已生成</p>
+</div>
+<!-- 金色按鈕、深色文字規範 (on-primary) -->
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary text-on-primary font-label-lg font-semibold hover:bg-primary-fixed-dim transition-all shadow-[0_0_16px_rgba(242,202,80,0.3)] active:scale-98 flex items-center justify-center gap-2 min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="auto_awesome">auto_awesome</span>
+<span>閱讀西式星盤詳解報告</span>
+</button>
+</div>
+</div>
+</main>
+<!-- 規範嚴格要求：底部導航欄標準四大 Tab：「今日／命書（當前高亮）／合盤／我」，嚴禁出現「命盤/流年/本元」 -->
+<nav aria-label="全域主導航" class="fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-2xl">
+<div class="flex justify-around items-center px-margin py-1.5 max-w-7xl mx-auto min-h-[58px]">
+<!-- Tab 1: 今日 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs hover:text-primary transition-colors duration-200 min-h-[44px] min-w-[56px]" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl" data-icon="wb_sunny">wb_sunny</span>
+<span class="font-label-sm text-[11px] mt-0.5">今日</span>
+</a>
+<!-- Tab 2: 命書 (當前高亮 - style_active_navigation) -->
+<a class="flex flex-col items-center justify-center text-primary py-space-xs font-semibold hover:text-primary transition-colors duration-200 min-h-[44px] min-w-[56px]" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-[11px] mt-0.5">命書</span>
+</a>
+<!-- Tab 3: 合盤 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs hover:text-primary transition-colors duration-200 min-h-[44px] min-w-[56px]" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl" data-icon="join_inner">join_inner</span>
+<span class="font-label-sm text-[11px] mt-0.5">合盤</span>
+</a>
+<!-- Tab 4: 我 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs hover:text-primary transition-colors duration-200 min-h-[44px] min-w-[56px]" href="javascript:void(0)">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-[11px] mt-0.5">我</span>
+</a>
+</div>
+</nav>
+<!-- 原型狀態切換與交互邏輯 -->
+<script>
+    function setScreenState(state) {
+      const knownBtn = document.getElementById('btn-state-known');
+      const unknownBtn = document.getElementById('btn-state-unknown');
+      const loadingBtn = document.getElementById('btn-state-loading');
+
+      const loadingView = document.getElementById('state-loading-view');
+      const chartArea = document.getElementById('chart-content-area');
+      const unknownBanner = document.getElementById('unknown-time-banner');
+      const unknownChartOverlay = document.getElementById('unknown-chart-overlay');
+      const svgAxes = document.getElementById('svg-axes');
+      
+      const ascSignText = document.getElementById('asc-sign-text');
+      const ascDegreeText = document.getElementById('asc-degree-text');
+      const chartTimeBadge = document.getElementById('chart-time-badge');
+      const housesListGrid = document.getElementById('houses-list-grid');
+      const housesUnknownLock = document.getElementById('houses-unknown-lock');
+
+      const houseCells = document.querySelectorAll('.house-cell');
+      const thHouse = document.getElementById('th-house');
+
+      // 重設按鈕樣式
+      [knownBtn, unknownBtn, loadingBtn].forEach(btn => {
+        btn.className = "px-3 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface-variant hover:text-on-surface font-label-sm transition-all min-h-[32px] flex items-center";
+      });
+
+      if (state === 'known') {
+        knownBtn.className = "px-3 py-1.5 rounded-lg border border-primary bg-primary/20 text-primary font-label-sm transition-all min-h-[32px] flex items-center";
+        loadingView.classList.add('hidden');
+        chartArea.classList.remove('hidden');
+        unknownBanner.classList.add('hidden');
+        unknownChartOverlay.classList.add('hidden');
+        svgAxes.style.opacity = '1';
+        chartTimeBadge.innerText = '1995.10.24 · 14:32 (真太陽時校準)';
+        
+        ascSignText.innerText = '水瓶座';
+        ascSignText.className = 'font-headline-sm text-secondary font-medium';
+        ascDegreeText.innerText = '23°10\' · 1宮';
+
+        housesListGrid.classList.remove('hidden');
+        housesUnknownLock.classList.add('hidden');
+        thHouse.innerText = '分宮位置';
+
+        const originalHouses = [
+          '第 8 宮', '第 8 宮 (弱勢)', '第 8 宮', '第 8 宮',
+          '第 10 宮', '第 10 宮 (廟旺)', '第 1 宮', '第 11 宮',
+          '第 11 宮', '第 9 宮 (廟旺)'
+        ];
+        houseCells.forEach((cell, idx) => {
+          cell.innerText = originalHouses[idx] || '計算中';
+        });
+
+      } else if (state === 'unknown') {
+        unknownBtn.className = "px-3 py-1.5 rounded-lg border border-primary bg-primary/20 text-primary font-label-sm transition-all min-h-[32px] flex items-center";
+        loadingView.classList.add('hidden');
+        chartArea.classList.remove('hidden');
+        unknownBanner.classList.remove('hidden');
+        unknownChartOverlay.classList.remove('hidden');
+        svgAxes.style.opacity = '0.15';
+        chartTimeBadge.innerText = '1995.10.24 · 時辰未知 (宮位鎖定)';
+
+        ascSignText.innerText = '未計算';
+        ascSignText.className = 'font-headline-sm text-on-surface-variant font-medium text-base';
+        ascDegreeText.innerText = '需精確生時';
+
+        housesListGrid.classList.add('hidden');
+        housesUnknownLock.classList.remove('hidden');
+        thHouse.innerText = '分宮 (未計算)';
+
+        houseCells.forEach((cell) => {
+          cell.innerHTML = '<span class="text-on-surface-variant/60 italic text-xs">未知時辰未賦宮</span>';
+        });
+
+      } else if (state === 'loading') {
+        loadingBtn.className = "px-3 py-1.5 rounded-lg border border-primary bg-primary/20 text-primary font-label-sm transition-all min-h-[32px] flex items-center";
+        loadingView.classList.remove('hidden');
+        chartArea.classList.add('hidden');
+      }
+    }
+
+    function toggleAccordion(contentId, chevronId) {
+      const content = document.getElementById(contentId);
+      const chevron = document.getElementById(chevronId);
+      if (!content) return;
+
+      const isHidden = content.classList.contains('hidden');
+      if (isHidden) {
+        content.classList.remove('hidden');
+        if (chevron) chevron.innerText = 'expand_less';
+      } else {
+        content.classList.add('hidden');
+        if (chevron) chevron.innerText = 'expand_more';
+      }
+    }
+
+    function toggleDetailsSection() {
+      toggleAccordion('planets-table-container', 'planets-chevron');
+      toggleAccordion('houses-content', 'houses-chevron');
+      toggleAccordion('aspects-content', 'aspects-chevron');
+    }
+  </script>
+</body></html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>購買記錄與訂單支持 - 覓搭 MiDa Web</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#410004",
+            "inverse-on-surface": "#2c303b",
+            "primary": "#f2ca50",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "surface-container": "#1c1f2a",
+            "outline": "#99907c",
+            "on-primary-fixed-variant": "#574500",
+            "on-primary-fixed": "#241a00",
+            "surface-container-low": "#171b26",
+            "secondary-container": "#00a572",
+            "secondary-fixed-dim": "#4edea3",
+            "tertiary": "#ffbfba",
+            "surface-container-highest": "#313540",
+            "secondary-fixed": "#6ffbbe",
+            "primary-fixed-dim": "#e9c349",
+            "on-tertiary": "#68000a",
+            "error-container": "#93000a",
+            "surface-dim": "#0f131d",
+            "on-secondary-fixed-variant": "#005236",
+            "on-error": "#690005",
+            "tertiary-container": "#ff968f",
+            "tertiary-fixed": "#ffdad7",
+            "surface-tint": "#e9c349",
+            "inverse-surface": "#dfe2f1",
+            "surface-container-lowest": "#0a0e18",
+            "surface-bright": "#353944",
+            "inverse-primary": "#735c00",
+            "on-secondary-container": "#00311f",
+            "on-primary-container": "#554300",
+            "outline-variant": "#4d4635",
+            "primary-container": "#d4af37",
+            "on-primary": "#3c2f00",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-fixed-variant": "#930013",
+            "on-secondary-fixed": "#002113",
+            "on-secondary": "#003824",
+            "surface-container-high": "#262a35",
+            "surface": "#0f131d",
+            "on-error-container": "#ffdad6",
+            "background": "#0f131d",
+            "on-surface": "#dfe2f1",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#900013",
+            "secondary": "#4edea3",
+            "on-surface-variant": "#d0c5af",
+            "on-background": "#dfe2f1",
+            "surface-variant": "#313540"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-desktop": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "margin": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Noto Serif TC", "Noto Serif", "serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Noto Serif TC", "Noto Serif", "serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Noto Serif TC", "Noto Serif", "serif"],
+            "display-lg-mobile": ["Noto Serif TC", "Noto Serif", "serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Noto Serif TC", "Noto Serif", "serif"],
+            "bazi-symbol": ["Noto Serif TC", "Noto Serif", "serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "fontWeight": "400"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "display-lg-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "bazi-symbol": ["24px", {"lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined[data-weight="fill"] {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Celestial Glass Styling */
+    .glass-card {
+      background: rgba(23, 27, 38, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.16);
+    }
+    .gold-glow {
+      box-shadow: 0 0 24px -4px rgba(212, 175, 55, 0.18);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary font-body-md text-body-md pb-24">
+<!-- ========================================== -->
+<!-- 0. 外置原型狀態演示控制器 (Prototype Controller) -->
+<!-- ========================================== -->
+<aside aria-label="演示狀態控制台" class="w-full bg-surface-container-lowest border-b border-outline-variant/40 py-2.5 px-3 z-50 sticky top-0">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-primary-container text-on-primary-container">
+          原型狀態控制器
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">切換多種即時業務視圖：</span>
+</div>
+<div aria-label="訂單狀態切換按鈕組" class="flex flex-wrap gap-1.5 w-full md:w-auto" role="group">
+<button class="min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-primary text-on-primary font-semibold flex items-center gap-1 shadow-sm" id="btn-state-full" onclick="switchState('full')" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+          1. 完整記錄(預設7態)
+        </button>
+<button class="min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-surface-container-high text-on-surface-variant hover:text-primary flex items-center gap-1" id="btn-state-empty" onclick="switchState('empty')" type="button">
+<span class="material-symbols-outlined text-[16px]">inbox</span>
+          2. 空態(無訂單)
+        </button>
+<button class="min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-surface-container-high text-on-surface-variant hover:text-primary flex items-center gap-1" id="btn-state-loading" onclick="switchState('loading')" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+          3. 載入中
+        </button>
+<button class="min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-surface-container-high text-on-surface-variant hover:text-primary flex items-center gap-1" id="btn-state-error" onclick="switchState('error')" type="button">
+<span class="material-symbols-outlined text-[16px]">error_outline</span>
+          4. 查詢失敗
+        </button>
+<button class="min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-surface-container-high text-on-surface-variant hover:text-primary flex items-center gap-1" id="btn-state-refunds" onclick="switchState('refunds')" type="button">
+<span class="material-symbols-outlined text-[16px]">currency_exchange</span>
+          5. 僅退款歷史
+        </button>
+</div>
+</div>
+</aside>
+<!-- ========================================== -->
+<!-- 1. TopAppBar (規範共享頂部導航) -->
+<!-- ========================================== -->
+<header class="sticky top-[52px] z-40 flex justify-between items-center w-full px-margin py-space-sm max-w-7xl mx-auto bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+<div class="flex items-center gap-3">
+<!-- 規範返回按鈕 (min-height: 44px) -->
+<a aria-label="返回上一頁" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-all active:scale-95" href="#back">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</a>
+<!-- 品牌露出：Logo 圖片 + 標題 -->
+<div class="flex items-center gap-2">
+<img alt="覓搭 MiDa 標誌" class="w-8 h-8 rounded-full border border-primary/40 object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMDahGeA3YhjFQm60H51oRBsUiSflQ0rihs9C8_-3pGnjJBpJi_7VOZgnDUkAicsPets5NvmkMABPadpeS6NUXMc_QiCigogDihOGuqvQ8GiKiE68vEAkUgxTTar5qi936pBB3irjW0ZAdr6XiAG-kBw_Bku7JQXECqVfd7kfML-Yki1t2xbIEOcCK1PPzMuf79nn8KEvVSTRqzodaL0vynb63_4l-yCq4ngGtUfGMlxBvk7O33K4K2CNHXRzfqeKROOaXv458iDU"/>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wider text-primary">覓搭 MiDa Web</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">購買記錄與訂單支持</span>
+</div>
+</div>
+</div>
+<!-- 右側資產與客服支持快捷入口 -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface">
+<span class="text-xs font-label-sm text-on-surface-variant">當前靈石</span>
+<span class="text-sm font-semibold text-primary">128 💎</span>
+</div>
+<a class="min-h-[44px] px-3.5 py-2 inline-flex items-center gap-1.5 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all font-label-sm text-label-sm font-medium active:scale-95" href="mailto:support@mida.gonewx.com" title="客服支援">
+<span class="material-symbols-outlined text-[20px]">support_agent</span>
+<span class="hidden md:inline">客服支持</span>
+</a>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- 2. 主畫布區塊 (Main Content Area) -->
+<!-- ========================================== -->
+<main class="w-full max-w-7xl mx-auto px-margin md:px-margin-desktop py-space-md flex-1">
+<!-- 用戶資產一致性看板 (嚴格數值: Wei / mida_789421 / 128 顆靈石) -->
+<section class="glass-card rounded-xl p-space-md md:p-space-lg mb-space-lg relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+<!-- 用戶帳號標識 -->
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-primary/30 flex items-center justify-center text-primary font-display-lg-mobile text-lg font-semibold shadow-inner">
+            雨
+          </div>
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Wei (小雨)</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high border border-outline-variant/50 text-on-surface-variant">
+                UID: mida_789421
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">wei.design@destiny.io · 已綁定 Stripe 授權憑證</p>
+</div>
+</div>
+<!-- 規範唯一真實餘額：128 顆靈石 (徹底覆蓋移除 860、478) -->
+<div class="flex items-center justify-between md:justify-end gap-6 pt-3 md:pt-0 border-t md:border-t-0 border-outline-variant/30">
+<div class="flex flex-col md:items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">當前可用靈石餘額</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="text-3xl font-display-lg-mobile font-bold text-primary tracking-tight">128</span>
+<span class="font-label-sm text-label-sm text-primary/80 font-medium">顆靈石 💎</span>
+</div>
+</div>
+<a class="min-h-[44px] px-4 py-2 inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-all font-label-sm text-label-sm font-semibold shadow-md active:scale-95" href="#checkout">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+            儲值靈石
+          </a>
+</div>
+</div>
+</section>
+<!-- 即時狀態通知區域 (Accessible Live Region) -->
+<div aria-live="polite" class="sr-only" id="live-region">目前正在展示：完整訂單記錄</div>
+<!-- ==================================================== -->
+<!-- 視圖 1: 完整訂單記錄 (含 7 大獨立業務狀態) -->
+<!-- ==================================================== -->
+<section class="space-y-space-md block" id="view-full">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-outline-variant/20">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">購買歷史記錄</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">真實反映 Stripe 收銀台付款確認與命盤帳本靈石履約雙重狀態</p>
+</div>
+<div class="flex items-center gap-2 text-xs font-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 數據同步源：Stripe Cloud Webhooks (UTC+8)
+        </div>
+</div>
+<!-- 訂單卡片列表 -->
+<div class="space-y-space-md">
+<!-- 狀態 A: 待付款可繼續 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-primary transition-all hover:border-primary/50">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-primary/10 text-primary border border-primary/30">
+                  待付款 · 會話進行中
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+                  待支付履約
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單編號: #ord_stripe_20260920_91002</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">靈石典藏包 · 500 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                付款方式: Stripe 託管收銀台 · Apple Pay · 建立於 2026-09-20 14:22:10 (UTC+8)
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">實付金額</span>
+<div class="text-xl font-bold text-on-surface font-label-lg">$39.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-4 py-2 inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-fixed-dim transition-all active:scale-95 shadow-md" type="button">
+                  繼續前往支付
+                  <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 B: Paid 未到賬可檢查 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-secondary transition-all hover:border-secondary/50">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-secondary/10 text-secondary border border-secondary/30">
+                  付款成功 (Stripe已清算)
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-primary/10 text-primary border border-primary/30 flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                  靈石入賬同步中
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單編號: #ord_stripe_20260920_90518</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">進階命盤解析包 · 100 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                付款方式: Stripe 託管收銀台 · 信用卡 Visa •••• 4242 · 交易於 2026-09-20 12:05:43 (UTC+8)
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">實付金額</span>
+<div class="text-xl font-bold text-on-surface font-label-lg">$9.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg border border-secondary/40 text-secondary hover:bg-secondary/10 transition-all font-label-sm text-label-sm font-medium active:scale-95" onclick="alert('系統已向 Stripe 與帳本節點發起重新校驗，預計數秒內完成履約。')" type="button">
+<span class="material-symbols-outlined text-[18px] mr-1">refresh</span>
+                  檢查入賬進度
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 C: 已到賬收據 (預設標準態) -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-secondary-container transition-all hover:border-secondary-container/80">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-secondary/10 text-secondary border border-secondary/30">
+                  付款成功
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-secondary/10 text-secondary border border-secondary/30">
+                  +350 靈石已即時到賬
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單編號: #ord_stripe_20260918_88921</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">靈石超值包 · 350 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                付款方式: Stripe 託管收銀台 · 信用卡 Mastercard •••• 8821 · 交易於 2026-09-18 10:14:02 (UTC+8)
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">實付金額</span>
+<div class="text-xl font-bold text-on-surface font-label-lg">$29.99 USD</div>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="min-h-[44px] px-3 py-2 inline-flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium active:scale-95" onclick="alert('已開啟官方 Stripe 電子發票與正式收據憑證 PDF 預覽。')" type="button">
+<span class="material-symbols-outlined text-[18px] mr-1">receipt</span>
+                  查看收據憑證
+                </button>
+<button class="min-h-[44px] px-3 py-2 inline-flex items-center justify-center rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-error hover:border-error/40 transition-all font-label-sm text-label-sm font-medium active:scale-95" onclick="openRefundModal('#ord_stripe_20260918_88921', 350, '$29.99 USD')" type="button">
+                  申請售後/退款
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 D: 確認未付款已過期 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-outline opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-surface-container-high text-outline border border-outline-variant/40">
+                  逾時已關閉
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high text-outline border border-outline-variant/40">
+                  會話逾期失效
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單編號: #ord_stripe_20260915_77412</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant">基礎入門包 · 100 靈石</h3>
+<p class="font-body-sm text-body-sm text-outline">
+                付款方式: Stripe 託管收銀台 · 超時關閉於 2026-09-15 16:30:00 (UTC+8)
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-outline">失效報價</span>
+<div class="text-lg font-medium text-outline font-label-lg">$9.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium active:scale-95" type="button">
+                  重新確認報價
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 E: 退款申請處理中 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-tertiary transition-all">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-tertiary/10 text-tertiary border border-tertiary/30">
+                  退款申請處理中
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+                  靈石尚未扣回 (審核通過後執行)
+                </span>
+<span class="font-label-sm text-label-sm text-outline">工單: #ref_audit_20260914_0039</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">靈石超值包 · 350 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                原訂單 #ord_stripe_20260912_65501 · 提交於 2026-09-14 09:40 (人工核准階段，約 1-3 工作日)
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">申請退款金額</span>
+<div class="text-xl font-bold text-tertiary font-label-lg">$29.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<a class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg border border-tertiary/40 text-tertiary hover:bg-tertiary/10 transition-all font-label-sm text-label-sm font-medium active:scale-95" href="mailto:support@mida.gonewx.com?subject=查詢退款進度-工單ref_audit_20260914_0039">
+<span class="material-symbols-outlined text-[18px] mr-1">mail</span>
+                  補交申訴資訊
+                </a>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 F: 退款已成功但靈石扣回中 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-primary-fixed-dim transition-all">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-secondary/10 text-secondary border border-secondary/30">
+                  Stripe 已全額退款
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-primary/10 text-primary border border-primary/30 flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                  靈石餘額原路扣回中 (-500)
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單: #ord_stripe_20260910_55102</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">靈石典藏包 · 500 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Stripe 退款已完成 (ARN: 745210982301) · 系統帳本正在結算並沖銷相應靈石資產
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">已退款原路返還</span>
+<div class="text-xl font-bold text-on-surface font-label-lg">$39.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium active:scale-95" onclick="alert('靈石扣回作業正常執行中。若帳本餘額不足，將依條款扣為負數，充值回補後即可恢復新功能解鎖。')" type="button">
+                  詳情說明
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- 狀態 G: 退款已成功已扣回 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-outline-variant transition-all">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+                  已完成全額退款
+                </span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+                  -100 靈石已按原訂單扣回完畢
+                </span>
+<span class="font-label-sm text-label-sm text-outline">訂單: #ord_stripe_20260901_33219</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">基礎入門包 · 100 靈石</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                款項已原路退回 Visa •••• 4242 · 歷史已解鎖內容保留瀏覽權限，目前帳本餘額平衡
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center lg:items-end justify-between lg:justify-end gap-3 pt-3 lg:pt-0 border-t lg:border-t-0 border-outline-variant/20">
+<div class="text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-outline">退回總額</span>
+<div class="text-xl font-bold text-on-surface-variant font-label-lg">$9.99 USD</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium active:scale-95" onclick="alert('已下載原訂單沖正電子憑證 (#ord_stripe_20260901_33219)')" type="button">
+                  下載沖正單據
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================================================== -->
+<!-- 視圖 2: 空態 (無訂單) -->
+<!-- ==================================================== -->
+<section class="hidden glass-card rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto my-6" id="view-empty">
+<div class="w-20 h-20 mx-auto rounded-full bg-surface-container-high border border-primary/20 flex items-center justify-center text-primary/70 mb-4 shadow-inner">
+<span class="material-symbols-outlined text-[40px]">inventory_2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">暫無 Web 購買記錄</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">
+        您尚未在 覓搭 MiDa Web 端進行過靈石儲值。完成儲值後，此處將自動列出付款與靈石履約雙重明細。
+      </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+<a class="w-full sm:w-auto min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95" href="#checkout">
+<span class="material-symbols-outlined text-[20px] mr-1.5">diamond</span>
+          前往靈石收銀台儲值
+        </a>
+<a class="w-full sm:w-auto min-h-[44px] px-4 py-2.5 inline-flex items-center justify-center rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all font-label-sm text-label-sm font-medium" href="mailto:support@mida.gonewx.com">
+          聯繫客服尋回歷史訂單
+        </a>
+</div>
+</section>
+<!-- ==================================================== -->
+<!-- 視圖 3: 載入中 (骨架屏) -->
+<!-- ==================================================== -->
+<section aria-busy="true" class="hidden space-y-4 max-w-4xl mx-auto my-6" id="view-loading">
+<div class="flex items-center justify-center gap-3 py-6 text-primary">
+<span class="material-symbols-outlined text-[28px] animate-spin">progress_activity</span>
+<span class="font-body-md text-body-md font-medium">正向 Stripe 節點同步最新購買記錄與帳本餘額...</span>
+</div>
+<!-- 骨架卡片 1 -->
+<div class="glass-card rounded-xl p-space-md animate-pulse space-y-4">
+<div class="flex justify-between items-center">
+<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-4 bg-surface-container-high rounded w-20"></div>
+</div>
+<div class="h-6 bg-surface-container-highest rounded w-1/2"></div>
+<div class="h-4 bg-surface-container-high rounded w-2/3"></div>
+<div class="h-10 bg-surface-container-high rounded w-full"></div>
+</div>
+<!-- 骨架卡片 2 -->
+<div class="glass-card rounded-xl p-space-md animate-pulse space-y-4">
+<div class="flex justify-between items-center">
+<div class="h-4 bg-surface-container-high rounded w-1/4"></div>
+<div class="h-4 bg-surface-container-high rounded w-16"></div>
+</div>
+<div class="h-6 bg-surface-container-highest rounded w-2/5"></div>
+<div class="h-4 bg-surface-container-high rounded w-1/2"></div>
+<div class="h-10 bg-surface-container-high rounded w-full"></div>
+</div>
+</section>
+<!-- ==================================================== -->
+<!-- 視圖 4: 查詢失敗 -->
+<!-- ==================================================== -->
+<section class="hidden glass-card rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto my-6 border-error/30" id="view-error">
+<div class="w-20 h-20 mx-auto rounded-full bg-error-container/20 border border-error/40 flex items-center justify-center text-error mb-4">
+<span class="material-symbols-outlined text-[40px]">wifi_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">訂單記錄同步失敗</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">
+        與支付網關通訊逾時或登入授權憑證已過期。您的靈石資產依然安全儲存於雲端帳本，請嘗試重新檢索。
+      </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+<button class="w-full sm:w-auto min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95" onclick="switchState('loading'); setTimeout(()=&gt;{switchState('full');}, 1000);" type="button">
+<span class="material-symbols-outlined text-[20px] mr-1.5">refresh</span>
+          重新查詢訂單
+        </button>
+<a class="w-full sm:w-auto min-h-[44px] px-4 py-2.5 inline-flex items-center justify-center rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all font-label-sm text-label-sm font-medium" href="mailto:support@mida.gonewx.com?subject=購買記錄連線失敗求助">
+          聯繫人工客服
+        </a>
+</div>
+</section>
+<!-- ==================================================== -->
+<!-- 視圖 5: 僅退款歷史 -->
+<!-- ==================================================== -->
+<section class="hidden space-y-space-md" id="view-refunds">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">售後與退款歷史專案</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">篩選展示退款審核中、扣回中與已完成扣回之訂單</p>
+</div>
+<span class="px-2.5 py-1 rounded text-xs font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30">
+          共 3 筆退款專項
+        </span>
+</div>
+<!-- 退款卡片 1 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-tertiary">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-tertiary/10 text-tertiary border border-tertiary/30">審核中</span>
+<span class="font-label-sm text-label-sm text-outline">工單: #ref_audit_20260914_0039</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">靈石超值包 · 350 靈石 ($29.99 USD)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">退款申請審核處理中 · 審核通過後自動執行扣回流程</p>
+</div>
+<a class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg border border-tertiary/40 text-tertiary hover:bg-tertiary/10 transition-all font-label-sm text-label-sm font-medium" href="mailto:support@mida.gonewx.com">
+            補交申訴說明
+          </a>
+</div>
+</div>
+<!-- 退款卡片 2 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-primary-fixed-dim">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-primary/10 text-primary border border-primary/30">靈石扣回中</span>
+<span class="font-label-sm text-label-sm text-outline">訂單: #ord_stripe_20260910_55102</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">靈石典藏包 · 500 靈石 ($39.99 USD)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Stripe款項已返還 · 系統帳本正在執行 -500 靈石扣回</p>
+</div>
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium" onclick="alert('退款已由官方發起，銀行端約 5-10 個工作日入賬。')" type="button">
+            進度追蹤
+          </button>
+</div>
+</div>
+<!-- 退款卡片 3 -->
+<div class="glass-card rounded-xl p-space-md border-l-4 border-l-outline-variant">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-surface-container-high text-on-surface-variant border border-outline-variant/40">已完成</span>
+<span class="font-label-sm text-label-sm text-outline">訂單: #ord_stripe_20260901_33219</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">基礎入門包 · 100 靈石 ($9.99 USD)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">款項已原路退回 · -100 靈石已按原訂單完成扣回</p>
+</div>
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center justify-center rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-label-sm text-label-sm font-medium" onclick="alert('已下載原訂單沖正電子憑證')" type="button">
+            下載沖正單據
+          </button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 3. 政策、合規條款與尋找訂單模塊 (合規嚴謹) -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop mt-space-xl">
+<!-- 退款與履約政策條款 (7 欄寬) -->
+<div class="md:col-span-7 glass-card rounded-xl p-space-md space-y-3">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold">退款政策與履約沖正說明</h3>
+</div>
+<ul class="space-y-2.5 font-body-sm text-body-sm text-on-surface-variant list-disc pl-4 marker:text-primary/60">
+<li>
+<strong class="text-on-surface">靈石扣回機制：</strong>若申請退款經審核成功後，將按原訂單靈石數等額扣回，帳戶靈石餘額可扣為負值；退款前已解鎖之歷史內容保留瀏覽權限，但負餘額狀態下須先充值回補至非負值，方可繼續解鎖新內容。
+          </li>
+<li>
+<strong class="text-on-surface">退款審核與到賬週期：</strong>申請退款不等於退款成功（須經人工或商戶審核）；退款成功不保證銀行即時到賬（依發卡行與跨行處理流程需數個工作日）。
+          </li>
+<li>
+<strong class="text-on-surface">歷史訂單合併政策：</strong>支持本人同帳號跨設備與受控合併後的訂單歸屬追溯，不保證向未授權第三方轉讓。
+          </li>
+</ul>
+</div>
+<!-- 找不到訂單支持與人工核對 (5 欄寬) -->
+<div class="md:col-span-5 glass-card rounded-xl p-space-md space-y-3 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold">找不到特定購買訂單？</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            若扣款已完成但列表未更新，請提供銀行扣款流水號、交易時間或收據截圖，聯繫官方客服郵箱進行人工精確核對。
+          </p>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 space-y-2">
+<div class="flex items-center justify-between text-xs font-label-sm text-on-surface-variant">
+<span>官方專屬信箱:</span>
+<span class="text-primary font-mono select-all">support@mida.gonewx.com</span>
+</div>
+<a class="w-full min-h-[44px] px-4 py-2 inline-flex items-center justify-center gap-2 rounded-lg bg-surface-container-high border border-primary/30 text-primary hover:bg-primary/10 transition-all font-label-sm text-label-sm font-semibold active:scale-95" href="mailto:support@mida.gonewx.com?subject=MiDa訂單查詢核對&amp;body=UID:mida_789421%0D%0A付款時間:%0D%0A銀行扣款流水號:">
+<span class="material-symbols-outlined text-[18px]">outgoing_mail</span>
+            發送人工核對郵件
+          </a>
+</div>
+</div>
+</div>
+</main>
+<!-- ========================================== -->
+<!-- 4. 退款申請互動 Modal (對話框) -->
+<!-- ========================================== -->
+<div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-sm" id="refund-modal" role="dialog">
+<div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-primary/30 shadow-2xl relative">
+<button aria-label="關閉" class="min-h-[44px] min-w-[44px] absolute top-3 right-3 text-on-surface-variant hover:text-primary inline-flex items-center justify-center rounded-lg" onclick="closeRefundModal()" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+<div class="flex items-center gap-2.5 text-primary mb-3">
+<span class="material-symbols-outlined text-[24px]">assignment_return</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold" id="modal-title">申請訂單售後 / 退款</h3>
+</div>
+<div class="space-y-3.5 text-on-surface-variant font-body-sm text-body-sm">
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1">
+<div class="flex justify-between">
+<span>訂單編號:</span>
+<span class="font-mono text-on-surface font-medium" id="modal-order-id">#ord_...</span>
+</div>
+<div class="flex justify-between">
+<span>申請退回靈石:</span>
+<span class="text-primary font-semibold" id="modal-refund-stones">350 靈石</span>
+</div>
+<div class="flex justify-between">
+<span>退款金額:</span>
+<span class="text-on-surface font-semibold" id="modal-refund-price">$29.99 USD</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-tertiary/10 border border-tertiary/30 text-tertiary text-xs">
+<strong>重要告知：</strong>退款申請需經人工審核。審核成功後將等額扣回相應靈石（可扣為負值）。若餘額為負，須補正後方可繼續解鎖後續命書。
+        </div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1" for="refund-reason">退款原因（選填）</label>
+<textarea class="w-full rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface text-sm p-2.5 focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="refund-reason" placeholder="請填寫您申請退款的具體原因..." rows="3"></textarea>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-6">
+<button class="min-h-[44px] px-4 py-2 rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-on-surface text-label-sm font-medium" onclick="closeRefundModal()" type="button">
+          取消
+        </button>
+<button class="min-h-[44px] px-5 py-2 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-primary-fixed-dim transition-all shadow-md active:scale-95" onclick="submitRefund()" type="button">
+          確認提交退款申請
+        </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 5. BottomNavBar (四大主 Tab，精確高亮「我」) -->
+<!-- ========================================== -->
+<nav aria-label="全域主導航" class="fixed bottom-0 left-0 w-full z-40 bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-2xl">
+<div class="max-w-7xl mx-auto flex justify-around items-center px-margin py-space-xs">
+<!-- 1. 今日 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[44px] min-w-[56px] hover:text-primary-fixed-dim transition-colors duration-200" href="#today">
+<span class="material-symbols-outlined text-[24px]">wb_sunny</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</a>
+<!-- 2. 命書 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[44px] min-w-[56px] hover:text-primary-fixed-dim transition-colors duration-200" href="#destiny">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Destiny Book</span>
+</a>
+<!-- 3. 合盤 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-space-xs min-h-[44px] min-w-[56px] hover:text-primary-fixed-dim transition-colors duration-200" href="#synastry">
+<span class="material-symbols-outlined text-[24px]">join_inner</span>
+<span class="font-label-sm text-label-sm mt-0.5">Synastry</span>
+</a>
+<!-- 4. 我 (精確高亮當前 Profile Tab) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary py-space-xs font-semibold min-h-[44px] min-w-[56px] active:scale-95 transition-transform duration-150" href="#profile">
+<span class="material-symbols-outlined text-[24px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</a>
+</div>
+</nav>
+<!-- ========================================== -->
+<!-- 6. 原型控制器 JavaScript 邏輯 -->
+<!-- ========================================== -->
+<script>
+    const views = {
+      full: document.getElementById('view-full'),
+      empty: document.getElementById('view-empty'),
+      loading: document.getElementById('view-loading'),
+      error: document.getElementById('view-error'),
+      refunds: document.getElementById('view-refunds')
+    };
+
+    const buttons = {
+      full: document.getElementById('btn-state-full'),
+      empty: document.getElementById('btn-state-empty'),
+      loading: document.getElementById('btn-state-loading'),
+      error: document.getElementById('btn-state-error'),
+      refunds: document.getElementById('btn-state-refunds')
+    };
+
+    const liveRegion = document.getElementById('live-region');
+
+    function switchState(stateKey) {
+      // 隱藏全部視圖
+      Object.keys(views).forEach(k => {
+        if (views[k]) views[k].classList.add('hidden');
+      });
+
+      // 重置按鈕樣式
+      Object.keys(buttons).forEach(k => {
+        if (buttons[k]) {
+          buttons[k].className = 'min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-surface-container-high text-on-surface-variant hover:text-primary flex items-center gap-1';
+        }
+      });
+
+      // 啟用特定視圖與按鈕高亮
+      if (views[stateKey]) {
+        views[stateKey].classList.remove('hidden');
+      }
+      if (buttons[stateKey]) {
+        buttons[stateKey].className = 'min-h-[36px] px-2.5 py-1 text-[12px] font-label-sm rounded-lg transition-all duration-200 bg-primary text-on-primary font-semibold flex items-center gap-1 shadow-sm';
+      }
+
+      // 無障礙朗讀反饋
+      const labels = {
+        full: '已切換為：完整訂單記錄 (含7大業務狀態)',
+        empty: '已切換為：暫無購買記錄 (空態視圖)',
+        loading: '已切換為：正在載入 Stripe 同步數據',
+        error: '已切換為：訂單查詢失敗異常視圖',
+        refunds: '已切換為：僅退款歷史專用視圖'
+      };
+      if (liveRegion && labels[stateKey]) {
+        liveRegion.textContent = labels[stateKey];
+      }
+    }
+
+    // 退款 Modal 交互
+    function openRefundModal(orderId, stones, price) {
+      document.getElementById('modal-order-id').textContent = orderId;
+      document.getElementById('modal-refund-stones').textContent = `${stones} 靈石`;
+      document.getElementById('modal-refund-price').textContent = price;
+      const modal = document.getElementById('refund-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeRefundModal() {
+      const modal = document.getElementById('refund-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function submitRefund() {
+      alert('退款申請已成功提交至客服工單系統。審核完成後將按政策執行原路退款與靈石等額扣回。');
+      closeRefundModal();
+      switchState('refunds');
+    }
+  </script>
+</body></html>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <defs>
+    <radialGradient id="celestialGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#E5C07B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0B0F19" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2B2"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA820A"/>
+    </linearGradient>
+    <linearGradient id="darkDisc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141926"/>
+      <stop offset="100%" stop-color="#0A0E17"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background subtle halo -->
+  <circle cx="50" cy="50" r="48" fill="url(#celestialGlow)"/>
+
+  <!-- Outer Astrological Compass Rim -->
+  <circle cx="50" cy="50" r="44" fill="url(#darkDisc)" stroke="url(#goldStroke)" stroke-width="1.8"/>
+  <circle cx="50" cy="50" r="41" fill="none" stroke="url(#goldStroke)" stroke-width="1.2" stroke-dasharray="2 3.5" opacity="0.9"/>
+  <circle cx="50" cy="50" r="37" fill="none" stroke="url(#goldStroke)" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Cardinal Coordinates / Compass Markers -->
+  <line x1="50" y1="6" x2="50" y2="13" stroke="url(#goldStroke)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="87" x2="50" y2="94" stroke="url(#goldStroke)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="6" y1="50" x2="13" y2="50" stroke="url(#goldStroke)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="87" y1="50" x2="94" stroke="url(#goldStroke)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Yin-Yang / Taiji Metaphysical Core Emblem -->
+  <!-- Outer radius 34. S-curve divider perfectly centered -->
+  <path d="M50 16 A34 34 0 0 1 50 84 A17 17 0 0 1 50 50 A17 17 0 0 0 50 16 Z" fill="url(#goldStroke)" opacity="0.95"/>
+  <circle cx="50" cy="33" r="3.8" fill="#0D1322"/>
+  <circle cx="50" cy="67" r="3.8" fill="url(#goldStroke)"/>
+
+  <!-- Celestial Sparkle / Center North Star -->
+  <path d="M50 44 L51.8 48.5 L56 50 L51.8 51.5 L50 56 L48.2 51.5 L44 50 L48.2 48.5 Z" fill="#FFFFFF" opacity="0.95"/>
+</svg>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>重複帳號受控合併預覽 - 覓搭 MiDa</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#554300",
+            "surface-container-high": "#262a35",
+            "on-primary-fixed-variant": "#574500",
+            "on-secondary-fixed-variant": "#005236",
+            "primary": "#f2ca50",
+            "on-tertiary-fixed": "#410004",
+            "primary-container": "#d4af37",
+            "on-surface-variant": "#d0c5af",
+            "outline": "#99907c",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#e9c349",
+            "secondary": "#4edea3",
+            "on-secondary": "#003824",
+            "surface-variant": "#313540",
+            "on-tertiary-container": "#900013",
+            "on-background": "#dfe2f1",
+            "tertiary-container": "#ff968f",
+            "surface-bright": "#353944",
+            "on-error": "#690005",
+            "primary-fixed": "#ffe088",
+            "on-tertiary": "#68000a",
+            "surface": "#0f131d",
+            "surface-tint": "#e9c349",
+            "inverse-surface": "#dfe2f1",
+            "tertiary-fixed": "#ffdad7",
+            "surface-container": "#1c1f2a",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#2c303b",
+            "tertiary": "#ffbfba",
+            "background": "#0f131d",
+            "secondary-fixed-dim": "#4edea3",
+            "on-primary": "#3c2f00",
+            "surface-dim": "#0f131d",
+            "on-tertiary-fixed-variant": "#930013",
+            "inverse-primary": "#735c00",
+            "surface-container-low": "#171b26",
+            "on-secondary-fixed": "#002113",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#ffb3ad",
+            "on-surface": "#dfe2f1",
+            "on-primary-fixed": "#241a00",
+            "surface-container-lowest": "#0a0e18",
+            "secondary-fixed": "#6ffbbe",
+            "secondary-container": "#00a572",
+            "on-secondary-container": "#00311f",
+            "surface-container-highest": "#313540",
+            "outline-variant": "#4d4635"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "1.25rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "bazi-symbol": ["Noto Serif"],
+            "headline-lg": ["Noto Serif"],
+            "display-lg-mobile": ["Noto Serif"],
+            "display-lg": ["Noto Serif"],
+            "headline-md": ["Noto Serif"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Noto Serif"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "bazi-symbol": ["24px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Ethereal background gradient */
+    body {
+      background-color: #0b0f19;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(242, 202, 80, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 30%, rgba(78, 222, 163, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(242, 202, 80, 0.2);
+      border-radius: 9999px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface antialiased font-body-md min-h-screen flex flex-col items-center justify-start py-4 px-2 sm:px-4">
+<!-- ========================================== -->
+<!-- 設備外原型狀態切換控件 (Prototype Controller) -->
+<!-- ========================================== -->
+<section class="w-full max-w-[420px] mb-4 bg-surface-container-lowest/90 backdrop-blur-md rounded-xl p-3 border border-outline-variant/40 shadow-xl">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="tune">tune</span>
+<span class="text-label-sm font-label-sm text-primary tracking-wide font-semibold">原型狀態演示 (無侵入式控制面板)</span>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant" id="currentStatusBadge">狀態 1: 正常簽署態</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 text-center">
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-primary/40 bg-primary/10 text-primary transition-all" id="btn-state-1" onclick="switchState(1)">1. 待確認</button>
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-2" onclick="switchState(2)">2. 核算中</button>
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-3" onclick="switchState(3)">3. 憑證過期</button>
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-4" onclick="switchState(4)">4. 執行中 (65%)</button>
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-5" onclick="switchState(5)">5. 恢復重試</button>
+<button class="px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" id="btn-state-6" onclick="switchState(6)">6. 合併成功</button>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 移動端主畫布 (390px Mobile Viewport Container) -->
+<!-- ========================================== -->
+<main class="w-full max-w-[390px] bg-surface-container-lowest/80 border border-outline-variant/30 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col min-h-[844px] backdrop-blur-2xl">
+<!-- TopAppBar (Shared Anchor) -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-margin py-space-sm bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-display-lg-mobile text-headline-sm font-semibold tracking-wider text-primary">MiDa</span>
+</div>
+<div class="text-label-sm font-label-sm text-primary bg-surface-container-high px-2.5 py-1 rounded-full border border-outline-variant/40">
+        128 💎 · 3 🎫
+      </div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto custom-scroll px-4 pt-4 pb-28 space-y-4">
+<!-- Breadcrumb & Header Title -->
+<section class="space-y-1">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span>安全中心</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span>帳號治理</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">重複帳號受控歸併</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-on-surface font-semibold tracking-tight">受控合併預覽與確權</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          雙方帳號均已完成身份驗證，可查看合併資產與歷史去重細節。請仔細審核以確保資產守恆歸併。
+        </p>
+</section>
+<!-- Status Banner Injection (Controlled by Prototype Switcher) -->
+<div class="hidden" id="stateAlertBox"></div>
+<!-- 1. 帳號歸併主體配置 (Account Nodes Comparison) -->
+<section class="bg-surface-container-low/70 border border-outline-variant/30 rounded-2xl p-3.5 space-y-3 relative overflow-hidden backdrop-blur-md">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="account_balance">account_balance</span>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold">帳號歸併主體核定</h2>
+</div>
+<span class="text-[10px] font-label-sm px-2 py-0.5 rounded bg-secondary/15 text-secondary border border-secondary/30">雙向身份認證完成</span>
+</div>
+<div class="grid grid-cols-1 gap-2.5">
+<!-- 主帳號 -->
+<div class="p-3 rounded-xl bg-surface-container/80 border border-primary/30 relative">
+<div class="flex justify-between items-start mb-1.5">
+<span class="text-[11px] font-semibold text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">保留主帳號 (本機)</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">UID: mida_789421</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-headline-sm">雨</div>
+<div class="flex-1 min-w-0">
+<div class="text-body-sm font-medium text-on-surface truncate">Wei 小雨</div>
+<div class="text-[12px] text-on-surface-variant truncate">Apple ID · wei.design@destiny.io</div>
+</div>
+<span class="material-symbols-outlined text-primary text-base" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- 匯入指標箭頭 -->
+<div class="flex justify-center -my-1">
+<div class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xs" data-icon="south">south</span>
+</div>
+</div>
+<!-- 待歸併來源帳號 -->
+<div class="p-3 rounded-xl bg-surface-container/40 border border-outline-variant/30 relative">
+<div class="flex justify-between items-start mb-1.5">
+<span class="text-[11px] font-medium text-on-surface-variant bg-surface-variant/80 border border-outline-variant/40 px-2 py-0.5 rounded">待歸併來源帳號</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">UID: mida_310582</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-headline-sm">北</div>
+<div class="flex-1 min-w-0">
+<div class="text-body-sm font-medium text-on-surface truncate">小雨 (台北)</div>
+<div class="text-[12px] text-on-surface-variant truncate">Google 驗證 · rain.tw@gmail.com</div>
+</div>
+<span class="text-[10px] font-label-sm px-1.5 py-0.5 rounded bg-surface-variant text-on-surface-variant border border-outline-variant/30">已驗證</span>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant/20 flex items-center gap-1.5 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="info">info</span>
+<span>狀態：合併後停止獨立登入，歷史資料保留</span>
+</div>
+</div>
+</div>
+<!-- 本人所有權聲明 -->
+<div class="text-[12px] text-on-surface-variant bg-surface-container-highest/30 p-2.5 rounded-lg border border-outline-variant/20 leading-relaxed">
+<strong class="text-on-surface">本人所有權合規聲明：</strong> 本服務僅受理同自然人、同數據區之重複帳號歸併。所有資產與算力憑據執行永久去重守恆，嚴禁向第三方轉讓或代理申辦。
+        </div>
+</section>
+<!-- 2. 選擇合併後的當前命盤檔案 (二選一・必選) -->
+<section class="bg-surface-container-low/70 border border-outline-variant/30 rounded-2xl p-3.5 space-y-3 backdrop-blur-md">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="grid_view">grid_view</span>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold">首選活躍命盤檔案 (二選一)</h2>
+</div>
+<span class="text-[11px] text-primary">必選設定</span>
+</div>
+<p class="text-[12px] text-on-surface-variant">
+          請指定登入後系統首頁默認載入之排盤。未選之檔案及其歷史測算報告將完整移入「歷史檔案庫」，隨時可切換查閱，絕不抹除。
+        </p>
+<div class="space-y-2">
+<!-- 檔案 A (本機) -->
+<label class="chart-option block p-3 rounded-xl border border-primary bg-primary/5 cursor-pointer transition-all relative">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<input checked="" class="mt-1 text-primary focus:ring-0 focus:ring-offset-0 bg-surface border-outline" name="chartSelection" type="radio" value="primary"/>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-body-sm font-semibold text-on-surface">庚金 · 午月</span>
+<span class="text-[10px] bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.2 rounded font-medium">本機檔案 · 當前採用</span>
+</div>
+<div class="text-[12px] text-on-surface-variant mt-0.5">公曆 1996/06/18 11:32 · 台北 (已校正真太陽時)</div>
+<div class="text-[11px] text-on-surface-variant/80 mt-1">主導格局：正官格配印 · 八字日主：庚金強健</div>
+</div>
+</div>
+</div>
+</label>
+<!-- 檔案 B (來源) -->
+<label class="chart-option block p-3 rounded-xl border border-outline-variant/30 bg-surface-container/40 cursor-pointer hover:border-outline transition-all relative">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<input class="mt-1 text-primary focus:ring-0 focus:ring-offset-0 bg-surface border-outline" name="chartSelection" type="radio" value="source"/>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-body-sm font-semibold text-on-surface">庚金 · 未校正</span>
+<span class="text-[10px] bg-surface-variant text-on-surface-variant border border-outline-variant/30 px-1.5 py-0.2 rounded">來源檔案 · 可切換</span>
+</div>
+<div class="text-[12px] text-on-surface-variant mt-0.5">公曆 1996/06/18 12:00 · 台北 (平太陽時)</div>
+<div class="text-[11px] text-on-surface-variant/80 mt-1">歷史報告將存檔至歷史庫，可隨時回溯查閱</div>
+</div>
+</div>
+</div>
+</label>
+</div>
+</section>
+<!-- 3. 資產與權益守恆明細 (Consolidation Ledger) -->
+<section class="bg-surface-container-low/70 border border-outline-variant/30 rounded-2xl p-3.5 space-y-3 backdrop-blur-md">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="receipt_long">receipt_long</span>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold">資產與權益守恆總覽</h2>
+</div>
+<span class="text-[11px] text-secondary font-medium">全額去重結算</span>
+</div>
+<div class="divide-y divide-outline-variant/20 text-body-sm">
+<!-- 靈石 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="text-on-surface font-medium">靈石餘額</span>
+<span class="text-[10px] text-primary bg-primary/10 border border-primary/20 px-1.5 py-0.2 rounded">消耗型額度</span>
+</div>
+<div class="text-[11px] text-on-surface-variant">主帳號 128 + 來源 45 顆 (永久有效)</div>
+</div>
+<div class="text-right">
+<div class="text-body-lg font-semibold text-primary">173 <span class="text-xs">顆</span></div>
+<div class="text-[10px] text-secondary">全額無損守恆</div>
+</div>
+</div>
+<!-- 深讀券現貨 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="text-on-surface font-medium">深讀券現貨</span>
+<span class="text-[10px] text-on-surface-variant bg-surface-variant px-1.5 py-0.2 rounded">整日深解</span>
+</div>
+<div class="text-[11px] text-on-surface-variant">主帳號 3 + 來源 2 張 (當月上限不截斷)</div>
+</div>
+<div class="text-right">
+<div class="text-body-lg font-semibold text-primary">5 <span class="text-xs">張</span></div>
+<div class="text-[10px] text-secondary">合併結存</div>
+</div>
+</div>
+<!-- 命書已購版本 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="text-on-surface font-medium">年度命書解鎖權益</div>
+<div class="text-[11px] text-on-surface-variant">v2026.1 完整解讀版 (永久回看，不額外解鎖新版)</div>
+</div>
+<div class="text-right">
+<div class="text-body-sm font-semibold text-on-surface">1 部有效</div>
+<div class="text-[10px] text-on-surface-variant">終身保留查閱</div>
+</div>
+</div>
+<!-- 合盤歷史關係鏈 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="text-on-surface font-medium">合盤關係鏈與快照</div>
+<div class="text-[11px] text-on-surface-variant">保留原授權關係鏈、雙方天干地支相合記錄</div>
+</div>
+<div class="text-right">
+<div class="text-body-sm font-semibold text-on-surface">4 對已歸併</div>
+<div class="text-[10px] text-secondary">關係鏈安全映射</div>
+</div>
+</div>
+<!-- 今日星宿追問 Quota -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="text-on-surface font-medium">今日星宿追問配額</div>
+<div class="text-[11px] text-on-surface-variant">依保留主帳號時區與當日本地日已用次數核算</div>
+</div>
+<div class="text-right">
+<div class="text-body-sm font-semibold text-on-surface">主時區對齊</div>
+<div class="text-[10px] text-on-surface-variant">不累加跨區額度</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. 登錄身份取捨與憑證收口 (首發每類限一) -->
+<section class="bg-surface-container-low/70 border border-outline-variant/30 rounded-2xl p-3.5 space-y-3 backdrop-blur-md">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="key">key</span>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold">登入身份與憑證收口</h2>
+</div>
+<span class="text-[11px] text-on-surface-variant">每類限保留一項</span>
+</div>
+<p class="text-[12px] text-on-surface-variant">
+          合併後續統一登入路徑。來源帳號既有舊郵箱憑證將安全註銷失效，僅保留以下指定之聯合驗證入口：
+        </p>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-outline-variant/30">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-on-surface text-lg" data-icon="ios">ios</span>
+<div>
+<div class="text-body-sm font-medium text-on-surface">Apple ID 授權憑證</div>
+<div class="text-[11px] text-on-surface-variant">保持現有主帳號直接登入憑據</div>
+</div>
+</div>
+<input checked="" class="text-primary bg-surface border-outline rounded cursor-not-allowed" disabled="" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-outline-variant/30">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="mail">mail</span>
+<div>
+<div class="text-body-sm font-medium text-on-surface">Google 帳號憑證</div>
+<div class="text-[11px] text-on-surface-variant">來自來源帳號，轉綁入保留主帳號</div>
+</div>
+</div>
+<input checked="" class="text-primary bg-surface border-outline rounded cursor-not-allowed" disabled="" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-outline-variant/30">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="lock_reset">lock_reset</span>
+<div>
+<div class="text-body-sm font-medium text-on-surface">密碼登錄郵箱</div>
+<div class="text-[11px] text-on-surface-variant">指定為：wei.design@destiny.io</div>
+</div>
+</div>
+<input checked="" class="text-primary bg-surface border-outline rounded cursor-not-allowed" disabled="" type="checkbox"/>
+</div>
+</div>
+<div class="text-[11px] text-outline p-2 bg-surface-container-highest/20 rounded border border-outline-variant/20">
+          提示：完成後，來源帳號既有舊郵箱憑證將安全註銷失效，僅保留上述選定之聯合驗證入口。
+        </div>
+</section>
+<!-- 5. 不可逆操作知悉與工單審核標籤 -->
+<section class="bg-surface-container-low/70 border border-outline-variant/30 rounded-2xl p-3.5 space-y-3 backdrop-blur-md">
+<div class="space-y-2">
+<!-- 複選框預設不勾選 -->
+<label class="flex items-start gap-2.5 cursor-pointer select-none">
+<input class="mt-1 w-4 h-4 text-primary bg-surface border-outline rounded focus:ring-0 focus:ring-offset-0 cursor-pointer" id="agreementCheckbox" onchange="handleCheckboxToggle(this)" type="checkbox"/>
+<span class="text-body-sm text-on-surface font-medium leading-relaxed">
+              我已充分知悉合併為不可逆操作，完成後來源帳號將停止獨立登入，歷史資料全數保留，所有既有登錄會話將被撤銷並要求重新登入。
+            </span>
+</label>
+</div>
+<!-- 工單號與處理狀態 -->
+<div class="pt-2 border-t border-outline-variant/20 text-[11px] text-on-surface-variant space-y-1">
+<div><strong class="text-on-surface">工單號：</strong>MRG-202609-8834</div>
+<div><strong class="text-on-surface">處理狀態：</strong><span class="text-primary" id="jobStatusText">待用戶最終簽署審核</span></div>
+<div><strong class="text-on-surface">後續步驟：</strong>提交後系統將在背景執行資料遷移與雙向會話重置，完成後需重新登入。</div>
+</div>
+</section>
+<!-- Bottom Compliance Disclaimer -->
+<div class="text-center pt-2 pb-2 text-[10px] text-outline tracking-wider">
+        符合 GDPR &amp; 跨境個資防護標準 · 數據流經端到端防篡改審計日誌
+      </div>
+</div>
+<!-- ========================================== -->
+<!-- 操作按鈕交互 (Fixed Docked Footer Actions) -->
+<!-- ========================================== -->
+<footer class="absolute bottom-0 left-0 w-full p-4 bg-surface/90 backdrop-blur-lg border-t border-outline-variant/30 flex items-center gap-3 z-30 shadow-2xl">
+<!-- 取消並返回 -->
+<button class="min-h-[44px] px-4 py-2.5 rounded-lg border border-outline-variant/40 bg-surface-container text-body-sm font-medium text-on-surface-variant hover:text-on-surface active:scale-98 transition-all flex items-center justify-center" onclick="cancelMerge()" type="button">
+        取消並返回
+      </button>
+<!-- 右側主確認按鈕 (動態依狀態切換) -->
+<button class="flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-outline text-body-sm font-semibold transition-all flex items-center justify-center text-center cursor-not-allowed border border-outline-variant/20" disabled="" id="mainSubmitBtn" onclick="executeMergeAction()" type="button">
+        請先勾選確認知悉協議
+      </button>
+</footer>
+</main>
+<script>
+    // Global State Container for Prototype Controller
+    let currentState = 1;
+    let isAgreed = false;
+
+    function switchState(stateNumber) {
+      currentState = stateNumber;
+      
+      // Update top button active states
+      for (let i = 1; i <= 6; i++) {
+        const btn = document.getElementById(`btn-state-${i}`);
+        if (i === stateNumber) {
+          btn.className = "px-2 py-1.5 rounded text-label-sm font-label-sm border border-primary/40 bg-primary/10 text-primary font-semibold transition-all";
+        } else {
+          btn.className = "px-2 py-1.5 rounded text-label-sm font-label-sm border border-outline-variant/30 bg-surface-container text-on-surface-variant hover:text-on-surface transition-all";
+        }
+      }
+
+      const badge = document.getElementById("currentStatusBadge");
+      const alertBox = document.getElementById("stateAlertBox");
+      const submitBtn = document.getElementById("mainSubmitBtn");
+      const jobStatusText = document.getElementById("jobStatusText");
+      const agreementCheckbox = document.getElementById("agreementCheckbox");
+
+      // Reset dynamic views
+      alertBox.classList.add("hidden");
+      alertBox.innerHTML = "";
+
+      switch(stateNumber) {
+        case 1:
+          // 狀態 1：正常簽署態（完成預覽待勾選確認）
+          badge.textContent = "狀態 1: 正常簽署態";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant";
+          jobStatusText.textContent = "待用戶最終簽署審核";
+          jobStatusText.className = "text-primary";
+          agreementCheckbox.disabled = false;
+          refreshButtonState();
+          break;
+
+        case 2:
+          // 狀態 2：核算中 / 時區對齊中（資產對齊中，確認按鈕禁用並標「正在核對資產...」）
+          badge.textContent = "狀態 2: 核算中 / 時區對齊中";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/20 text-primary";
+          jobStatusText.textContent = "資產與時區配額核算對齊中...";
+          jobStatusText.className = "text-primary animate-pulse";
+          
+          alertBox.className = "p-3 rounded-xl bg-primary/10 border border-primary/30 flex items-center gap-2.5 text-body-sm text-primary";
+          alertBox.innerHTML = `
+            <span class="material-symbols-outlined animate-spin text-base" data-icon="sync">sync</span>
+            <span>正在核對台北時區（UTC+8）星宿追問額度與深讀券存量...</span>
+          `;
+          alertBox.classList.remove("hidden");
+
+          submitBtn.disabled = true;
+          submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant text-body-sm font-semibold transition-all flex items-center justify-center text-center cursor-not-allowed border border-outline-variant/30";
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-sm animate-spin mr-1.5" data-icon="progress_activity">progress_activity</span>
+            正在核對資產...
+          `;
+          break;
+
+        case 3:
+          // 狀態 3：驗證過期態（提示驗證憑證已過期，提供「重新驗證雙方憑證並刷新預覽」按鈕）
+          badge.textContent = "狀態 3: 驗證憑證過期";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-error/20 text-error";
+          jobStatusText.textContent = "來源驗證逾時失效 (需重新確權)";
+          jobStatusText.className = "text-error";
+
+          alertBox.className = "p-3 rounded-xl bg-error/10 border border-error/30 flex flex-col gap-2 text-body-sm text-error";
+          alertBox.innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-base" data-icon="gpp_bad">gpp_bad</span>
+              <span class="font-medium">雙向簽署憑證過期</span>
+            </div>
+            <p class="text-[12px] text-on-surface-variant">來源帳號小雨 (台北) 之暫時驗證令牌已超過安全有效時間，請重新驗證。</p>
+            <button onclick="mockRefreshCredentials()" class="mt-1 w-full min-h-[40px] py-1.5 px-3 rounded bg-surface-container text-body-sm text-primary border border-primary/40 font-medium hover:bg-primary/10 active:scale-98 transition-all flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+              重新驗證雙方憑證並刷新預覽
+            </button>
+          `;
+          alertBox.classList.remove("hidden");
+
+          submitBtn.disabled = true;
+          submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-outline text-body-sm font-semibold transition-all flex items-center justify-center text-center cursor-not-allowed border border-outline-variant/20";
+          submitBtn.textContent = "憑證過期，請先重新驗證";
+          break;
+
+        case 4:
+          // 狀態 4：執行中進度（展示「正在執行帳號歸併與資產遷移 (65%)」，不可重複操作，可查看進度）
+          badge.textContent = "狀態 4: 執行中 (65%)";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-primary/20 text-primary";
+          jobStatusText.textContent = "後台搬遷執行中 (進度 65%)";
+          jobStatusText.className = "text-primary";
+          agreementCheckbox.disabled = true;
+
+          alertBox.className = "p-3 rounded-xl bg-surface-container border border-primary/40 space-y-2 text-body-sm text-on-surface";
+          alertBox.innerHTML = `
+            <div class="flex justify-between items-center text-label-sm">
+              <span class="text-primary font-medium flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm animate-spin" data-icon="hourglass_top">hourglass_top</span>
+                正在執行帳號歸併與資產遷移 (65%)
+              </span>
+              <span class="font-mono text-on-surface-variant">Step 3/4</span>
+            </div>
+            <div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 65%;"></div>
+            </div>
+            <div class="text-[11px] text-on-surface-variant flex justify-between">
+              <span>已遷移：173靈石、5張深讀券</span>
+              <span>正在轉移：4對合盤關係鏈...</span>
+            </div>
+          `;
+          alertBox.classList.remove("hidden");
+
+          submitBtn.disabled = true;
+          submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-primary text-body-sm font-medium transition-all flex items-center justify-center text-center cursor-wait border border-primary/30";
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-sm animate-spin mr-1.5" data-icon="sync">sync</span>
+            遷移進行中 (65%) · 嚴禁中斷
+          `;
+          break;
+
+        case 5:
+          // 狀態 5：可恢復失敗（提示網絡超時，保留工單號與斷點，提供「恢復並重試歸併」）
+          badge.textContent = "狀態 5: 可恢復失敗";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-error/20 text-error";
+          jobStatusText.textContent = "斷點保護中 (超時中斷)";
+          jobStatusText.className = "text-error";
+
+          alertBox.className = "p-3 rounded-xl bg-error/10 border border-error/30 space-y-2 text-body-sm";
+          alertBox.innerHTML = `
+            <div class="flex items-center gap-2 text-error font-medium">
+              <span class="material-symbols-outlined text-base" data-icon="warning">warning</span>
+              <span>節點連線超時 · 已保存數據快照與斷點</span>
+            </div>
+            <p class="text-[12px] text-on-surface-variant">工單號 MRG-202609-8834 在關係鏈安全映射時遇網絡抖動，當前已凍結斷點。您的資產未受任何損失。</p>
+            <button onclick="switchState(4)" class="w-full min-h-[40px] py-1.5 px-3 rounded bg-primary text-on-primary font-semibold text-body-sm hover:brightness-105 active:scale-98 transition-all flex items-center justify-center gap-1.5 shadow-md">
+              <span class="material-symbols-outlined text-sm" data-icon="replay">replay</span>
+              恢復並重試歸併
+            </button>
+          `;
+          alertBox.classList.remove("hidden");
+
+          submitBtn.disabled = true;
+          submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-on-surface-variant text-body-sm font-semibold transition-all flex items-center justify-center text-center cursor-not-allowed border border-outline-variant/20";
+          submitBtn.textContent = "請透過上方卡片恢復重試";
+          break;
+
+        case 6:
+          // 狀態 6：合併完成（提示「歸併成功！所有舊會話已撤銷」，提供「重新登入保留帳號」）
+          badge.textContent = "狀態 6: 合併完成";
+          badge.className = "text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary/20 text-secondary";
+          jobStatusText.textContent = "歸併完成 · 舊會話已註銷失效";
+          jobStatusText.className = "text-secondary";
+          agreementCheckbox.checked = true;
+          agreementCheckbox.disabled = true;
+
+          alertBox.className = "p-3.5 rounded-xl bg-secondary/10 border border-secondary/40 space-y-2 text-body-sm";
+          alertBox.innerHTML = `
+            <div class="flex items-center gap-2 text-secondary font-semibold">
+              <span class="material-symbols-outlined text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              <span>歸併成功！所有舊會話已安全撤銷</span>
+            </div>
+            <p class="text-[12px] text-on-surface-variant leading-relaxed">
+              雙方帳號資產已成功合流至保留主帳號（Wei 小雨）。來源帳號已停止獨立登入，所有測算歷史已全數歸檔至新資料夾。
+            </p>
+          `;
+          alertBox.classList.remove("hidden");
+
+          submitBtn.disabled = false;
+          submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-primary text-on-primary text-body-sm font-semibold hover:brightness-105 active:scale-98 transition-all flex items-center justify-center text-center cursor-pointer shadow-lg shadow-primary/20";
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-sm mr-1.5" data-icon="login">login</span>
+            重新登入保留主帳號
+          `;
+          break;
+      }
+    }
+
+    function handleCheckboxToggle(checkbox) {
+      isAgreed = checkbox.checked;
+      if (currentState === 1) {
+        refreshButtonState();
+      }
+    }
+
+    function refreshButtonState() {
+      const submitBtn = document.getElementById("mainSubmitBtn");
+      if (currentState !== 1) return;
+
+      if (isAgreed) {
+        submitBtn.disabled = false;
+        submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-primary text-on-primary text-body-sm font-semibold hover:brightness-105 active:scale-98 transition-all flex items-center justify-center text-center cursor-pointer shadow-lg shadow-primary/20";
+        submitBtn.textContent = "確認歸併並重新登錄 (173靈石 · 4對合盤)";
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.className = "flex-1 min-h-[44px] px-3 py-2.5 rounded-lg bg-surface-container-high text-outline text-body-sm font-semibold transition-all flex items-center justify-center text-center cursor-not-allowed border border-outline-variant/20";
+        submitBtn.textContent = "請先勾選確認知悉協議";
+      }
+    }
+
+    function executeMergeAction() {
+      if (currentState === 6) {
+        alert("已重定向至統一安全登入頁，請使用保留之主帳號（Apple ID / Google）登入。");
+        return;
+      }
+      if (currentState === 1 && isAgreed) {
+        // Trigger execution progress
+        switchState(4);
+        setTimeout(() => {
+          switchState(6);
+        }, 1800);
+      }
+    }
+
+    function mockRefreshCredentials() {
+      switchState(2);
+      setTimeout(() => {
+        switchState(1);
+      }, 1200);
+    }
+
+    function cancelMerge() {
+      alert("已安全取消歸併流程，所有帳號與既有資產保持原狀不變。");
+    }
+
+    // Chart Radio Selection dynamic highlight
+    document.querySelectorAll('input[name="chartSelection"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        document.querySelectorAll('.chart-option').forEach(el => {
+          el.classList.remove('border-primary', 'bg-primary/5');
+          el.classList.add('border-outline-variant/30', 'bg-surface-container/40');
+        });
+        const parent = e.target.closest('.chart-option');
+        if (parent) {
+          parent.classList.remove('border-outline-variant/30', 'bg-surface-container/40');
+          parent.classList.add('border-primary', 'bg-primary/5');
+        }
+      });
+    });
+
+    // Initialize in State 1
+    switchState(1);
+  </script>
+</body></html>

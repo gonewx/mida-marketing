@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>覓搭 MiDa 上線宣傳片</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=block" rel="stylesheet">
+<style>
+  /* Celestial Destiny 设计系统（Stitch 项目 MiDa）的色彩与字体 */
+  :root {
+    --canvas: #0b0f19; --surface: #0f131d; --ink: #111827;
+    --gold: #d4af37; --gold-2: #f2ca50; --gold-warm: #e5c07b;
+    --jade: #4edea3; --starlight: #f8fafc; --mist: #94a3b8; --stone: #64748b;
+    --serif: 'Noto Serif TC', 'Noto Serif', serif;
+    --sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--canvas); }
+  body { font-family: var(--sans); color: var(--starlight); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden;
+    background: radial-gradient(1200px 700px at 50% 38%, #151c33 0%, #0d1222 45%, #0b0f19 100%); }
+  #stars { position: absolute; inset: 0; }
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; }
+  .layer { position: absolute; inset: 0; opacity: 0; will-change: opacity, transform; }
+  .abs { position: absolute; will-change: opacity, transform, filter; }
+
+  /* 文案 */
+  .kicker { font: 600 22px/1 var(--sans); letter-spacing: .32em; color: var(--gold-warm); text-transform: uppercase; }
+  .num { font: 700 120px/1 var(--serif); color: transparent; -webkit-text-stroke: 1.5px rgba(212,175,55,.55); }
+  .h1 { font: 700 76px/1.25 var(--serif); letter-spacing: .04em; }
+  .h2 { font: 700 60px/1.3 var(--serif); letter-spacing: .04em; }
+  .en { font: 600 24px/1.4 var(--sans); letter-spacing: .08em; color: var(--mist); }
+  .body { font: 500 32px/1.75 'Noto Sans TC', sans-serif; color: #cbd5e1; letter-spacing: .03em; }
+  .gold { background: linear-gradient(100deg, #f7e3a1 0%, #f2ca50 40%, #d4af37 70%, #b88f1f 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .rule { height: 1px; background: linear-gradient(90deg, rgba(212,175,55,.7), rgba(212,175,55,0)); }
+  .center { left: 0; right: 0; text-align: center; }
+
+  /* 手机外框 */
+  .phone { position: absolute; width: 410px; height: 864px; border-radius: 62px; padding: 10px;
+    background: linear-gradient(145deg, #2b2f3a, #0c0e14 40%, #1f232c);
+    box-shadow: 0 0 0 2px rgba(212,175,55,.28), 0 40px 90px -20px rgba(0,0,0,.85), 0 0 80px rgba(212,175,55,.10);
+    will-change: transform, opacity; }
+  .phone .screen { position: relative; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; background: #0f131d; }
+  .phone .screen img.page { position: absolute; left: 0; top: 0; width: 390px; }
+  .phone .screen img.nav { position: absolute; left: 0; bottom: 0; width: 390px; }
+  .phone .island { position: absolute; top: 20px; left: 50%; width: 118px; height: 34px; margin-left: -59px;
+    background: #000; border-radius: 20px; z-index: 5; }
+  .phone .statusbar { position: absolute; top: 0; left: 0; right: 0; height: 50px; z-index: 4;
+    background: linear-gradient(#0f131d 60%, rgba(15,19,29,0)); }
+
+  /* 痛点卡片 */
+  .mcard { position: absolute; width: 300px; height: 380px; border-radius: 28px;
+    background: rgba(17,24,39,.72); border: 1px solid rgba(148,163,184,.18); padding: 34px 30px; }
+  .mcard .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg,#334155,#1e293b); }
+  .mcard .bar { height: 14px; border-radius: 7px; background: #1f2937; margin-top: 22px; }
+  .mcard .score { margin-top: 36px; font: 700 64px/1 var(--sans); color: #475569; }
+  .mcard .q { position: absolute; right: 26px; top: 26px; font: 700 64px/1 var(--serif); color: rgba(148,163,184,.55); }
+
+  /* 标签 / 信任卡 */
+  .chip { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 18px;
+    background: rgba(17,24,39,.78); border: 1px solid rgba(212,175,55,.32);
+    font: 500 28px/1 'Noto Sans TC', sans-serif; color: var(--starlight); white-space: nowrap;
+    box-shadow: 0 20px 50px -18px rgba(0,0,0,.8); }
+  .chip b { font: 700 30px/1 var(--serif); color: var(--gold-2); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--jade); box-shadow: 0 0 14px var(--jade); }
+  .trust { position: absolute; width: 360px; height: 300px; border-radius: 28px; padding: 44px 34px;
+    background: rgba(17,24,39,.66); border: 1px solid rgba(212,175,55,.22); text-align: center; }
+  .trust .ic { width: 84px; height: 84px; margin: 0 auto 30px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(212,175,55,.5); font: 700 36px/1 var(--serif); color: var(--gold-2);
+    background: radial-gradient(circle, rgba(212,175,55,.18), rgba(212,175,55,0) 70%); }
+  .trust .t { font: 700 36px/1.3 var(--serif); }
+  .trust .s { margin-top: 14px; font: 500 24px/1.5 'Noto Sans TC', sans-serif; color: var(--mist); }
+  .cta { display: inline-flex; align-items: center; gap: 18px; padding: 24px 46px; border-radius: 999px;
+    background: linear-gradient(135deg, #f2ca50, #d4af37 55%, #c59b27); color: #0b0f19;
+    font: 700 32px/1 'Noto Sans TC', sans-serif; letter-spacing: .06em; box-shadow: 0 0 50px rgba(212,175,55,.35); }
+  .legal { font: 400 20px/1.6 'Noto Sans TC', sans-serif; color: var(--stone); letter-spacing: .04em; }
+  #vignette { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); }
+  #fade { position: absolute; inset: 0; background: #000; opacity: 1; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="stars" width="1920" height="1080"></canvas>
+  <div class="glow" id="glowA" style="width:1100px;height:1100px;left:410px;top:-220px;background:radial-gradient(circle, rgba(212,175,55,.13) 0%, rgba(212,175,55,.05) 40%, rgba(212,175,55,0) 70%)"></div>
+  <div class="glow" id="glowB" style="width:900px;height:900px;left:1200px;top:400px;background:radial-gradient(circle, rgba(78,222,163,.07) 0%, rgba(78,222,163,0) 70%)"></div>
+  <svg id="orbits" class="abs" width="1920" height="1080" style="left:0;top:0" viewBox="0 0 1920 1080">
+    <g id="orbitG" transform="translate(960 540)" fill="none" stroke="rgba(212,175,55,.16)">
+      <circle r="330" stroke-dasharray="2 10"/>
+      <circle r="470"/>
+      <circle r="610" stroke-dasharray="1 16"/>
+      <circle r="470" stroke="rgba(212,175,55,.5)" stroke-dasharray="40 2900" stroke-width="2"/>
+      <circle id="planet" cx="0" cy="-610" r="6" fill="#f2ca50" stroke="none"/>
+    </g>
+  </svg>
+
+  <!-- S1 开场 -->
+  <div class="layer" id="s1">
+    <div class="abs center h1" id="s1a" style="top:390px">茫茫人海，</div>
+    <div class="abs center h1 gold" id="s1b" style="top:510px">為什麼偏偏是 TA？</div>
+  </div>
+
+  <!-- S2 痛点 -->
+  <div class="layer" id="s2">
+    <div class="mcard" id="mc1" style="left:470px;top:200px"><div class="avatar"></div><div class="bar" style="width:80%"></div><div class="bar" style="width:55%"></div><div class="score">87%</div><div class="q">?</div></div>
+    <div class="mcard" id="mc2" style="left:810px;top:160px"><div class="avatar"></div><div class="bar" style="width:70%"></div><div class="bar" style="width:40%"></div><div class="score">92%</div><div class="q">?</div></div>
+    <div class="mcard" id="mc3" style="left:1150px;top:200px"><div class="avatar"></div><div class="bar" style="width:60%"></div><div class="bar" style="width:75%"></div><div class="score">79%</div><div class="q">?</div></div>
+    <div class="abs center h2" id="s2a" style="top:640px">一般的配對，只給你一個分數——</div>
+    <div class="abs center body" id="s2b" style="top:760px;font-size:36px">卻說不出<span style="color:var(--gold-2)">為什麼</span>，也不知道<span style="color:var(--gold-2)">第一句</span>該說什麼。</div>
+  </div>
+
+  <!-- S3 品牌 -->
+  <div class="layer" id="s3">
+    <img class="abs" id="s3logo" src="../stitch/img/logo-mark.png" style="left:810px;top:120px;width:300px;height:300px">
+    <div class="abs center" id="s3name" style="top:450px;font:900 132px/1 var(--serif);letter-spacing:.12em"><span class="gold">覓搭</span> <span style="font:600 96px/1 var(--serif);color:#e5c07b;letter-spacing:.06em">MiDa</span></div>
+    <div class="abs center" id="s3rule" style="top:640px"><div class="rule" style="width:520px;margin:0 auto;background:linear-gradient(90deg,rgba(212,175,55,0),rgba(212,175,55,.8),rgba(212,175,55,0))"></div></div>
+    <div class="abs center h2" id="s3tag" style="top:680px;font-size:54px;letter-spacing:.3em">有理由的連接</div>
+    <div class="abs center en" id="s3sub" style="top:780px;font-size:30px;color:#cbd5e1;font-family:'Noto Sans TC',sans-serif;letter-spacing:.14em">以命理為內核，開啟有理由的遇見</div>
+  </div>
+
+  <!-- S4 生辰建档 -->
+  <div class="layer" id="s4">
+    <div class="abs" id="s4t" style="left:150px;top:250px;width:760px">
+      <div class="num">01</div>
+      <div class="kicker" style="margin-top:22px">Genesis Ritual</div>
+      <div class="h2" style="margin-top:26px">生辰建檔 · <span class="gold">獨立授權</span></div>
+      <div class="en" style="margin-top:14px">Your birth chart, your consent</div>
+      <div class="rule" style="width:420px;margin:34px 0"></div>
+      <div class="body">生辰，是無法美化的真實。<br>生辰資料獨立授權、註銷即刪，<br>只用於為你排盤。</div>
+    </div>
+    <div class="phone" id="p4a"><div class="screen"><div class="statusbar"></div><img class="page" data-screen="97f5fcd2d5454ec89dd07dad4da10608"></div><div class="island"></div></div>
+    <div class="phone" id="p4b"><div class="screen"><div class="statusbar"></div><img class="page" id="p4bImg" data-screen="063c099c59a542febc04b819344da549"></div><div class="island"></div></div>
+  </div>
+
+  <!-- S5 命书 -->
+  <div class="layer" id="s5">
+    <div class="phone" id="p5l"><div class="screen"><div class="statusbar"></div><img class="page" id="p5lImg" data-screen="fc07fadf19754cb0996b21e7b831ea17"></div><div class="island"></div></div>
+    <div class="phone" id="p5r"><div class="screen"><div class="statusbar"></div><img class="page" id="p5rImg" data-screen="d4ec71395145472c8856bc9a5c9c1dc2"></div><div class="island"></div></div>
+    <div class="phone" id="p5c"><div class="screen"><div class="statusbar"></div><img class="page" id="p5cImg" data-screen="abe3b348218847048089aa8e74ce96e8"><img class="nav" data-nav="abe3b348218847048089aa8e74ce96e8"></div><div class="island"></div></div>
+    <div class="abs" id="s5t" style="left:120px;top:250px;width:700px">
+      <div class="num">02</div>
+      <div class="kicker" style="margin-top:22px">AI Destiny Book</div>
+      <div class="h2" style="margin-top:26px">AI 八字命書 · <span class="gold">專業排盤</span></div>
+      <div class="en" style="margin-top:14px">BaZi &amp; Astrology, fully explainable</div>
+    </div>
+    <div class="abs" id="s5b" style="left:120px;top:690px;width:560px">
+      <div class="rule" style="width:420px;margin:0 0 34px"></div><div class="body">同一張盤，千人千面的深度敘事；<br>每一段解讀，都能回溯到<span style="color:var(--gold-2)">排盤依據</span>。</div>
+    </div>
+  </div>
+
+  <!-- S6 每日五维 -->
+  <div class="layer" id="s6">
+    <div class="phone" id="p6"><div class="screen"><div class="statusbar"></div><img class="page" id="p6Img" data-screen="26af4e3c6ed44d40b52c617d8b63d569"><img class="nav" data-nav="26af4e3c6ed44d40b52c617d8b63d569"></div><div class="island"></div></div>
+    <div class="abs" id="s6t" style="left:1000px;top:230px;width:800px">
+      <div class="num">03</div>
+      <div class="kicker" style="margin-top:22px">Daily Five-Dimension Radar</div>
+      <div class="h2" style="margin-top:26px">每日五維 · <span class="gold">能量參考</span></div>
+      <div class="en" style="margin-top:14px">A gentle check-in with yourself, every day</div>
+      <div class="rule" style="width:420px;margin:34px 0"></div>
+      <div class="body">感情・事業・財富・健康・人際，<br>五個維度，讀懂今天的自己。</div>
+      <div style="margin-top:36px"><span class="chip"><span class="dot"></span>評分與結論 <b>永久免費</b></span></div>
+    </div>
+  </div>
+
+  <!-- S7 合盘 -->
+  <div class="layer" id="s7">
+    <div class="phone" id="p7"><div class="screen"><div class="statusbar"></div><img class="page" id="p7Img" data-screen="8d94a90561a34b29936582fb7654d45b"><img class="nav" data-nav="8d94a90561a34b29936582fb7654d45b"></div><div class="island"></div></div>
+    <div class="abs" id="s7t" style="left:130px;top:230px;width:640px">
+      <div class="num">04</div>
+      <div class="kicker" style="margin-top:22px">Synastry</div>
+      <div class="h2" style="margin-top:26px">雙人合盤<br><span class="gold">破冰話題</span></div>
+      <div class="en" style="margin-top:14px">A reason to connect, and a first line to say</div>
+      <div class="rule" style="width:420px;margin:34px 0"></div>
+      <div class="body">契合在哪裡、互補在哪裡，<br>一目了然。</div>
+    </div>
+    <div class="abs" id="c7a" style="left:1290px;top:300px"><span class="chip"><b>✦</b>關係亮點</span></div>
+    <div class="abs" id="c7b" style="left:1340px;top:430px"><span class="chip"><b>☯</b>互補之處</span></div>
+    <div class="abs" id="c7c" style="left:1290px;top:560px"><span class="chip"><b>❝</b>破冰話題卡</span></div>
+    <div class="abs" id="s7q" style="left:1250px;top:720px;width:620px">
+      <div class="h2" style="font-size:44px">合盤報告，<br>就是你們的<span class="gold">第一句話</span>。</div>
+    </div>
+  </div>
+
+  <!-- S8 邀友 -->
+  <div class="layer" id="s8">
+    <img class="abs" id="s8card" src="../stitch/img/social-card.jpg" style="left:1270px;top:250px;width:520px;height:520px;border-radius:28px;box-shadow:0 40px 90px -20px rgba(0,0,0,.9),0 0 0 1px rgba(212,175,55,.35)">
+    <div class="phone" id="p8"><div class="screen"><div class="statusbar"></div><img class="page" id="p8Img" data-screen="726763ff10a84e1a8c6044c4cfe3f1eb"><img class="nav" data-nav="726763ff10a84e1a8c6044c4cfe3f1eb"></div><div class="island"></div></div>
+    <div class="abs" id="s8t" style="left:130px;top:250px;width:640px">
+      <div class="num">05</div>
+      <div class="kicker" style="margin-top:22px">Share &amp; Invite</div>
+      <div class="h2" style="margin-top:26px">邀友合盤<br><span class="gold">互贈深讀券</span></div>
+      <div class="en" style="margin-top:14px">Invite a friend — you both get a Reading Pass</div>
+      <div class="rule" style="width:420px;margin:34px 0"></div>
+      <div class="body">分享到 Instagram、LINE、WhatsApp，<br>好友註冊後，雙方各得 1 張深讀券。</div>
+    </div>
+  </div>
+
+  <!-- S9 信任 -->
+  <div class="layer" id="s9">
+    <div class="abs center" id="s9h" style="top:170px"><div class="kicker">Trust by design</div><div class="h2" style="margin-top:26px">安心地，<span class="gold">探索自己</span></div></div>
+    <div class="trust" id="t1" style="left:150px;top:470px"><div class="ic">分</div><div class="t">評分與結論</div><div class="s">永遠免費，<br>付費只為深度解讀</div></div>
+    <div class="trust" id="t2" style="left:560px;top:470px"><div class="ic">授</div><div class="t">生辰獨立授權</div><div class="s">明示用途，<br>可隨時撤回</div></div>
+    <div class="trust" id="t3" style="left:970px;top:470px"><div class="ic">刪</div><div class="t">註銷即刪</div><div class="s">App 內自助註銷，<br>資料不可恢復地刪除</div></div>
+    <div class="trust" id="t4" style="left:1380px;top:470px"><div class="ic">18</div><div class="t">18+ 成人專屬</div><div class="s">全站年齡門檻，<br>安心交流</div></div>
+  </div>
+
+  <!-- S10 结尾 -->
+  <div class="layer" id="s10">
+    <img class="abs" id="s10logo" src="../stitch/img/logo-mark.png" style="left:850px;top:110px;width:220px;height:220px">
+    <div class="abs center" id="s10name" style="top:360px;font:900 110px/1 var(--serif);letter-spacing:.12em"><span class="gold">覓搭</span> <span style="font:600 80px/1 var(--serif);color:#e5c07b;letter-spacing:.06em">MiDa</span></div>
+    <div class="abs center h2" id="s10tag" style="top:520px;font-size:48px;letter-spacing:.3em">有理由的連接</div>
+    <div class="abs center en" id="s10sub" style="top:610px;font-size:28px;letter-spacing:.3em;color:#e5c07b">AI 命盤 · 深度合盤 · 五維日運</div>
+    <div class="abs center" id="s10cta" style="top:720px"><span class="cta"> App Store 搜尋「覓搭 MiDa」</span></div>
+    <div class="abs center legal" id="s10legal" style="top:930px">內容由 AI 生成 · 提供性格與關係洞察，僅供自我探索與文化參考 · 18+</div>
+  </div>
+
+  <div id="vignette"></div>
+  <div id="fade"></div>
+</div>
+
+<script>
+// ——— 时间轴引擎：window.seek(t) 纯函数式地把画面设置到第 t 秒，保证逐帧渲染可复现 ———
+const DURATION = 63;
+const $ = (s) => document.getElementById(s);
+const ease = {
+  io: (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2,
+  out: (x) => 1 - Math.pow(1 - x, 3),
+  lin: (x) => x,
+};
+const tracks = [];
+// keys: [[t, {o, x, y, s, r, blur}], ...]；段内默认 io 缓动，可在关键帧上写 e:'out'
+function A(id, keys, base = {}) { tracks.push({ el: $(id), keys, base }); }
+function sample(keys, t) {
+  if (t <= keys[0][0]) return { ...keys[0][1] };
+  for (let i = 0; i < keys.length - 1; i++) {
+    const [t0, a] = keys[i], [t1, b] = keys[i + 1];
+    if (t <= t1) {
+      const k = (ease[b.e || 'io'])((t - t0) / (t1 - t0));
+      const r = {};
+      for (const p of new Set([...Object.keys(a), ...Object.keys(b)])) {
+        if (p === 'e') continue;
+        const va = a[p] ?? b[p], vb = b[p] ?? a[p];
+        r[p] = va + (vb - va) * k;
+      }
+      return r;
+    }
+  }
+  return { ...keys[keys.length - 1][1] };
+}
+function apply(el, v, base) {
+  const q = { o: 1, x: 0, y: 0, s: 1, r: 0, blur: 0, ...base, ...v };
+  el.style.opacity = q.o;
+  el.style.transform = `translate(${q.x}px, ${q.y}px) scale(${q.s}) rotate(${q.r}deg)`;
+  el.style.filter = q.blur > 0.05 ? `blur(${q.blur}px)` : 'none';
+  if (q.scroll !== undefined) el.style.top = `${-q.scroll}px`;
+}
+// 场景层淡入淡出
+function scene(id, t0, t1, fin = .6, fout = .6) {
+  A(id, [[t0, { o: 0 }], [t0 + fin, { o: 1 }], [t1 - fout, { o: 1 }], [t1, { o: 0 }]]);
+}
+// 元素入场：从下方淡入
+function rise(id, t, d = .9, dy = 40, extra = {}) {
+  A(id, [[t, { o: 0, y: dy, blur: 8, ...extra }], [t + d, { o: 1, y: 0, blur: 0, e: 'out' }]]);
+}
+function phoneAt(id, x, y, s = 1) { const el = $(id); el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.transformOrigin = 'center center'; }
+
+// 全局淡入淡出
+A('fade', [[0, { o: 1 }], [1.2, { o: 0 }], [62.2, { o: 0 }], [63, { o: 1 }]]);
+A('orbitG', [[0, { o: .0 }], [2, { o: 1 }], [9.5, { o: .6 }], [11, { o: 1 }], [15, { o: 1 }], [16, { o: .35 }], [55.5, { o: .35 }], [57, { o: 1 }]]);
+
+// S1 0–5
+scene('s1', 0, 5, .01, .6);
+rise('s1a', .8, 1.2); rise('s1b', 2.1, 1.3);
+
+// S2 5–10
+scene('s2', 5, 10);
+A('mc1', [[5, { o: 0, y: 60, r: -6 }], [6, { o: .9, y: 0, r: -6, e: 'out' }], [10, { o: .9, y: -20, r: -8 }]]);
+A('mc2', [[5.2, { o: 0, y: 60 }], [6.2, { o: .9, y: 0, e: 'out' }], [10, { o: .9, y: -30 }]]);
+A('mc3', [[5.4, { o: 0, y: 60, r: 6 }], [6.4, { o: .9, y: 0, r: 6, e: 'out' }], [10, { o: .9, y: -20, r: 8 }]]);
+A('s2', [[5, {}], [8.6, { blur: 0 }], [10, { blur: 6 }]]);
+rise('s2a', 6.2); rise('s2b', 7.4);
+
+// S3 10–15.5 品牌
+scene('s3', 10, 15.6, .5, .6);
+A('s3logo', [[10.2, { o: 0, s: .6, blur: 20 }], [11.8, { o: 1, s: 1, blur: 0, e: 'out' }], [15.6, { o: 1, s: 1.06 }]]);
+rise('s3name', 11.6, 1.1); A('s3rule', [[12.4, { o: 0, s: .2 }], [13.4, { o: 1, s: 1, e: 'out' }]]);
+rise('s3tag', 12.8); rise('s3sub', 13.5);
+A('glowA', [[9.5, { o: .6, s: .8 }], [12, { o: 1, s: 1.15 }], [16, { o: .8, s: 1 }], [55.5, { o: .8, s: 1 }], [58, { o: 1, s: 1.15 }]]);
+
+// S4 15.5–22 生辰建档
+scene('s4', 15.5, 22.2);
+phoneAt('p4a', 1000, 108); phoneAt('p4b', 1390, 108);
+A('p4a', [[15.7, { o: 0, y: 120, r: -4 }], [16.9, { o: 1, y: 0, r: -4, e: 'out' }], [22.2, { o: 1, y: -16, r: -4 }]], { s: .98 });
+A('p4b', [[16.1, { o: 0, y: 160, r: 3 }], [17.3, { o: 1, y: 30, r: 3, e: 'out' }], [22.2, { o: 1, y: 10, r: 3 }]], { s: .98 });
+A('p4bImg', [[18, { scroll: 0 }], [21.2, { scroll: 540 }]]);
+rise('s4t', 16.2, 1.1);
+
+// S5 22–30 命书
+scene('s5', 22, 30.2);
+phoneAt('p5c', 1130, 108); phoneAt('p5l', 895, 150); phoneAt('p5r', 1365, 150);
+A('p5c', [[22.2, { o: 0, y: 140 }], [23.4, { o: 1, y: 0, e: 'out' }], [30.2, { o: 1, y: -10 }]]);
+A('p5l', [[22.8, { o: 0, x: 120, r: 0 }], [24.2, { o: .55, x: -40, r: -8, e: 'out' }], [30.2, { o: .55, x: -50, r: -9 }]], { s: .84 });
+A('p5r', [[22.8, { o: 0, x: -120, r: 0 }], [24.2, { o: .55, x: 40, r: 8, e: 'out' }], [30.2, { o: .55, x: 50, r: 9 }]], { s: .84 });
+A('p5cImg', [[24.2, { scroll: 0 }], [26.6, { scroll: 150 }], [27.4, { scroll: 150 }], [29.6, { scroll: 470 }]]);
+A('p5rImg', [[24.5, { scroll: 0 }], [29.8, { scroll: 1400 }]]);
+A('p5lImg', [[24.5, { scroll: 60 }], [29.8, { scroll: 160 }]]);
+rise('s5t', 22.9, 1.1); rise('s5b', 24.6, 1.1);
+
+// S6 30–37 每日五维
+scene('s6', 30, 37.2);
+phoneAt('p6', 330, 108);
+A('p6', [[30.2, { o: 0, y: 140, r: -3 }], [31.4, { o: 1, y: 0, r: -3, e: 'out' }], [37.2, { o: 1, y: -14, r: -2 }]]);
+A('p6Img', [[32, { scroll: 0 }], [35.2, { scroll: 250 }]]);
+rise('s6t', 30.8, 1.1);
+
+// S7 37–46 合盘
+scene('s7', 37, 46.2);
+phoneAt('p7', 755, 108);
+A('p7', [[37.2, { o: 0, y: 140 }], [38.4, { o: 1, y: 0, e: 'out' }], [46.2, { o: 1, y: -12 }]]);
+A('p7Img', [[39.4, { scroll: 0 }], [41.6, { scroll: 1440 }], [42.6, { scroll: 1440 }], [44.4, { scroll: 1800 }]]);
+rise('s7t', 37.7, 1.1);
+A('c7a', [[40.4, { o: 0, x: -60, blur: 8 }], [41.2, { o: 1, x: 0, blur: 0, e: 'out' }]]);
+A('c7b', [[41.2, { o: 0, x: -60, blur: 8 }], [42, { o: 1, x: 0, blur: 0, e: 'out' }]]);
+A('c7c', [[43.2, { o: 0, x: -60, blur: 8 }], [44, { o: 1, x: 0, blur: 0, e: 'out' }]]);
+rise('s7q', 44.2, 1.1);
+
+// S8 46–52 邀友
+scene('s8', 46, 52.2);
+phoneAt('p8', 820, 108);
+A('p8', [[46.2, { o: 0, y: 140 }], [47.4, { o: 1, y: 0, e: 'out' }], [52.2, { o: 1, y: -12 }]]);
+A('s8card', [[46.8, { o: 0, x: 80, r: 10, s: .9 }], [48.2, { o: 1, x: 0, r: 6, s: 1, e: 'out' }], [52.2, { o: 1, x: -10, r: 5, s: 1.02 }]]);
+A('p8Img', [[48, { scroll: 0 }], [51, { scroll: 470 }]]);
+rise('s8t', 46.7, 1.1);
+
+// S9 52–56 信任
+scene('s9', 52, 56.2);
+rise('s9h', 52.2, 1); rise('t1', 52.8, .9, 60); rise('t2', 53.1, .9, 60); rise('t3', 53.4, .9, 60); rise('t4', 53.7, .9, 60);
+
+// S10 56–63 结尾
+scene('s10', 56, 63, .6, .01);
+A('s10logo', [[56.2, { o: 0, s: .7, blur: 16 }], [57.6, { o: 1, s: 1, blur: 0, e: 'out' }], [63, { o: 1, s: 1.04 }]]);
+rise('s10name', 57.2); rise('s10tag', 57.9); rise('s10sub', 58.5); rise('s10cta', 59.3, 1, 30); rise('s10legal', 60, 1, 10);
+
+// ——— 星空（固定随机种子）———
+const cv = $('stars'), cx = cv.getContext('2d');
+let seed = 20260925; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+const stars = Array.from({ length: 420 }, () => ({
+  x: rnd() * 1920, y: rnd() * 1080, r: rnd() * 1.4 + .3, a: rnd() * .6 + .2,
+  w: rnd() * 2 + .6, p: rnd() * Math.PI * 2, g: rnd() < .08,
+}));
+function drawStars(t) {
+  cx.clearRect(0, 0, 1920, 1080);
+  for (const s of stars) {
+    const a = s.a * (.55 + .45 * Math.sin(t * s.w + s.p));
+    const y = (s.y - t * 6 * s.r + 1080) % 1080;
+    cx.beginPath(); cx.arc(s.x, y, s.r, 0, Math.PI * 2);
+    cx.fillStyle = s.g ? `rgba(242,202,80,${a})` : `rgba(226,232,240,${a})`; cx.fill();
+  }
+}
+
+window.seek = (t) => {
+  drawStars(t);
+  // 轨道缓慢旋转
+  const og = $('orbitG');
+  og.setAttribute('transform', `translate(960 540) rotate(${t * 4})`);
+  // 同一元素的多条轨道按属性合并（后定义的轨道只覆盖它自己声明的属性）
+  const merged = new Map();
+  for (const tr of tracks) {
+    const m = merged.get(tr.el) || { v: {}, base: {} };
+    Object.assign(m.v, sample(tr.keys, t)); Object.assign(m.base, tr.base);
+    merged.set(tr.el, m);
+  }
+  for (const [el, m] of merged) {
+    if (el === og) { og.style.opacity = m.v.o; continue; }
+    apply(el, m.v, m.base);
+  }
+};
+window.DURATION = DURATION;
+
+// 载入 Stitch 渲染图
+const q = new URLSearchParams(location.search);
+const shots = q.get('screens') || '../build/screens';
+document.querySelectorAll('[data-screen]').forEach((img) => img.src = `${shots}/${img.dataset.screen}.png`);
+document.querySelectorAll('[data-nav]').forEach((img) => img.src = `${shots}/${img.dataset.nav}.nav.png`);
+window.ready = (async () => {
+  await document.fonts.ready;
+  await Promise.all([...document.images].map((i) => i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; })));
+  seek(Number(q.get('t') || 0));
+  return true;
+})();
+</script>
+</body>
+</html>
