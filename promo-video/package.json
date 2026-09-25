@@ -5,6 +5,7 @@
   "scripts": {
     "stitch": "NODE_USE_ENV_PROXY=1 node scripts/render-stitch.mjs",
     "music": "python3 scripts/music.py",
+    "qr": "node -e \"require('qrcode').toString('https://mida.gonewx.com',{type:'svg',margin:1,color:{dark:'#0b0f19',light:'#f8fafc'}}).then(s=>require('fs').writeFileSync('composition/qr.svg',s))\"",
     "render": "NODE_USE_ENV_PROXY=1 node scripts/render-video.mjs"
   },
   "devDependencies": {
@@ -12,6 +13,7 @@
     "@tailwindcss/forms": "^0.5.9",
     "playwright": "1.56.1",
     "postcss": "^8.4.49",
+    "qrcode": "^1.5.4",
     "tailwindcss": "^3.4.17"
   }
 }

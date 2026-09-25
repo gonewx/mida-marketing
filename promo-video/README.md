@@ -17,8 +17,8 @@
 | 30–37s | 03 每日五維 | 今日運勢五維評分 `26af4e3c` | 感情・事業・財富・健康・人際；評分與結論永久免費 |
 | 37–46s | 04 雙人合盤 | 雙人合盤與契合度洞察 `8d94a905` | 關係亮點／互補之處／破冰話題卡；合盤報告，就是你們的第一句話。 |
 | 46–52s | 05 邀友 | 合盤邀請與裂變分享 `726763ff`、社群宣傳卡 | 分享到 Instagram、LINE、WhatsApp，好友註冊後，雙方各得 1 張深讀券。 |
-| 52–56s | 信任 | 四张信任卡 | 評分與結論永遠免費 · 生辰獨立授權 · 註銷即刪 · 18+ 成人專屬 |
-| 56–63s | 结尾 | Logo + CTA | 有理由的連接 · AI 命盤 · 深度合盤 · 五維日運 · App Store 搜尋「覓搭 MiDa」 |
+| 52–56s | 信任 | 四张信任卡 | 評分與結論永遠免費 · 生辰獨立授權 · 註銷即刪（帳號內自助註銷）· 18+ 成人專屬 |
+| 56–63s | 结尾 | Logo + CTA + 二维码 | 有理由的連接 · AI 命盤 · 深度合盤 · 五維日運 · 手機瀏覽器打開 mida.gonewx.com · 無需下載 · 即開即用 · Mobile Web 首發 |
 
 配乐是 `scripts/music.py` 合成的原创音乐：D 宫五声音阶铺底、拨弦琶音、76 BPM 低频脉冲、转场闪光。没有使用第三方音频素材，不存在授权问题。
 
@@ -29,7 +29,7 @@
 - **FR-12**：邀友文案写的是「雙方各得 1 張深讀券」。每人每月最多 6 张的上限在片中没有展开，投放落地页需要补上。
 - **FR-13**：结尾带显式 AI 标识和文化参考声明。
 - **FR-41 / 附录 §5**：全片不出现算命、预测、改运、吉凶断言。「五維日運」出自 Stitch 营销套件，只适用于国际版。**国内版投放前需要改掉「運勢／日運」类表述**（广告法第九条），换成「每日五維・了解自己」这类说法。
-- CTA「App Store 搜尋」按 PRD「本期 App Store only」设置，**正式投放前请确认上架状态**。
+- **首发渠道是 mobile web**（2026-09-25 确认，App 尚未上架）。结尾 CTA 为「手機瀏覽器打開 mida.gonewx.com」，并附二维码（`composition/qr.svg`，由 `npm run qr` 生成）。片中不提 App Store 或下载；域名变更后需要重新生成二维码并重新渲染。
 
 ## 重新生成
 
@@ -38,6 +38,7 @@ cd promo-video
 npm install
 npm run stitch     # Stitch 原稿 HTML → build/screens/*.png（本地编译 Tailwind，2x 分辨率）
 npm run music      # 生成 build/music.wav（需要 numpy）
+npm run qr         # 生成结尾二维码 composition/qr.svg
 npm run render     # 逐帧渲染 → out/MiDa-launch-film.mp4（需要 imageio-ffmpeg 或设置 FFMPEG）
 node scripts/render-video.mjs --stills 3,27,45   # 只导出静帧预览
 ```
